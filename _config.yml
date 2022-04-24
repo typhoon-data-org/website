@@ -99,7 +99,7 @@ description:    Elegant Serverless YAML Data Pipelines
 # `/my-project`, without trailing slash.
 #
 # Default:      ""
-baseurl:        /lab/amsf
+baseurl:        /website
 
 # Flatten base
 #
