@@ -10,12 +10,12 @@ name: Test
 on:
   push:
     branches:
-      - 'master'
+      - 'default'
     tags:
       - 'v*'
   pull_request:
     branches:
-      - 'master'
+      - 'default'
 
 jobs:
   build-n-deploy:
