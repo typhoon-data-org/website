@@ -65,8 +65,8 @@ dev:            false
 
 # Site name
 #
-# Default:      Almace Scaffolding
-name:           Almace Scaffolding
+# Default:      typhoon orchestrator
+name:           Typhoon Orchestrator
 
 # Site short name
 #
@@ -82,14 +82,14 @@ name:           Almace Scaffolding
 # - name_short: Sparanoid
 #
 # Default:      AMSF
-name_short:     AMSF
+name_short:     Typhoon
 
 # Site description
 #
 # Will be used in the document meta and Atom feed subtitle
 #
 # Default:      Super-fast Jekyll framework
-description:    Super-fast Jekyll framework
+description:    Elegant Serverless YAML Data Pipelines
 
 # Base URL
 #
@@ -160,6 +160,7 @@ download:       https://d1bmx7s6749k4k.cloudfront.net
 colors:
   theme:        "#ff00b4"
   background:   "#fff"
+  
 
 # Service Worker Precache
 service_worker:
@@ -225,3 +226,4 @@ credits:        true
 #
 # Default:      "User-agent: *"
 robots:         "User-agent: *"
+

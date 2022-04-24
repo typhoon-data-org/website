@@ -6,13 +6,7 @@
 // EXAMPLE: alternative title size
 // By default all heading levels have the same font size, but many people may
 // not like this, so here's an alternative font size stack:
-// .content {
-//   h2 { font-size: 108%; opacity: .8; }
-//   h3 { font-size: 96%;  opacity: .7; }
-//   h4 { font-size: 84%;  opacity: .6; }
-//   h5 { font-size: 72%;  opacity: .5; }
-//   h6 { font-size: 60%;  opacity: .4; }
-// }
+
 
 // EXAMPLE: alternative post title color
 // This is useful when you're using the custom color scheme.
@@ -27,11 +21,110 @@
 
 // EXAMPLE: amsf.github.io custom appearance
 :root {
-  --code-color-h: calc(var(--link-color-h) + 10);
-  --code-color-s: calc(var(--link-color-s) * .2 + 40%);
+  --font-size: 1.5vw;
+  --space-lg: 12vw;
+
+  --bg-color-h: 168;
+  --bg-color-s: 100%;
+  --bg-color-l: 25%;
+  --bg-color-hsl: var(--bg-color-h), var(--bg-color-s), var(--bg-color-l);
+  --bg-color: hsl(var(--bg-color-hsl));
+  --bg-color-light: hsl(var(--bg-color-h), var(--bg-color-s), calc(var(--bg-color-l) ));
+  --bg-color-dark: hsl(var(--bg-color-h), var(--bg-color-s), calc(var(--bg-color-l) ));  
+
+  --text-color: white;
+  
+  --link-color-h: 168;
+  --link-color-s: 100%;
+  --link-color-l: 85%;
+  --link-color-hsl: var(--link-color-h), var(--link-color-s), var(--link-color-l);
+
+  --link-color: hsl(var(--link-color-hsl));
+
+  
+}
+
+
+// .content header {
+//   width: 100%;
+// }
+
+.content .flex-container {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.flex-container .flex-left {
+  flex: 50%;    
+}
+
+.flex-right {  
+  flex: 50%;
+  display: flex;  
+  justify-content: flex-end;    
+  flex-direction: row;
+  height: fit-content;
+}
+.content img, .content video, .content iframe, .content .browser {
+  --space-deco: var(--space-md);
+  display: block;
+  width: 80%;
+  margin-left: unset;
+  margin-right: unset;
+  margin-bottom: unset;
+}
+
+.content header {
+  background-color: hsl(168, 100%, 10%);
+}
+
+.content header h1 {
+  font-size: 200%;
+  padding-bottom: 1rem;
+}
+
+.content header h1 .highlighter{
+  background-color: rgba(255, 255, 0, 0.304);
 }
 
 .content .sub-title {
   font-size: 108%;
-  opacity: .8;
+  opacity: .9;
+}
+
+.content {
+  // h1 { font-size: 400%; opacity: .8; }
+  // h2 { font-size: 108%; opacity: .8; }
+  // h3 { font-size: 96%;  opacity: .7; }
+  h4 { font-size: 84%;  opacity: .6; }
+  h5 { font-size: 72%;  opacity: .5; }
+  h6 { font-size: 60%;  opacity: .4; }
+}
+
+
+.install {
+  display: flex;
+  justify-content: center;  
+}
+.myButton {
+	background-color:hsl(167.76, 100%, 71.18%);
+	border-radius:5px;
+	border:2px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:hsl(168, 100%, 25%);
+	// font-family:Arial;
+	font-size:17px;
+	padding:10px 21px;
+	text-decoration:none;
+	// text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#ffffff;
+  color:hsl(168, 100%, 25%);
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }

@@ -1,8 +1,8 @@
 - title: __home__
   url:   /
 
-- title: News
-  url:   /news/
+- title: Features
+  url:   /features/
 
-- title: About
-  url:   /about/
+- title: Plugins
+  url:   /plugins/

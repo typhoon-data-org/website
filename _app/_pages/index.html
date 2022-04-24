@@ -10,19 +10,39 @@ thumb_force_logo: true
 <article>
 
   <!-- Post title -->
-  <header>
+  <header class="flex-container">
+    <div class="flex-left">
+      <h1>
+        Serverless data pipelines written for <span class="highlighter">Data Engineers</span>.
+      </h1>
 
-    <h1 class="image-title">
-      Almace Scaffolding
-      <img src="{{ amsf_user_assets }}/svg/amsf.svg">
-    </h1>
-
-    <h2 class="sub-title">A super-fast Jekyll framework fighting against the website obesity.</h2>
-
-    <small>a.k.a. <b>AMSF</b>&#x30FB;ver. <b class="amsf-version">2.0.22</b>&#x30FB;view it on <a href="https://github.com/sparanoid/almace-scaffolding">GitHub</a></small>
+      <h2 class="sub-title">
+      Write testable tasks in modern Python without any framework dependencies.
+      </h2>
+      
+      <small>Compose in YAML and schedule them in serverless Lambda or Airflow. Package them in reusable components for your data analysts to use from the UI.</small>
+      <small>Fully Open Source. View on <a href="https://github.com/sparanoid/almace-scaffolding">GitHub</a></small>
+      </br>
+      <div class="install">
+        <a href="#" class="myButton">Try with docker</a>                                
+      </div>
+      <div class="install">
+        <small><a href="#" class="">or install locally.</a></small>                                
+      </div>
+      
+    </div>
+    <div class="flex-right">
+      <img class="browser" src="{{ amsf_user_assets }}/img/auto-complete.gif">
+    </div>
   </header>
 
   <div class="page-content">
+
+
+    <h2>YAML for Animals</h2>
+      <img class="browser" src="{{ amsf_user_assets }}/img/auto-complete.gif">
+
+
     <h2>Getting Started</h2>
     {% for post in site.tags.getting-started %}
       {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
