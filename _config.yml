@@ -109,7 +109,7 @@ baseurl:        /website
 # enable this option if you're using GitHub Pages.
 #
 # Default:      false
-flatten_base:   false
+flatten_base:   true
 
 # CSS path used in templates
 #

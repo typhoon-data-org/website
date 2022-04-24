@@ -42,7 +42,7 @@ module.exports = (grunt) ->
       user:
         assets: "<%= config.app %><%= config.assets %>"
       theme:
-        branch: "master"
+        branch: "default"
         assets: "<%= amsf.user.assets %>/themes/<%= amsf.theme.current %>"
         current: "<%= config.amsf.amsf_theme %>"
         current_url: "<%= config.amsf.amsf_theme_url %>"
@@ -402,10 +402,10 @@ module.exports = (grunt) ->
         command: "rsync -avz --delete --progress --exclude=.git --exclude=node_modules <%= amsf.base %>/themes/<%= amsf.theme.current %>/ /Users/sparanoid/Git/amsf-<%= amsf.theme.current %> > rsync-theme-dev.log"
 
       amsf__staging:
-        command: "git checkout staging && git pull && git merge master --no-edit && git push && git checkout master && git push"
+        command: "git checkout staging && git pull && git merge default --no-edit && git push && git checkout default && git push"
 
       amsf__release:
-        command: "git checkout release && git pull && git merge master --no-edit && git push && git checkout master && git push"
+        command: "git checkout release && git pull && git merge default --no-edit && git push && git checkout default && git push"
 
       move_flatten_base:
         command: "mv <%= config.dist %><%= config.base %>/* <%= config.dist %>/"
