@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-04-24T14:36:01-07:00</updated><id>https://sparanoid.com/website/</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://sparanoid.com/website/" /><link rel="self" type="application/atom+xml" href="https://sparanoid.com/website/feed.xml" /><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/website/</uri><email>t@sparanoid.com</email></author><entry><title>Upgrading Guide from v1 to v2</title><id>https://sparanoid.com/website/upgrading-from-v1-to-v2.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/upgrading-from-v1-to-v2.html" /><published>2018-07-23T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Typhoon Orchestrator</title>
+  <subtitle>Elegant Serverless YAML Data Pipelines</subtitle>
+  <updated>2022-05-01T01:17:07-07:00</updated>
+  <id>http://0.0.0.0:4321/</id>
+  <generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator>
+
+  <link rel="alternate" type="text/html" hreflang="en" href="http://0.0.0.0:4321/" />
+  <link rel="self" type="application/atom+xml" href="http://0.0.0.0:4321/feed.xml" />
+
+  <author>
+    <name>Tunghsiao Liu</name>
+    <uri>http://0.0.0.0:4321/</uri>
+    <email>t@sparanoid.com</email>
+  </author>
+
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Upgrading Guide from v1 to v2</title>
+        <id>http://0.0.0.0:4321/upgrading-from-v1-to-v2.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/upgrading-from-v1-to-v2.html" />
+        <published>2018-07-23T00:00:00-07:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;Almace Scaffolding now migrates from Less to Sass, this may make your existing projects non-upgradable, it needs quite a lot of work for you to do the migration if you use a custom theme that it’s powered by Less preprocessor. You have to compare your existing projects to &lt;a href=&quot;https://github.com/sparanoid/almace-scaffolding/pull/85&quot;&gt;this Pull Request&lt;/a&gt; side to side to make sure every change you made are synced correctly.&lt;/p&gt;
 
@@ -24,7 +62,36 @@
           
         
       
-        </content><summary>Almace Scaffolding now migrates from Less to Sass, this may make your existing projects non-upgradable, it needs quite a lot of work for you to do the migration if you use a custom theme that it’s powered by Less preprocessor. You have to compare your existing projects to this Pull Request side to side to make sure every change you made are synced correctly.</summary></entry><entry><title>Upgrading Guide: v1.1.0</title><id>https://sparanoid.com/website/upgrading-guide-v1.1.0.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/upgrading-guide-v1.1.0.html" /><published>2017-01-07T00:00:00-08:00</published><updated>2017-01-10T19:17:09-08:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>Almace Scaffolding now migrates from Less to Sass, this may make your existing projects non-upgradable, it needs quite a lot of work for you to do the migration if you use a custom theme that it’s powered by Less preprocessor. You have to compare your existing projects to this Pull Request side to side to make sure every change you made are synced correctly.</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Upgrading Guide: v1.1.0</title>
+        <id>http://0.0.0.0:4321/upgrading-guide-v1.1.0.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/upgrading-guide-v1.1.0.html" />
+        <published>2017-01-07T00:00:00-08:00</published>
+
+        
+          <updated>2017-01-10T19:17:09-08:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;There’re some significant changes in update v1.1.0, action required after you upgrade Almace Scaffolding.&lt;/p&gt;
 
@@ -49,7 +116,36 @@
           
         
       
-        </content><summary>There’re some significant changes in update v1.1.0, action required after you upgrade Almace Scaffolding.</summary></entry><entry><title>Open Graph</title><id>https://sparanoid.com/website/open-graph.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/open-graph.html" /><published>2017-01-06T00:00:00-08:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>There’re some significant changes in update v1.1.0, action required after you upgrade Almace Scaffolding.</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Open Graph</title>
+        <id>http://0.0.0.0:4321/open-graph.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/open-graph.html" />
+        <published>2017-01-06T00:00:00-08:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;Theme Curtana has full Open Graph and Twitter Cards support.&lt;/p&gt;
 
@@ -57,7 +153,7 @@
 
 &lt;ol&gt;
   &lt;li&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page.thumbnail&lt;/code&gt; if defined in your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;If no specified &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page.thumbnail&lt;/code&gt; defined, it uses &lt;a href=&quot;/website/custom-heading-background.html&quot;&gt;Heading Background Image&lt;/a&gt; (aka. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page.heading-bg&lt;/code&gt;) if defined in your post front-matter field.&lt;/li&gt;
+  &lt;li&gt;If no specified &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page.thumbnail&lt;/code&gt; defined, it uses &lt;a href=&quot;/custom-heading-background.html&quot;&gt;Heading Background Image&lt;/a&gt; (aka. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page.heading-bg&lt;/code&gt;) if defined in your post front-matter field.&lt;/li&gt;
   &lt;li&gt;If no heading background image found, Curtana will try to grab the first image (wrapped inside &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img&amp;gt;&lt;/code&gt;) in your post as your post thumbnail&lt;/li&gt;
   &lt;li&gt;If nothing found, it falls back to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logo.png&lt;/code&gt; located at your site root.&lt;/li&gt;
 &lt;/ol&gt;
@@ -66,13 +162,42 @@
 
 &lt;p&gt;Here’s a preview on Twitter:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/open-graph-preview.png&quot; alt=&quot;Twitter Cards (Open Graph compatible) Preview&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/open-graph-preview.png&quot; alt=&quot;Twitter Cards (Open Graph compatible) Preview&quot; /&gt;&lt;/p&gt;
 
           
           
         
       
-        </content><summary>Theme Curtana has full Open Graph and Twitter Cards support.</summary></entry><entry><title>Jekyll Theme Compatibility</title><id>https://sparanoid.com/website/jekyll-theme-compatibility.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/jekyll-theme-compatibility.html" /><published>2016-11-07T00:00:00-08:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>Theme Curtana has full Open Graph and Twitter Cards support.</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Jekyll Theme Compatibility</title>
+        <id>http://0.0.0.0:4321/jekyll-theme-compatibility.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/jekyll-theme-compatibility.html" />
+        <published>2016-11-07T00:00:00-08:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;With the recent release of Jekyll, it gets the built-in ability to support &lt;a href=&quot;https://jekyllrb.com/docs/themes/&quot;&gt;themes&lt;/a&gt;, since we’ve already added theme support in 2015, the original config variables &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;theme&lt;/code&gt; would be conflicted with the built-in one.&lt;/p&gt;
 
@@ -88,7 +213,36 @@
           
         
       
-        </content><summary>With the recent release of Jekyll, it gets the built-in ability to support themes, since we’ve already added theme support in 2015, the original config variables theme would be conflicted with the built-in one.</summary></entry><entry><title>Introducing Curtana</title><id>https://sparanoid.com/website/theme-curtana.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/theme-curtana.html" /><published>2016-06-01T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>With the recent release of Jekyll, it gets the built-in ability to support themes, since we’ve already added theme support in 2015, the original config variables theme would be conflicted with the built-in one.</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Introducing Curtana</title>
+        <id>http://0.0.0.0:4321/theme-curtana.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/theme-curtana.html" />
+        <published>2016-06-01T00:00:00-07:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;Curtana is the default theme of &lt;a href=&quot;https://sparanoid.com/lab/amsf/&quot;&gt;AMSF&lt;/a&gt; (Almace Scaffolding).&lt;/p&gt;
 
@@ -110,7 +264,36 @@
           
         
       
-        </content><summary>Curtana is the default theme of AMSF (Almace Scaffolding).</summary></entry><entry><title>Deployment Methods</title><id>https://sparanoid.com/website/deployment-methods.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/deployment-methods.html" /><published>2016-03-18T00:00:00-07:00</published><updated>2021-03-12T20:33:14-08:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>Curtana is the default theme of AMSF (Almace Scaffolding).</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Deployment Methods</title>
+        <id>http://0.0.0.0:4321/deployment-methods.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/deployment-methods.html" />
+        <published>2016-03-18T00:00:00-07:00</published>
+
+        
+          <updated>2021-03-12T20:33:14-08:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;Sites generated using Almace Scaffolding can be deployed in nearly any web hosting services. A few of the most common deployment techniques are described below. More deployment methods please refer to &lt;a href=&quot;https://jekyllrb.com/docs/deployment-methods/&quot;&gt;Jekyll - Deployment methods&lt;/a&gt;.&lt;/p&gt;
 
@@ -148,20 +331,78 @@
           
         
       
-        </content><summary>Sites generated using Almace Scaffolding can be deployed in nearly any web hosting services. A few of the most common deployment techniques are described below. More deployment methods please refer to Jekyll - Deployment methods.</summary></entry><entry><title>Multiple Themes Support</title><id>https://sparanoid.com/website/multiple-themes-support.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/multiple-themes-support.html" /><published>2015-08-18T00:00:00-07:00</published><updated>2017-01-20T01:00:20-08:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>Sites generated using Almace Scaffolding can be deployed in nearly any web hosting services. A few of the most common deployment techniques are described below. More deployment methods please refer to Jekyll - Deployment methods.</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Multiple Themes Support</title>
+        <id>http://0.0.0.0:4321/multiple-themes-support.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/multiple-themes-support.html" />
+        <published>2015-08-18T00:00:00-07:00</published>
+
+        
+          <updated>2017-01-20T01:00:20-08:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
-            &lt;p&gt;From version 0.0.31, you can now use multiple themes in Almace Scaffolding. See &lt;a href=&quot;/website/themes.html&quot;&gt;Themes&lt;/a&gt; for more information.&lt;/p&gt;
+            &lt;p&gt;From version 0.0.31, you can now use multiple themes in Almace Scaffolding. See &lt;a href=&quot;/themes.html&quot;&gt;Themes&lt;/a&gt; for more information.&lt;/p&gt;
 
           
           
         
       
-        </content><summary>From version 0.0.31, you can now use multiple themes in Almace Scaffolding. See Themes for more information.</summary></entry><entry><title>Welcome</title><id>https://sparanoid.com/website/welcome.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/welcome.html" /><published>2014-06-13T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>From version 0.0.31, you can now use multiple themes in Almace Scaffolding. See Themes for more information.</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Welcome</title>
+        <id>http://0.0.0.0:4321/welcome.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/welcome.html" />
+        <published>2014-06-13T00:00:00-07:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;AMSF, a.k.a. &lt;strong&gt;Almace Scaffolding&lt;/strong&gt;, is a super-fast Jekyll framework fighting against the website obesity. It supports LiveReload, Sass, HTML minification, inlined stylesheets and more.&lt;/p&gt;
 
 &lt;p class=&quot;largetype&quot;&gt;
-  &lt;a href=&quot;/website/getting-started.html&quot;&gt;Getting Started →&lt;/a&gt;
+  &lt;a href=&quot;/getting-started.html&quot;&gt;Getting Started →&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Go to the &lt;a href=&quot;https://github.com/sparanoid/almace-scaffolding&quot;&gt;GitHub&lt;/a&gt; page for downloads, bug reports, and feature requests.&lt;/p&gt;
@@ -191,7 +432,36 @@
           
         
       
-        </content><summary>AMSF, a.k.a. Almace Scaffolding, is a super-fast Jekyll framework fighting against the website obesity. It supports LiveReload, Sass, HTML minification, inlined stylesheets and more.</summary></entry><entry><title>Getting Started</title><id>https://sparanoid.com/website/getting-started.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/getting-started.html" /><published>2014-06-12T00:00:00-07:00</published><updated>2021-10-02T09:10:20-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>AMSF, a.k.a. Almace Scaffolding, is a super-fast Jekyll framework fighting against the website obesity. It supports LiveReload, Sass, HTML minification, inlined stylesheets and more.</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Getting Started</title>
+        <id>http://0.0.0.0:4321/getting-started.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/getting-started.html" />
+        <published>2014-06-12T00:00:00-07:00</published>
+
+        
+          <updated>2021-10-02T09:10:20-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#requirements&quot; id=&quot;markdown-toc-requirements&quot;&gt;Requirements&lt;/a&gt;&lt;/li&gt;
@@ -358,7 +628,34 @@
           
         
       
-        </content></entry><entry><title>Customizing Styles</title><id>https://sparanoid.com/website/customizing-styles.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/customizing-styles.html" /><published>2014-06-11T00:00:00-07:00</published><updated>2019-02-18T22:51:32-08:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Customizing Styles</title>
+        <id>http://0.0.0.0:4321/customizing-styles.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/customizing-styles.html" />
+        <published>2014-06-11T00:00:00-07:00</published>
+
+        
+          <updated>2019-02-18T22:51:32-08:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;You can customize the basic look and feel without touching the theme files by changing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user.js&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user.scss&lt;/code&gt;:&lt;/p&gt;
 
@@ -378,7 +675,36 @@
           
         
       
-        </content><summary>You can customize the basic look and feel without touching the theme files by changing user.js and user.scss:</summary></entry><entry><title>Configuration</title><id>https://sparanoid.com/website/configuration.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/configuration.html" /><published>2014-06-11T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>You can customize the basic look and feel without touching the theme files by changing user.js and user.scss:</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Configuration</title>
+        <id>http://0.0.0.0:4321/configuration.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/configuration.html" />
+        <published>2014-06-11T00:00:00-07:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;h2 id=&quot;configuration-settings&quot;&gt;Configuration Settings&lt;/h2&gt;
 
@@ -403,7 +729,36 @@
           
         
       
-        </content><summary>Configuration Settings</summary></entry><entry><title>Themes</title><id>https://sparanoid.com/website/themes.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/themes.html" /><published>2014-06-10T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>Configuration Settings</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Themes</title>
+        <id>http://0.0.0.0:4321/themes.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/themes.html" />
+        <published>2014-06-10T00:00:00-07:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
 
@@ -462,7 +817,36 @@
           
         
       
-        </content><summary>Overview</summary></entry><entry><title>Creating Your Own Theme</title><id>https://sparanoid.com/website/creating-themes.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/creating-themes.html" /><published>2014-06-09T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>Overview</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Creating Your Own Theme</title>
+        <id>http://0.0.0.0:4321/creating-themes.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/creating-themes.html" />
+        <published>2014-06-09T00:00:00-07:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
 
@@ -790,7 +1174,36 @@ Reading time: 3 hrs 20 mins
           
         
       
-        </content><summary>Overview</summary></entry><entry><title>Syntax Highlighting</title><id>https://sparanoid.com/website/syntax-highlighting.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/syntax-highlighting.html" /><published>2014-06-06T00:00:00-07:00</published><updated>2018-10-15T10:28:58-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>Overview</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Syntax Highlighting</title>
+        <id>http://0.0.0.0:4321/syntax-highlighting.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/syntax-highlighting.html" />
+        <published>2014-06-06T00:00:00-07:00</published>
+
+        
+          <updated>2018-10-15T10:28:58-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;Code highlighting demo, powered by Rouge. More info about code highlighting can be found at &lt;a href=&quot;https://jekyllrb.com/docs/templates/#code-snippet-highlighting&quot;&gt;Jekyll’s documentation&lt;/a&gt;.&lt;/p&gt;
 
@@ -1092,7 +1505,36 @@ and &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&
           
         
       
-        </content><summary>Code highlighting demo, powered by Rouge. More info about code highlighting can be found at Jekyll’s documentation.</summary></entry><entry><title>Markdown Features Test</title><id>https://sparanoid.com/website/markdown-features-test.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/markdown-features-test.html" /><published>2014-06-06T00:00:00-07:00</published><updated>2018-08-10T07:04:53-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>Code highlighting demo, powered by Rouge. More info about code highlighting can be found at Jekyll’s documentation.</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Markdown Features Test</title>
+        <id>http://0.0.0.0:4321/markdown-features-test.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/markdown-features-test.html" />
+        <published>2014-06-06T00:00:00-07:00</published>
+
+        
+          <updated>2018-08-10T07:04:53-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;h2 id=&quot;indented-code-blocks&quot;&gt;Indented Code Blocks&lt;/h2&gt;
 
@@ -1227,7 +1669,36 @@ end
           
         
       
-        </content><summary>Indented Code Blocks</summary></entry><entry><title>Markup Example</title><id>https://sparanoid.com/website/markup-example.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/markup-example.html" /><published>2014-06-05T00:00:00-07:00</published><updated>2018-08-23T23:51:53-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>Indented Code Blocks</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Markup Example</title>
+        <id>http://0.0.0.0:4321/markup-example.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/markup-example.html" />
+        <published>2014-06-05T00:00:00-07:00</published>
+
+        
+          <updated>2018-08-23T23:51:53-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;Lorem lean startup ipsum &lt;strong&gt;product market fit customer development&lt;/strong&gt; acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying &lt;a href=&quot;#&quot;&gt;crowded market&lt;/a&gt; pivot onboarding freemium prototype ping pong. Early stage disruptive ecosystem community outreach dynamic location based strategic investor.&lt;/p&gt;
 
@@ -1471,7 +1942,36 @@ Careful Skippy, you really aren’t as convincing as you think you are.&lt;/p&gt
           
         
       
-        </content><summary>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying crowded market pivot onboarding freemium prototype ping pong. Early stage disruptive ecosystem community outreach dynamic location based strategic investor.</summary></entry><entry><title>Custom HTML Markups</title><id>https://sparanoid.com/website/custom-html-markups.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/custom-html-markups.html" /><published>2014-06-01T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying crowded market pivot onboarding freemium prototype ping pong. Early stage disruptive ecosystem community outreach dynamic location based strategic investor.</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Custom HTML Markups</title>
+        <id>http://0.0.0.0:4321/custom-html-markups.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-html-markups.html" />
+        <published>2014-06-01T00:00:00-07:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;h2 id=&quot;note-store-and-download&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.note&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.store&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.download&lt;/code&gt;&lt;/h2&gt;
 
@@ -1518,7 +2018,7 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 
 &lt;h3 id=&quot;example-2&quot;&gt;Example&lt;/h3&gt;
 
-&lt;p class=&quot;browser&quot;&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/delicious.com.png&quot; alt=&quot;Delicious Preview&quot; class=&quot;no-lightense&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;browser&quot;&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/delicious.com.png&quot; alt=&quot;Delicious Preview&quot; class=&quot;no-lightense&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;lightense-images&quot;&gt;&lt;a href=&quot;https://sparanoid.com/work/lightense-images/&quot;&gt;Lightense Images&lt;/a&gt;&lt;/h2&gt;
 
@@ -1545,7 +2045,7 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 
 &lt;h3 id=&quot;example-3&quot;&gt;Example&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/moonstruck-princess-ext-red.jpg&quot; alt=&quot;Moonstruck Princess Extended - Red&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/moonstruck-princess-ext-red.jpg&quot; alt=&quot;Moonstruck Princess Extended - Red&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;image-sizes&quot;&gt;Image Sizes&lt;/h2&gt;
 
@@ -1556,7 +2056,7 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 &lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{: .size-small}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/moonstruck-princess-ext-orange.jpg&quot; alt=&quot;Moonstruck Princess Extended - orange&quot; class=&quot;size-small&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/moonstruck-princess-ext-orange.jpg&quot; alt=&quot;Moonstruck Princess Extended - orange&quot; class=&quot;size-small&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;medium-size&quot;&gt;Medium Size&lt;/h3&gt;
 
@@ -1565,14 +2065,14 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 &lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/moonstruck-princess-ext-yellow.jpg&quot; alt=&quot;Moonstruck Princess Extended - Yellow&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/moonstruck-princess-ext-yellow.jpg&quot; alt=&quot;Moonstruck Princess Extended - Yellow&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;large-size&quot;&gt;Large Size&lt;/h3&gt;
 
 &lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{: .size-large}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/moonstruck-princess-ext-green.jpg&quot; alt=&quot;Moonstruck Princess Extended - Green&quot; class=&quot;size-large&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/moonstruck-princess-ext-green.jpg&quot; alt=&quot;Moonstruck Princess Extended - Green&quot; class=&quot;size-large&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;aligned-images&quot;&gt;Aligned Images&lt;/h3&gt;
 
@@ -1581,7 +2081,7 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{: .size-right}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/moonstruck-princess-ext-blue.jpg&quot; alt=&quot;Moonstruck Princess Extended - Blue&quot; class=&quot;size-left&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/moonstruck-princess-ext-blue.jpg&quot; alt=&quot;Moonstruck Princess Extended - Blue&quot; class=&quot;size-left&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Aligned images are smaller images beside the text, you can just apply &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.size-left&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.size-right&lt;/code&gt; to your images and nothing special markup required. However, that aligned images will be responded to normal large size for small desktops or mobile devices.&lt;/p&gt;
 
@@ -1592,20 +2092,49 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 &lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{: .no-resize}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/who-can-run.png&quot; alt=&quot;Run?&quot; class=&quot;no-resize&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/who-can-run.png&quot; alt=&quot;Run?&quot; class=&quot;no-resize&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;small-images-center&quot;&gt;Small Images (center)&lt;/h3&gt;
 
 &lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{: .no-resize.center}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/who-can-run.png&quot; alt=&quot;Run?&quot; class=&quot;no-resize center&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/who-can-run.png&quot; alt=&quot;Run?&quot; class=&quot;no-resize center&quot; /&gt;&lt;/p&gt;
 
           
           
         
       
-        </content><summary>.note, .store, and .download</summary></entry><entry><title>Custom Color Scheme</title><id>https://sparanoid.com/website/custom-color-scheme.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/custom-color-scheme.html" /><published>2014-05-01T00:00:00-07:00</published><updated>2018-08-10T07:04:53-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>.note, .store, and .download</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Custom Color Scheme</title>
+        <id>http://0.0.0.0:4321/custom-color-scheme.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-color-scheme.html" />
+        <published>2014-05-01T00:00:00-07:00</published>
+
+        
+          <updated>2018-08-10T07:04:53-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;This is an example how to change your post color scheme for specific posts. You can simply add the following variables to your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;:&lt;/p&gt;
 
@@ -1628,7 +2157,36 @@ scheme-hero-bg: &quot;#0029ff&quot;
           
         
       
-        </content><summary>This is an example how to change your post color scheme for specific posts. You can simply add the following variables to your post front-matter field:</summary></entry><entry><title>Unique Post Styling via Custom CSS</title><id>https://sparanoid.com/website/custom-css.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/custom-css.html" /><published>2014-04-01T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>This is an example how to change your post color scheme for specific posts. You can simply add the following variables to your post front-matter field:</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Unique Post Styling via Custom CSS</title>
+        <id>http://0.0.0.0:4321/custom-css.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-css.html" />
+        <published>2014-04-01T00:00:00-07:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;This is an example how to change your post styling via CSS. You can simply add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;css&lt;/code&gt; option to your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;:&lt;/p&gt;
 
@@ -1648,7 +2206,38 @@ css: |
           
         
       
-        </content><summary>This is an example how to change your post styling via CSS. You can simply add the css option to your post front-matter field:</summary></entry><entry><title>External Link Post</title><id>https://sparanoid.com/website/external-link-post.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/external-link-post.html" /><published>2014-02-01T00:00:00-08:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>This is an example how to change your post styling via CSS. You can simply add the css option to your post front-matter field:</summary>
+        
+      </entry>
+    
+  
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>External Link Post</title>
+        <id>http://0.0.0.0:4321/external-link-post.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/external-link-post.html" />
+        <published>2014-02-01T00:00:00-08:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;This is an example of a Tumblr-like external link post. You can simply add the following setting to your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;:&lt;/p&gt;
 
@@ -1661,7 +2250,36 @@ css: |
           &lt;p&gt;&lt;a href=&quot;https://sparanoid.com/&quot;&gt;&lt;small&gt;◉ Direct Link to Original Site&lt;/small&gt;&lt;/a&gt;&lt;/p&gt;
         
       
-        </content><summary>This is an example of a Tumblr-like external link post. You can simply add the following setting to your post front-matter field:</summary></entry><entry><title>Custom Heading Image</title><id>https://sparanoid.com/website/custom-heading-image.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/custom-heading-image.html" /><published>2014-02-01T00:00:00-08:00</published><updated>2018-08-10T07:04:53-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>This is an example of a Tumblr-like external link post. You can simply add the following setting to your post front-matter field:</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Custom Heading Image</title>
+        <id>http://0.0.0.0:4321/custom-heading-image.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-heading-image.html" />
+        <published>2014-02-01T00:00:00-08:00</published>
+
+        
+          <updated>2018-08-10T07:04:53-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;This is an example of custom post heading image. You can simply add the following setting to your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;:&lt;/p&gt;
 
@@ -1696,7 +2314,36 @@ css: |
           
         
       
-        </content><summary>This is an example of custom post heading image. You can simply add the following setting to your post front-matter field:</summary></entry><entry><title>Custom Heading Background</title><id>https://sparanoid.com/website/custom-heading-background.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/custom-heading-background.html" /><published>2014-02-01T00:00:00-08:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>This is an example of custom post heading image. You can simply add the following setting to your post front-matter field:</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>Custom Heading Background</title>
+        <id>http://0.0.0.0:4321/custom-heading-background.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-heading-background.html" />
+        <published>2014-02-01T00:00:00-08:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;p&gt;This is an example of custom heading background. You can simply add the following setting to your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;:&lt;/p&gt;
 
@@ -1735,7 +2382,36 @@ css: |
           
         
       
-        </content><summary>This is an example of custom heading background. You can simply add the following setting to your post front-matter field:</summary></entry><entry><title>GitHub Pages Setup Guide</title><id>https://sparanoid.com/website/github-pages-setup.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/github-pages-setup.html" /><published>2014-01-01T00:00:00-08:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content>
+
+        
+          <summary>This is an example of custom heading background. You can simply add the following setting to your post front-matter field:</summary>
+        
+      </entry>
+    
+  
+    
+      
+
+      
+
+      <entry>
+        <title>GitHub Pages Setup Guide</title>
+        <id>http://0.0.0.0:4321/github-pages-setup.html</id>
+        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/github-pages-setup.html" />
+        <published>2014-01-01T00:00:00-08:00</published>
+
+        
+          <updated>2019-09-03T00:30:46-07:00</updated>
+        
+
+        <author>
+          <name>Tunghsiao Liu</name>
+          <uri>https://sparanoid.com/</uri>
+          <email>t@sparanoid.com</email>
+        </author>
+
+        <content type="html" xml:base="http://0.0.0.0:4321/">
           
             &lt;h2 id=&quot;the-problem&quot;&gt;The Problem&lt;/h2&gt;
 
@@ -1791,4 +2467,12 @@ css: |
           
         
       
-        </content><summary>The Problem</summary></entry></feed>
+        </content>
+
+        
+          <summary>The Problem</summary>
+        
+      </entry>
+    
+  
+</feed>

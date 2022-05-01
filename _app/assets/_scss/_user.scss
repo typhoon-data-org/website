@@ -45,47 +45,44 @@
 }
 
 
-// .content header {
-//   width: 100%;
-// }
-
-.content .flex-container {
-  display: flex;
-  flex-direction: row;
-  
+.content header {
+  background-color: hsl(168, 100%, 10%);    
+  flex-direction: inherit;
 }
 
-.flex-container .flex-left {
-  flex: 50%;    
+.row {
+  display: flex; /* equal height of the children */
+  margin-bottom: 50px;
+}
+.col {
+  flex: 1; /* additionally, equal width */  
+  padding: 1em;
 }
 
-.flex-right {  
-  flex: 50%;
-  display: flex;  
-  justify-content: flex-end;    
-  flex-direction: row;
-  height: fit-content;
+.heading_first_word {
+  color: hsl(167.76, 100%, 71.18%);
 }
+
+
 .content img, .content video, .content iframe, .content .browser {
   --space-deco: var(--space-md);
   display: block;
-  width: 80%;
   margin-left: unset;
   margin-right: unset;
   margin-bottom: unset;
+  height: fit-content;
+  width: 100%;
 }
 
-.content header {
-  background-color: hsl(168, 100%, 10%);
-}
+
 
 .content header h1 {
   font-size: 200%;
   padding-bottom: 1rem;
 }
 
-.content header h1 .highlighter{
-  background-color: rgba(255, 255, 0, 0.304);
+.highlighter{
+  background-color: rgba(255, 255, 0, 0.30);
 }
 
 .content .sub-title {
@@ -107,6 +104,8 @@
   display: flex;
   justify-content: center;  
 }
+
+
 .myButton {
 	background-color:hsl(167.76, 100%, 71.18%);
 	border-radius:5px;
@@ -128,3 +127,13 @@
 	position:relative;
 	top:1px;
 }
+
+.content pre, .content .highlight > pre, .content .highlighter-rouge pre.highlight {
+  margin-bottom: unset;
+  line-height: unset;
+  padding-left: unset;
+  padding-right: unset;
+  margin-left: unset;
+  margin-right: unset;
+}
+

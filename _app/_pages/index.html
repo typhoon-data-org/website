@@ -2,6 +2,7 @@
 layout: default
 permalink: /
 thumb_force_logo: true
+plugin: lightense
 ---
 
 {%- include amsf/core -%}
@@ -10,10 +11,10 @@ thumb_force_logo: true
 <article>
 
   <!-- Post title -->
-  <header class="flex-container">
-    <div class="flex-left">
+  <header class="row">        
+    <div class="col">
       <h1>
-        Serverless data pipelines written for <span class="highlighter">Data Engineers</span>.
+      Serverless data pipelines written for <span class="highlighter">Data Engineers</span>.
       </h1>
 
       <h2 class="sub-title">
@@ -21,51 +22,93 @@ thumb_force_logo: true
       </h2>
       
       <small>Compose in YAML and schedule them in serverless Lambda or Airflow. Package them in reusable components for your data analysts to use from the UI.</small>
-      <small>Fully Open Source. View on <a href="https://github.com/sparanoid/almace-scaffolding">GitHub</a></small>
+      <small>Fully <span class="highlighter">Open Source</span>. View on <a href="https://github.com/sparanoid/almace-scaffolding">GitHub</a></small>
       </br>
       <div class="install">
-        <a href="#" class="myButton">Try with docker</a>                                
+      <a href="#" class="myButton">Try with docker</a>                                
       </div>
       <div class="install">
-        <small><a href="#" class="">or install locally.</a></small>                                
+      <small><a href="#" class="">or install locally.</a></small>                                
       </div>
-      
     </div>
-    <div class="flex-right">
-      <img class="browser" src="{{ amsf_user_assets }}/img/auto-complete.gif">
+      
+    <div class="col">
+      <p class="browser">
+        <img src="{{ amsf_user_assets }}/img/auto_complete_small.gif">
+      </p>   
     </div>
   </header>
 
   <div class="page-content">
 
 
-    <h2>YAML for Animals</h2>
-      <img class="browser" src="{{ amsf_user_assets }}/img/auto-complete.gif">
+    <div class="row" >    
+      <div class="col">        
+{% highlight YAML %}
+  name: favorite_authors
+  schedule_interval: rate(1 day)
+
+  tasks:
+    choose_favorites:
+      function: typhoon.flow_control.branch
+      args:
+        branches:
+          - J. K. Rowling
+          - George R. R. Martin
+          - James Clavell
+
+    get_author:
+      input: choose_favorites
+      function: functions.open_library_api.get_author
+      args:
+        author: !Py $BATCH
+{% endhighlight %}
+      </div>
+      <div class="col">
+        <h1>
+          <span class="heading_first_word">Compose</span> elegant YAML DAGs using re-usable hooks and pure python functions just like lego. 
+        </h1>  
+        </br>
+        <p>VSCode has <strong class="highlighter">auto-complete</strong> so its really quick to compose any complex task.</p>
+      </div>      
+    </div>
 
 
-    <h2>Getting Started</h2>
-    {% for post in site.tags.getting-started %}
-      {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
-    {% endfor %}
+    <div class="row" >    
+      <div class="col">        
+        <h1>
+          <span class="heading_first_word">Extend</span> with pure python. Create a function and reference it directly in YAML.                  
+        </h1>  
+        </br>
+        <p>
+          Because they are pure python you can also easily <span class="highlighter">test</span> them with pytest.
+        </p>                   
+      </div>
+      <div class="col">
+        <p class="browser">
+          <img src="{{ amsf_user_assets }}/img/typhoon_pure_python_functions.gif">
+        </p>
+      </div>      
+    </div>
 
-    <h2>Customization</h2>
-    {% for post in site.tags.customization %}
-      {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
-    {% endfor %}
 
-    <h2>Theme Curtana</h2>
-    {% for post in site.tags.curtana %}
-      {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
-    {% endfor %}
+    <div class="row" >    
+      <div class="col">  
+        <p class="browser">
+          <img src="{{ amsf_user_assets }}/img/component_ui.gif">
+        </p>                  
+      </div>
+      <div class="col">
+        <h1>
+          <span class="heading_first_word">Component UI</span> templates can abstract complex workflows for other users.
+        </h1>  
+        </br>
+        <p>
+          Make your analytics team self-sufficient by creating <span class="highlighter">data pipeline apps</span> so they can create schedules themselves via the api.
+        </p>                   
+      </div>      
+    </div>
 
-    <h2>Deployment</h2>
-    {% for post in site.tags.deployment %}
-      {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
-    {% endfor %}
 
-    <h2>Miscellaneous</h2>
-    {% for post in site.tags.miscellaneous %}
-      {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
-    {% endfor %}
   </div>
 </article>
