@@ -18,7 +18,7 @@ plugin: lightense
       </h1>
 
       <h2 class="sub-title">
-      Write testable tasks in modern Python without any framework dependencies.
+        <span class="highlighter">Frameworkless.</span> No dependencies. Write testable tasks in modern Python.
       </h2>
       
       <small>Compose in YAML and schedule them in serverless Lambda or Airflow. Package them in reusable components for your data analysts to use from the UI.</small>
@@ -40,6 +40,30 @@ plugin: lightense
   </header>
 
   <div class="page-content">
+
+
+    <div class="row" >    
+      <div class="col">        
+        <h1>
+          <span class="heading_first_word">Serverless</span> deployment with AWS Lambda.
+        </h1>  
+        </br>
+        <p><a target="_blank" href="https://dev.to/biellls/impress-your-friends-make-a-serverless-bot-that-sends-daily-jokes-to-a-telegram-group-493n">Make a serverless telegram bot (20 mins).</a></p>  
+        <p>
+          Or try it with zero migration risk with robust <span class="highlighter">Airflow</span> transpilation        
+{% highlight bash %}                 
+  # Simply add this to .cfg and a few settings
+  TYPHOON_DEPLOY_TARGET=airflow
+{% endhighlight %}
+        </p>
+        
+      </div>
+      <div class="col">
+        <p style="width: 60%;display: block;margin: auto;">
+          <img src="{{ amsf_user_assets }}/img/lambda_small.png">
+        </p>
+      </div>      
+    </div>
 
 
     <div class="row" >    
