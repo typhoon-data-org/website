@@ -151,7 +151,7 @@
  }
 
 .plugins_grid_container div h2 {
-   font-size: 0.8 em;
+   font-size: 60% !important;
    margin: unset;  
    font-weight: bolder;   
    text-align: center;
@@ -161,7 +161,7 @@
  }
 .plugins_grid_container div {
   background: white !important;
-  width: 100px !important;
+  width: 120px !important;
   height: 120px !important;
   border: solid 2px black;  
 }    
