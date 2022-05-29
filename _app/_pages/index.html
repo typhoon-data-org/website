@@ -42,13 +42,18 @@ plugin: lightense
   <div class="page-content">
 
 
-    <div class="row" >    
+    <div class="row" id="features">  
+      <div class="col">
+        <p style="width: 50%;display: block;margin: auto;">
+          <img src="{{ amsf_user_assets }}/img/lambda_small.png">
+        </p>
+      </div>   
       <div class="col">        
         <h1>
           <span class="heading_first_word">Serverless</span> deployment with AWS Lambda.
         </h1>  
         </br>
-        <p><a target="_blank" href="https://dev.to/biellls/impress-your-friends-make-a-serverless-bot-that-sends-daily-jokes-to-a-telegram-group-493n">Make a serverless telegram bot (20 mins).</a></p>  
+        <p><a target="_blank" href="https://dev.to/biellls/impress-your-friends-make-a-serverless-bot-that-sends-daily-jokes-to-a-telegram-group-493n">BLOG: Make a serverless telegram bot <small>(20 mins)</small>.</a></p>  
         <p>
           Or try it with zero migration risk with robust <span class="highlighter">Airflow</span> transpilation        
 {% highlight bash %}                 
@@ -57,16 +62,29 @@ plugin: lightense
 {% endhighlight %}
         </p>
         
-      </div>
-      <div class="col">
-        <p style="width: 60%;display: block;margin: auto;">
-          <img src="{{ amsf_user_assets }}/img/lambda_small.png">
-        </p>
-      </div>      
+      </div>           
     </div>
 
 
-    <div class="row" >    
+    <div class="row" >                     
+      <div class="col">        
+        <h1>
+          <span class="heading_first_word">Extend</span> with pure python. Create a function and reference it directly in YAML.                  
+        </h1>  
+        </br>
+        <p>
+          Because they are pure python you can also easily <span class="highlighter">test</span> them with pytest.
+        </p>                   
+      </div>
+      <div class="col">
+        <p class="browser">
+          <img src="{{ amsf_user_assets }}/img/typhoon_pure_python_functions.gif">
+        </p>
+      </div> 
+    </div>
+
+
+    <div class="row" >             
       <div class="col">        
 {% highlight YAML %}
   name: favorite_authors
@@ -87,41 +105,19 @@ plugin: lightense
       args:
         author: !Py $BATCH
 {% endhighlight %}
-      </div>
+      </div>    
       <div class="col">
-        <h1>
-          <span class="heading_first_word">Compose</span> elegant YAML DAGs using re-usable hooks and pure python functions just like lego. 
-        </h1>  
-        </br>
-        <p>VSCode has <strong class="highlighter">auto-complete</strong> so its really quick to compose any complex task.</p>
-      </div>      
+          <h1>
+            <span class="heading_first_word">Compose</span> elegant YAML DAGs using re-usable hooks and pure python functions just like lego. 
+          </h1>  
+          </br>
+          <p>VSCode has <strong class="highlighter">auto-complete</strong> so its really quick to compose any complex task.</p>
+      </div>     
     </div>
 
 
-    <div class="row" >    
-      <div class="col">        
-        <h1>
-          <span class="heading_first_word">Extend</span> with pure python. Create a function and reference it directly in YAML.                  
-        </h1>  
-        </br>
-        <p>
-          Because they are pure python you can also easily <span class="highlighter">test</span> them with pytest.
-        </p>                   
-      </div>
-      <div class="col">
-        <p class="browser">
-          <img src="{{ amsf_user_assets }}/img/typhoon_pure_python_functions.gif">
-        </p>
-      </div>      
-    </div>
-
 
     <div class="row" >    
-      <div class="col">  
-        <p class="browser">
-          <img src="{{ amsf_user_assets }}/img/component_ui.gif">
-        </p>                  
-      </div>
       <div class="col">
         <h1>
           <span class="heading_first_word">Component UI</span> templates can abstract complex workflows for other users.
@@ -131,8 +127,141 @@ plugin: lightense
           Make your analytics team self-sufficient by creating <span class="highlighter">data pipeline apps</span> so they can create schedules themselves via the api.
         </p>                   
       </div>      
+      <div class="col">  
+        <p class="browser">
+          <img src="{{ amsf_user_assets }}/img/component_ui.gif">
+        </p>                  
+      </div>      
     </div>
 
+
+    
+    <h1 id="plugins">Plugins</h1>
+    </br>
+    <div class="row" >
+      
+      <div class="plugins_grid_container">        
+        <div>
+          <H2>Python DB API 2.0</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/python_logo.jpg">          
+        </div>      
+        
+        <div>
+          <H2>SQLAlchemy</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/sqlalchemy.jpg">
+        </div>
+
+        <div>
+          <H2>Sqlite</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/sqlite.png">
+        </div>
+        
+
+        <div>          
+          <h2>Any DB that works with Python DB API 2.0 works with Typhoon</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">      
+      <div class="plugins_grid_container">  
+    
+        <div>
+          <H2>Postgres</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/postgresql.png">
+        </div>
+
+        <div>
+          <H2>Snowflake</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/snowflake_logo.png">
+        </div>
+
+        <div>
+          <H2>Google Big Query</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/BigQuery.jpg">
+        </div>        
+
+        <div>
+          <H2>MySql</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/MySQL-Logo.png">
+        </div>
+
+        <div>
+          <H2>Duck DB</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/duckdub.jpg">
+        </div>
+
+        <div>
+          <H2>Oracle</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/python_logo.jpg">
+        </div>
+
+        <div>
+          <H2>Local File Storage</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/filestorage.png">
+        </div>
+
+        <div>
+          <H2>FTP</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/ftp.jpg">
+        </div>
+
+        <div>
+          <H2>AWS S3</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/s3.png">
+        </div>
+
+        <div>
+          <H2>Google Cloud Storage</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/gcs.jpg">
+        </div>
+
+        <div>
+          <H2>HTTP Basic Auth</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/https.png">
+        </div>
+
+        <div>
+          <H2>AWS Session</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/aws_session.png">
+        </div>
+
+        <div>
+          <H2>Dynamo DB</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/DynamoDBicon-08.png">
+        </div>
+
+        <div>
+          <H2>Singer Taps (any)</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/singers.png">
+        </div>
+
+        <div>
+          <H2>Kafka Producer</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/kafka.png">
+        </div>
+
+        <div>
+          <H2>Kafka Consumer</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/kafka.png">
+        </div>
+
+        <div>
+          <H2>ElasticSearch</H2>        
+          <img src="{{ amsf_user_assets }}/img/logos/elastic.png">
+        </div>
+
+      </div>
+    </div>
+
+    </br>
+    </br>
+    <h1 class="heading_first_word">Blog - Getting-started</h1>
+    <div id="blog">      
+      {% for post in site.tags.getting-started %}
+        {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
+      {% endfor %}
+    </div>
 
   </div>
 </article>

@@ -4,11 +4,13 @@
 ## To serve locally and build to git pages
 
 Local serve
-'''bash
+
+```bash
 grunt serve
-'''
+```
 
 Build site before push (auto publish with action)
-'''bash
+
+```bash
 grunt build
-'''
+```

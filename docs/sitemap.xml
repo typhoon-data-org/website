@@ -1,1 +1,253 @@
-<?xml version="1.0" encoding="utf-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://sparanoid.com/website/</loc><lastmod>2022-05-01</lastmod></url><url><loc>https://sparanoid.com/website/about/</loc><lastmod>2017-01-18</lastmod></url><url><loc>https://sparanoid.com/website/</loc><lastmod>2022-05-01</lastmod></url><url><loc>https://sparanoid.com/website/news/</loc><lastmod>2018-07-03</lastmod></url><url><loc>https://sparanoid.com/website/upgrading-from-v1-to-v2.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/upgrading-guide-v1.1.0.html</loc><lastmod>2017-01-10</lastmod></url><url><loc>https://sparanoid.com/website/open-graph.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/jekyll-theme-compatibility.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/theme-curtana.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/deployment-methods.html</loc><lastmod>2021-03-12</lastmod></url><url><loc>https://sparanoid.com/website/multiple-themes-support.html</loc><lastmod>2017-01-20</lastmod></url><url><loc>https://sparanoid.com/website/welcome.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/getting-started.html</loc><lastmod>2021-10-02</lastmod></url><url><loc>https://sparanoid.com/website/customizing-styles.html</loc><lastmod>2019-02-18</lastmod></url><url><loc>https://sparanoid.com/website/configuration.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/themes.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/creating-themes.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/syntax-highlighting.html</loc><lastmod>2018-10-15</lastmod></url><url><loc>https://sparanoid.com/website/markdown-features-test.html</loc><lastmod>2018-08-10</lastmod></url><url><loc>https://sparanoid.com/website/markup-example.html</loc><lastmod>2018-08-23</lastmod></url><url><loc>https://sparanoid.com/website/custom-html-markups.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/custom-color-scheme.html</loc><lastmod>2018-08-10</lastmod></url><url><loc>https://sparanoid.com/website/custom-css.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/external-link-post.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/custom-heading-image.html</loc><lastmod>2018-08-10</lastmod></url><url><loc>https://sparanoid.com/website/custom-heading-background.html</loc><lastmod>2019-09-03</lastmod></url><url><loc>https://sparanoid.com/website/github-pages-setup.html</loc><lastmod>2019-09-03</lastmod></url></urlset>
+<?xml version="1.0" encoding="utf-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://0.0.0.0:4321/</loc>
+    <lastmod>2022-05-28</lastmod>
+  </url>
+
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/about/</loc>
+        
+          <lastmod>2017-01-18</lastmod>
+        
+      </url>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/</loc>
+        
+          <lastmod>2022-05-01</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/news/</loc>
+        
+          <lastmod>2018-07-03</lastmod>
+        
+      </url>
+    
+  
+
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/upgrading-from-v1-to-v2.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/upgrading-guide-v1.1.0.html</loc>
+        
+          <lastmod>2017-01-10</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/open-graph.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/jekyll-theme-compatibility.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/theme-curtana.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/deployment-methods.html</loc>
+        
+          <lastmod>2021-03-12</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/multiple-themes-support.html</loc>
+        
+          <lastmod>2017-01-20</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/welcome.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/getting-started.html</loc>
+        
+          <lastmod>2021-10-02</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/customizing-styles.html</loc>
+        
+          <lastmod>2019-02-18</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/configuration.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/themes.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/creating-themes.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/syntax-highlighting.html</loc>
+        
+          <lastmod>2018-10-15</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/markdown-features-test.html</loc>
+        
+          <lastmod>2018-08-10</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/markup-example.html</loc>
+        
+          <lastmod>2018-08-23</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/custom-html-markups.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/custom-color-scheme.html</loc>
+        
+          <lastmod>2018-08-10</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/custom-css.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/external-link-post.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/custom-heading-image.html</loc>
+        
+          <lastmod>2018-08-10</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/custom-heading-background.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/github-pages-setup.html</loc>
+        
+          <lastmod>2019-09-03</lastmod>
+        
+      </url>
+    
+  
+
+</urlset>

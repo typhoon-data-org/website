@@ -2,7 +2,10 @@
   url:   /
 
 - title: Features
-  url:   /features/
+  url:   /#features
 
 - title: Plugins
-  url:   /plugins/
+  url:   /#plugins
+
+- title: Blog
+  url:   /#blog
