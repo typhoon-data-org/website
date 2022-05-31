@@ -1,0 +1,469 @@
+<!doctype html>
+
+<html lang="en">
+
+<!--
+  Apply head only for dev environment, this is required for jekyll to
+  insert livereload scripts
+-->
+
+  <head>
+
+
+
+  <meta charset="utf-8">
+
+
+<title>How to create a Serverless Telegram Bot to send daily jokes to your friends - Typhoon Orchestrator</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- Define a description for better SEO result -->
+<meta name="description" content="Typhoon Orchestrator is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from https://jokeapi.dev...">
+
+<!-- Cheome Web App theme color -->
+<meta name="theme-color" content="#ff00b4">
+
+<!-- Feed URL -->
+<link rel="alternate" href="/feed.xml" type="application/atom+xml">
+
+<!-- Site icons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" href="/favicon.png" type="image/png"><link rel="icon" href="/favicon.svg?assets-inline-assets-keep" sizes="any" type="image/svg+xml"><link rel="mask-icon" href="/mask-icon.svg" color="#ff00b4">
+
+<!-- Chrome Web App manifest -->
+<link rel="manifest" href="/manifest.json">
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="/assets/themes/curtana/css/app.css?assets-inline">
+
+<!-- Canonical links, avoid duplicate content problems -->
+<link rel="canonical" href="http://0.0.0.0:4321/serverless-telegram-bot-jokes.html">
+
+<!-- DNS prefetching for static files -->
+
+
+<!-- Head hooks -->
+
+
+
+  </head>
+
+<!-- Open Graph and Twitter Cards support -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Typhoon Orchestrator">
+<meta property="og:title" content="How to create a Serverless Telegram Bot to send daily jokes to your friends">
+<meta property="og:url" content="http://0.0.0.0:4321/serverless-telegram-bot-jokes.html">
+<meta property="og:description" content="Typhoon Orchestrator is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from https://jokeapi.dev...">
+<meta property="og:image" content="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gfjtgfcfs5q19ay8jvrp.png">
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+  <meta name="twitter:site" content="@sparanoid">
+
+
+
+
+
+  <meta property="article:published_time" content="2022-05-31T00:00:00-07:00">
+  <meta property="article:modified_time" content="2022-05-31T00:00:00-07:00">
+  <meta name="twitter:label1" value="Words">
+  <meta name="twitter:data1" value="2795 words">
+  <meta name="twitter:label2" value="Reading time">
+  <meta name="twitter:data2" value="13 mins">
+
+<!-- Post specified styles -->
+<style data-assets-inline>
+  :root {
+    
+
+    
+
+    
+
+    
+  }
+
+  body {
+    
+  }
+
+  
+  
+    
+</style>
+<!-- Main navigation with current page / categoriy highlighted -->
+<nav class="navigation">
+  <ul>
+    <li >
+        <a href="/">Typhoon Orchestrator</a>
+      </li>
+    <li >
+        <a href="/#features">Features</a>
+      </li>
+    <li >
+        <a href="/#plugins">Plugins</a>
+      </li>
+    <li >
+        <a href="/#blog">Blog</a>
+      </li>
+    
+  </ul>
+</nav>
+<!-- Main content wrap -->
+<main class="content " role=main>
+  <!-- Post-wide custom CSS -->
+
+
+<!-- Article wrapper, limit width -->
+<article lang="en">
+
+  <!-- Post title -->
+  <header style="     ">
+
+    <h1 class="" title="How to create a Serverless Telegram Bot to send daily jokes to your friends" data-title="How to create a Serverless Telegram Bot to send daily jokes to your friends">
+      How to create a Serverless Telegram Bot to send daily jokes to your friends<span class="dot dot--post"> </span>
+    </h1>
+
+    
+      <small>
+        By <span rel="author">biellls</span>
+        on <time datetime="2022-05-31T00:00:00-07:00">May 31, 2022</time>
+      </small>
+    
+
+    
+
+  </header>
+
+  <!-- Post content -->
+  <div class="post-content">
+    <p><a href="https://github.com/typhoon-data-org/typhoon-orchestrator">Typhoon Orchestrator</a> is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from <a href="https://jokeapi.dev">https://jokeapi.dev</a> once a day and sends it to your telegram group.</p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>The first thing you need to do is install typhoon and the rest of the dependencies needed for this tutorial, preferrably in a virtual environment.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>typhoon-orchestrator[dev]
+pip <span class="nb">install </span>python-telegram-bot
+pip <span class="nb">install </span>requests
+</code></pre></div></div>
+
+<p>Next we create our project, we will call our project jester (we could call it anything).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon init jester <span class="nt">--template</span> minimal
+<span class="nb">cd </span>jester
+typhoon status
+</code></pre></div></div>
+
+<p>Notice that the status command gives us the following warning: <code class="language-plaintext highlighter-rouge">Connections YAML not found. To add connections create connections.yml</code>. This is normal because typhoon normally uses a metadata database where you can store connections and variables, but we don’t want to create and use any DynamoDB tables for this tutorial so we used the minimal template that doesn’t include anything related to the metadata database. If you see any warnings about the metadata database during the course of the tutorial don’t worry, it’s for the same reason.</p>
+
+<h2 id="tell-me-a-joke">Tell me a joke!</h2>
+
+<p>Before we worry about telegram, let’s create a workflow that calls the joke API and prints the joke on your CLI. Create the file: <code class="language-plaintext highlighter-rouge">dags/send_me_a_joke.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">send_me_a_joke</span>
+<span class="na">schedule_interval</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@daily'</span>
+
+<span class="na">tasks</span><span class="pi">:</span>
+  <span class="na">get_joke</span><span class="pi">:</span>
+    <span class="na">function</span><span class="pi">:</span> <span class="s">typhoon.http.get_raw</span>
+    <span class="na">args</span><span class="pi">:</span>
+      <span class="na">url</span><span class="pi">:</span> <span class="s">https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&amp;type=single</span>
+  
+  <span class="na">select_joke_text</span><span class="pi">:</span>
+    <span class="na">input</span><span class="pi">:</span> <span class="s">get_joke</span>
+    <span class="na">function</span><span class="pi">:</span> <span class="s">typhoon.json.search</span>
+    <span class="na">args</span><span class="pi">:</span>
+      <span class="na">data</span><span class="pi">:</span> <span class="kt">!Py</span> <span class="s">$BATCH.response.json()</span>
+      <span class="na">expression</span><span class="pi">:</span> <span class="s">joke</span>
+
+  <span class="na">tell_joke</span><span class="pi">:</span>
+    <span class="na">input</span><span class="pi">:</span> <span class="s">select_joke_text</span>
+    <span class="na">function</span><span class="pi">:</span> <span class="s">typhoon.debug.echo</span>
+    <span class="na">args</span><span class="pi">:</span>
+      <span class="na">joke</span><span class="pi">:</span> <span class="kt">!Py</span> <span class="s">$BATCH</span>
+</code></pre></div></div>
+
+<p>This workflow has three tasks using built-in functions:</p>
+
+<ul>
+  <li>
+    <p><strong>get_joke</strong>: Calls the joke API and gets a response like to the following:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programming"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"joke"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A man is smoking a cigarette and blowing smoke rings into the air. His girlfriend becomes irritated with the smoke and says </span><span class="se">\"</span><span class="s2">Can't you see the warning on the cigarette pack? Smoking is hazardous to your health!</span><span class="se">\"</span><span class="s2"> to which the man replies, </span><span class="se">\"</span><span class="s2">I am a programmer.  We don't worry about warnings; we only worry about errors.</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"flags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"nsfw"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"religious"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"political"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"racist"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"sexist"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"explicit"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"safe"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li><strong>select_joke_text</strong>: Uses a <a href="https://jmespath.org/">JMESPath</a> expression to select data from the JSON text.</li>
+  <li><strong>tell_joke</strong>: Prints the joke text.</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">!Py</code> tag means that instead of passing it a YAML object, you are passing it a string representing python code to run. For example, <code class="language-plaintext highlighter-rouge">foo: 4</code> is equivalent to <code class="language-plaintext highlighter-rouge">foo: !Py 2+2</code>.  <code class="language-plaintext highlighter-rouge">$BATCH</code> is a special variable that holds whatever the previous function returned or yielded. In the case of the <code class="language-plaintext highlighter-rouge">select_joke_test</code> task where the input is the <code class="language-plaintext highlighter-rouge">get_joke</code> task, its function returned a NamedTuple with a response and some metadata, so that <code class="language-plaintext highlighter-rouge">$BATCH.response</code>is a requests.Response object.</p>
+
+<p>Lets run to see a joke in our terminal</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag run <span class="nt">--dag-name</span> send_me_a_joke
+</code></pre></div></div>
+
+<p>Piece of cake! But here comes the interesting part…</p>
+
+<h2 id="i-want-the-joke-on-telegram">I want the joke on telegram</h2>
+
+<p>There is no built-in function in Typhoon to send a text to a telegram chat. Fortunately it’s very easy to extend Typhoon, so let’s make it ourselves.</p>
+
+<p>Create the following file <code class="language-plaintext highlighter-rouge">functions/msg.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">telegram</span>
+
+<span class="k">def</span> <span class="nf">send_message_telegram</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">chat_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="s">"""Given a telegram bot token, chat_id and message,
+       send the message to that chat"""</span>
+    <span class="n">bot</span> <span class="o">=</span> <span class="n">telegram</span><span class="p">.</span><span class="n">Bot</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Sending message </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s"> to </span><span class="si">{</span><span class="n">chat_id</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+    <span class="n">bot</span><span class="p">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">message</span>
+</code></pre></div></div>
+
+<p>And update the DAG file we created before at <code class="language-plaintext highlighter-rouge">dags/send_me_a_joke.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">send_me_a_joke</span>
+<span class="na">schedule_interval</span><span class="pi">:</span> <span class="s">0 10 * * *</span>  <span class="c1"># Send the joke at 10am every day</span>
+
+<span class="na">tasks</span><span class="pi">:</span>
+  <span class="na">get_joke</span><span class="pi">:</span>
+    <span class="na">function</span><span class="pi">:</span> <span class="s">typhoon.http.get_raw</span>
+    <span class="na">args</span><span class="pi">:</span>
+      <span class="na">url</span><span class="pi">:</span> <span class="s">https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&amp;type=single</span>
+  
+  <span class="na">select_joke_text</span><span class="pi">:</span>
+    <span class="na">input</span><span class="pi">:</span> <span class="s">get_joke</span>
+    <span class="na">function</span><span class="pi">:</span> <span class="s">typhoon.json.search</span>
+    <span class="na">args</span><span class="pi">:</span>
+      <span class="na">data</span><span class="pi">:</span> <span class="kt">!Py</span> <span class="s">$BATCH.response.json()</span>
+      <span class="na">expression</span><span class="pi">:</span> <span class="s">joke</span>
+
+  <span class="na">tell_joke</span><span class="pi">:</span>
+    <span class="na">input</span><span class="pi">:</span> <span class="s">select_joke_text</span>
+    <span class="na">function</span><span class="pi">:</span> <span class="s">functions.msg.send_message_telegram</span>
+    <span class="na">args</span><span class="pi">:</span>
+      <span class="na">message</span><span class="pi">:</span> <span class="kt">!Py</span> <span class="s">$BATCH</span>
+      <span class="na">token</span><span class="pi">:</span> <span class="kt">!Var</span> <span class="s">telegram_token</span>
+      <span class="na">chat_id</span><span class="pi">:</span> <span class="kt">!Var</span> <span class="s">chat_id</span>
+
+<span class="na">requirements</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">python-telegram-bot</span>
+  <span class="pi">-</span> <span class="s">requests</span>
+</code></pre></div></div>
+
+<p>Notice that for the token and chat id we have the <code class="language-plaintext highlighter-rouge">!Var</code> tag. This is because we don’t want to include a secret like a token in the code, so we will read it from a variable. If you are really perceptive you may be thinking: “Didn’t you say that we are using a minimal deployment where there is no metadata database to store variables on?” Yes, that’s 100% correct. Usually we would store variables in the metadata database. However, we will use the alternate method of storing variables which is using an environment variable that starts with <code class="language-plaintext highlighter-rouge">TYPHOON_VARIABLE_</code>.</p>
+
+<ul>
+  <li>To create a bot with the botfather and <strong>get a token</strong> follow the official tutorial <a href="https://core.telegram.org/bots#creating-a-new-bot">https://core.telegram.org/bots#creating-a-new-bot</a></li>
+  <li>To <strong>find out your chat ID</strong> check out <a href="https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id">https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id</a>. Keep in mind that <strong>you can only add the bot to group chats, not private conversations</strong>.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">TYPHOON_VARIABLE_telegram_token</span><span class="o">=</span><span class="s2">"MY_SECRET_TELEGRAM_TOKEN"</span>
+<span class="nb">export </span><span class="nv">TYPHOON_VARIABLE_chat_id</span><span class="o">=</span><span class="s2">"128332492187641"</span>
+</code></pre></div></div>
+
+<p>Now that we have everything ready, let’s send some jokes.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag run <span class="nt">--dag-name</span> send_me_a_joke
+</code></pre></div></div>
+
+<p>If everything was correctly set up you should get the notification with a random programmer joke!</p>
+
+<h2 id="aiming-for-the-clouds">Aiming for the clouds</h2>
+
+<h3 id="build-and-upload-the-workflow">Build and upload the workflow</h3>
+
+<p>This is all well and good, but we want the bot to tell us a joke every day without needing to run the code locally. First of all let’s compile our code into a zip and upload it to S3 so that Lambda can use it. This can be a little tedious, but luckily Typhoon takes care of that for us. We need to tell it to which S3 bucket we want to deploy to. <strong>You will also need a configured <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html#cli-configure-profiles-create">AWS profile</a></strong>. Open the <code class="language-plaintext highlighter-rouge">.typhoonremotes</code> file and modify it to use your profile and S3 bucket.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[test]
+aws-profile=myaws
+s3-bucket=typhoon-orchestrator
+</code></pre></div></div>
+
+<p>Now that we have a remote called <code class="language-plaintext highlighter-rouge">test</code> we are ready to create the zip files and push them to S3. You will need to have docker installed for this step because the dependencies need to be built in an OS that is compatible with the one Lambda is using, otherwise they won’t work. This is a very common source of problems that Typhoon helps you avoid. If you are sure that your OS is compatible you can add the flag <code class="language-plaintext highlighter-rouge">--build-deps-locally</code>, but <strong>it is generally not recomended</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag push --dag-name send_me_a_joke test
+</code></pre></div></div>
+
+<p>This will have taken a very long time because Typhoon built all of the dependencies, but don’t worry <strong>updating the workflow code is much much faster since the dependencies are separated into a layer and don’t need to be re-deployed unless they change</strong>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">test</code> at the end tells it what remote to deploy to. In the future we could add a different production environment with its own remote.</p>
+
+<p>If you check your S3 bucket now you’ll find two files:</p>
+
+<ul>
+  <li><strong>The lambda code:</strong> <code class="language-plaintext highlighter-rouge">typhoon_dag_builds/send_me_a_joke/lambda.zip</code></li>
+  <li><strong>All the necessary dependencies</strong>: <code class="language-plaintext highlighter-rouge">typhoon_dag_builds/send_me_a_joke/layer.zip</code></li>
+</ul>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gfjtgfcfs5q19ay8jvrp.png" alt="S3 objects" /></p>
+
+<h3 id="deploying-infrastructure">Deploying infrastructure</h3>
+
+<p>For this part you will need to <a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">install and set up terraform</a>. Learn more about infrastructure as code <a href="https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/aws-get-started">here</a>.</p>
+
+<p><strong>Typhoon automatically creates some terraform files that describe all the necessary infrastructure</strong> to create in order to deploy our workflow to AWS Lambda. This greatly simplifies the creation of all the necessary resources that you would otherwise need to create manually. More importantly, it provides you a starting point while also giving you full control to change the terraform files until you have the desired configuration.</p>
+
+<p>For this tutorial you just need to <strong>update the test variables file to include the S3 bucket name and some DAG info</strong>. We can get the info for all the dags by running <code class="language-plaintext highlighter-rouge">typhoon dag info --json-output --indent 2</code>, but in this case we will need to adapt it to include the necessary environment variables. This means that you will need to add the following to the file <code class="language-plaintext highlighter-rouge">terraform/test.tfvars</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dag_info = {
+    "send_me_a_joke": {
+        "schedule_interval": "cron(0 10 * * ? *)",
+        "environment": {
+            "TYPHOON_VARIABLE_telegram_token": "MY_SECRET_TELEGRAM_TOKEN",
+            "TYPHOON_VARIABLE_chat_id": "128332492187641"
+        }
+    }
+}
+</code></pre></div></div>
+
+<p>Notice how the schedule interval is in a different format than the one we defined. This is because Terraform maps to AWS resources, and AWS uses its own flavor of cron expressions which is incompatible with the standard Unix cron expressions used by tools like cron, crontab, Airflow and many more. Typhoon aims to be a framework that can deploy to many platforms (currently supports AWS Lambda and Airflow) so we decided to follow the industry standard instead of AWS’s. Luckily, when we run <code class="language-plaintext highlighter-rouge">typhoon dag info ...</code> <strong>Typhoon converts it to AWS’s standard so you don’t need to do that yourself!</strong></p>
+
+<p>Now we are ready to create the infrastructure with terraform.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">AWS_PROFILE</span><span class="o">=</span>my-aws-profile
+<span class="nb">export </span><span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>eu-west-1
+<span class="nb">cd </span>terraform
+terraform init
+terraform plan <span class="nt">-var-file</span><span class="o">=</span>test.tfvars <span class="nt">-out</span><span class="o">=</span>tfplan
+terraform apply tfplan
+</code></pre></div></div>
+
+<p>And voila! You can check all of the resources that have been created in AWS and take a moment to appreciate how much time we’ve saved.</p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ymarmji5bglvr7axo16r.png" alt="AWS Lambda Function" /></p>
+
+<h2 id="lets-take-it-for-a-spin">Let’s take it for a spin</h2>
+
+<p>If everything worked correctly you will get a joke in your telegram chat at 10am, but we don’t want to wait that long, we want to hear one now! You could invoke the Lambda from the AWS console, but we will invoke it with Typhoon.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag run <span class="nt">--dag-name</span> send_me_a_joke <span class="nb">test</span>
+</code></pre></div></div>
+
+<p>Hopefully you got a hilarious joke sent right to your group chat.</p>
+
+<p>This is the same command we used earlier to run the workflow locally, but with <code class="language-plaintext highlighter-rouge">test</code>at the end specifying that we want to run it in the remote environment. This has invoked a lambda and shown you the logs. Actually, to be more precise, it has invoked a Lambda that has then invoked another Lambda and then invoked another Lambda. Why? Because Typhoon is asynchronous by default which means that as soon as a function returns or yields a batch we invoke a new Lambda to process it. This is useful because you can have a lot of tasks performing work in parallel. For example, imagine you have a workflow that reads FTP CSV files, zips them up and uploads to S3. The first task could list all the CSV files in the FTP and yields each path as a batch. Then the next task will compress them which can take a long time, but we actually invoked a new Lambda instance for each batch so we are processing them all in parallel!</p>
+
+<p>Notice how even though the workflow ran across three lambdas, you still got the full log in your terminal. Lambdas can be hard to monitor and debug, but Typhoon tries to make this process easier. This is why when you run a Typhoon DAG manually, it waits for a response so that it can print the logs. Every invocation will in turn also wait for the response of any Lambdas it invokes so you will end up with the full log no matter how many Lambda invocations the workflow ran on. It’s extremely useful to be able to see if the DAG is working correctly, but it does introduce synchronicity so the DAG will run slower. We believe it’s a worthwile tradeoff for manual invocations. <strong>Rest assured that when the workflow is triggered on schedule it will run at full speed</strong>.</p>
+
+<h2 id="why-cant-i-just-run-everything-in-one-lambda">Why can’t I just run everything in one lambda?</h2>
+
+<p>Great question, and there’s no reason not to since our worflow is very light and doesn’t benefit from parallelism. You just need to modify the first two tasks to make them synchronous with <code class="language-plaintext highlighter-rouge">asynchronous: False</code>. This is the relevant part of the code:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tasks</span><span class="pi">:</span>
+  <span class="na">get_joke</span><span class="pi">:</span>
+    <span class="na">function</span><span class="pi">:</span> <span class="s">typhoon.http.get_raw</span>
+    <span class="na">asynchronous</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">args</span><span class="pi">:</span>
+      <span class="na">url</span><span class="pi">:</span> <span class="s">https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&amp;type=single</span>
+  
+  <span class="na">select_joke_text</span><span class="pi">:</span>
+    <span class="na">input</span><span class="pi">:</span> <span class="s">get_joke</span>
+    <span class="na">function</span><span class="pi">:</span> <span class="s">typhoon.json.search</span>
+    <span class="na">asynchronous</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">args</span><span class="pi">:</span>
+      <span class="na">data</span><span class="pi">:</span> <span class="kt">!Py</span> <span class="s">$BATCH.response.json()</span>
+      <span class="na">expression</span><span class="pi">:</span> <span class="s">joke</span>
+</code></pre></div></div>
+
+<p>Lets build and deploy the code, this time without dependencies by using the flag <code class="language-plaintext highlighter-rouge">--code</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag push <span class="nt">--dag-name</span> send_me_a_joke <span class="nb">test</span> <span class="nt">--code</span>
+</code></pre></div></div>
+
+<p>Wow, that was much faster! You can see that once the workflow has been deployed one time with all the dependencies, <strong>making changes and deploying them is very fast and easy</strong>. Feel free to run the DAG again to check out how only one Lambda will be invoked now.</p>
+
+<h2 id="this-is-good-to-be-true-can-i-really-build-all-my-etls-like-this">This is good to be true, can I really build all my ETLs like this?</h2>
+
+<p>Yes and no… Depending on your use case Lambda can be a good fit, but there are currently some limitations to this approach:</p>
+
+<ul>
+  <li><strong>Lambdas can only run for 15 minutes</strong>. If you have a long running task this will not work for you. In the future <strong>we intend to support Fargate to run heavier tasks</strong> and solve this issue.</li>
+  <li><strong>Can we really do away with the scheduler?</strong> We have shown you a utopian vision of the future of ETLs. It still remains to be seen if we can fully avoid running a scheduler, and we may run into the harsh reality that if you want to be able to implement sensors, rate-limit tasks, etc. we may need a scheduler. Even if that turns out to be true, it would always be opt-in and much simpler than a traditional one.</li>
+</ul>
+
+<h2 id="does-that-mean-that-typhoon-is-not-ready-for-prime-time">Does that mean that Typhoon is not ready for prime time?</h2>
+
+<p><strong>Absolutely not!</strong> We may have a long (albeit exciting) path ahead to realize our vision of a battle tested, fully serverless, asynchronous workflow orchestrator, but AWS is not the only target. <strong>Typhoon supports compilation to native Airflow code</strong>, the most popular orchestrator around today. This feature can bridge the gap between the simplicity of our vision and the complex reality we currently live in as Data Engineers.</p>
+
+<p>Our hope is that you will use Typhoon and fall in love with the simplicity of our vision, and deploy to Airflow if the current state of AWS deployment can’t meet your needs.</p>
+
+<h2 id="cleaning-up">Cleaning up</h2>
+
+<p>If you want to clean up all the resources that were created on this tutorial run the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform plan <span class="nt">-var-file</span><span class="o">=</span>test.tfvars <span class="nt">-out</span><span class="o">=</span>tfplan <span class="nt">-destroy</span>
+terraform apply <span class="nt">-destroy</span> tfplan
+</code></pre></div></div>
+
+<h2 id="thanks-for-following-along">Thanks for following along!</h2>
+
+<p>If you enjoyed this tutorial we hope to see you soon at <a href="https://github.com/typhoon-data-org/typhoon-orchestrator">https://github.com/typhoon-data-org/typhoon-orchestrator</a>. Check out the code, leave a star, open an issue or come say hi on our discord!</p>
+
+
+    
+    
+
+    
+  </div>
+
+</article>
+
+</main>
+<!-- Footer section -->
+
+  <footer class="footer">
+    <ul>
+      <li><a href="/">Typhoon Orchestrator</a></li>
+
+      
+        <li>
+          <a href="https://sparanoid.com/lab/amsf/" title="Almace Scaffolding with theme Curtana">AMSF</a>
+        </li>
+      
+
+      
+    </ul>
+  </footer>
+
+
+<!-- Theme scripts -->
+<script src="/assets/themes/curtana/js/app.js?assets-inline"></script>
+
+<!-- User scripts -->
+<script src="/assets/js/user.js?assets-inline"></script>
+
+<!-- Lightense Images -->
+
+
+<!-- Service Worker  -->
+
+
+<!-- Google Analytics -->
+
+
+<!-- Foot hooks -->
+
+
+<!-- Finale -->
+</html>

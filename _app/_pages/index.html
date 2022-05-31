@@ -262,6 +262,12 @@ plugin: lightense
         {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
       {% endfor %}
     </div>
+    <h1 class="heading_first_word">Blog - Articles</h1>
+    <div id="blog-articles">      
+      {% for post in site.tags.article %}
+        {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
+      {% endfor %}
+    </div>
 
   </div>
 </article>
