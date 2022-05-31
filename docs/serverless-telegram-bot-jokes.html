@@ -1,168 +1,10 @@
-<!doctype html>
-
-<html lang="en">
-
-<!--
-  Apply head only for dev environment, this is required for jekyll to
-  insert livereload scripts
--->
-
-  <head>
-
-
-
-  <meta charset="utf-8">
-
-
-<title>How to create a Serverless Telegram Bot to send daily jokes to your friends - Typhoon Orchestrator</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<!-- Define a description for better SEO result -->
-<meta name="description" content="Typhoon Orchestrator is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from https://jokeapi.dev...">
-
-<!-- Cheome Web App theme color -->
-<meta name="theme-color" content="#ff00b4">
-
-<!-- Feed URL -->
-<link rel="alternate" href="/feed.xml" type="application/atom+xml">
-
-<!-- Site icons -->
-<link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" href="/favicon.png" type="image/png"><link rel="icon" href="/favicon.svg?assets-inline-assets-keep" sizes="any" type="image/svg+xml"><link rel="mask-icon" href="/mask-icon.svg" color="#ff00b4">
-
-<!-- Chrome Web App manifest -->
-<link rel="manifest" href="/manifest.json">
-
-<!-- Main CSS -->
-<link rel="stylesheet" href="/assets/themes/curtana/css/app.css?assets-inline">
-
-<!-- Canonical links, avoid duplicate content problems -->
-<link rel="canonical" href="http://0.0.0.0:4321/serverless-telegram-bot-jokes.html">
-
-<!-- DNS prefetching for static files -->
-
-
-<!-- Head hooks -->
-
-
-
-  </head>
-
-<!-- Open Graph and Twitter Cards support -->
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="Typhoon Orchestrator">
-<meta property="og:title" content="How to create a Serverless Telegram Bot to send daily jokes to your friends">
-<meta property="og:url" content="http://0.0.0.0:4321/serverless-telegram-bot-jokes.html">
-<meta property="og:description" content="Typhoon Orchestrator is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from https://jokeapi.dev...">
-<meta property="og:image" content="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gfjtgfcfs5q19ay8jvrp.png">
-
-<meta name="twitter:card" content="summary_large_image">
-
-
-  <meta name="twitter:site" content="@sparanoid">
-
-
-
-
-
-  <meta property="article:published_time" content="2022-05-31T00:00:00-07:00">
-  <meta property="article:modified_time" content="2022-05-31T00:00:00-07:00">
-  <meta name="twitter:label1" value="Words">
-  <meta name="twitter:data1" value="2795 words">
-  <meta name="twitter:label2" value="Reading time">
-  <meta name="twitter:data2" value="13 mins">
-
-<!-- Post specified styles -->
-<style data-assets-inline>
-  :root {
-    
-
-    
-
-    
-
-    
-  }
-
-  body {
-    
-  }
-
-  
-  
-    
-</style>
-<!-- Main navigation with current page / categoriy highlighted -->
-<nav class="navigation">
-  <ul>
-    <li >
-        <a href="/">Typhoon Orchestrator</a>
-      </li>
-    <li >
-        <a href="/#features">Features</a>
-      </li>
-    <li >
-        <a href="/#plugins">Plugins</a>
-      </li>
-    <li >
-        <a href="/#blog">Blog</a>
-      </li>
-    
-  </ul>
-</nav>
-<!-- Main content wrap -->
-<main class="content " role=main>
-  <!-- Post-wide custom CSS -->
-
-
-<!-- Article wrapper, limit width -->
-<article lang="en">
-
-  <!-- Post title -->
-  <header style="     ">
-
-    <h1 class="" title="How to create a Serverless Telegram Bot to send daily jokes to your friends" data-title="How to create a Serverless Telegram Bot to send daily jokes to your friends">
-      How to create a Serverless Telegram Bot to send daily jokes to your friends<span class="dot dot--post"> </span>
-    </h1>
-
-    
-      <small>
-        By <span rel="author">biellls</span>
-        on <time datetime="2022-05-31T00:00:00-07:00">May 31, 2022</time>
-      </small>
-    
-
-    
-
-  </header>
-
-  <!-- Post content -->
-  <div class="post-content">
-    <p><a href="https://github.com/typhoon-data-org/typhoon-orchestrator">Typhoon Orchestrator</a> is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from <a href="https://jokeapi.dev">https://jokeapi.dev</a> once a day and sends it to your telegram group.</p>
-
-<h2 id="getting-started">Getting started</h2>
-
-<p>The first thing you need to do is install typhoon and the rest of the dependencies needed for this tutorial, preferrably in a virtual environment.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>typhoon-orchestrator[dev]
+<!doctype html><html lang="en"><head><meta charset="utf-8"> <title>How to create a Serverless Telegram Bot to send daily jokes to your friends - Typhoon Orchestrator</title> <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"> <meta name="description" content="Typhoon Orchestrator is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from https://jokeapi.dev..."> <meta name="theme-color" content="#ff00b4"> <link rel="alternate" href="/website/feed.xml" type="application/atom+xml"> <link rel="apple-touch-icon" href="/website/apple-touch-icon.png"><link rel="icon" href="/website/favicon.png" type="image/png"><link rel="icon" href="data:image/svg+xml;utf8,%3Csvg%20width%3D'240'%20height%3D'240'%20viewBox%3D'0%200%20240%20240'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Ctitle%3EAlmace%20Scaffolding%3C%2Ftitle%3E%3Cpath%20d%3D'M62.563%20189.292C42.669%20172.783%2030%20147.872%2030%20120c0-49.706%2040.294-90%2090-90s90%2040.294%2090%2090c0%2038.573-24.266%2071.478-58.365%2084.283L168.568%2097h-24.752l-17.804%20112.802A91.344%2091.344%200%200%201%20120%20210c-12.356%200-24.13-2.49-34.85-6.996L95.568%20137H70.816l-8.253%2052.292z'%20fill%3D'%23FF00B4'%20fill-rule%3D'evenodd'%2F%3E%3C%2Fsvg%3E" sizes="any" type="image/svg+xml"><link rel="mask-icon" href="/website/mask-icon.svg" color="#ff00b4"> <link rel="manifest" href="/website/manifest.json"> <style>:root{--fontstack-prefix:-apple-system,BlinkMacSystemFont,;--fontstack-sans-serif:"Helvetica Neue",Arial,sans-serif;--fontstack-serif:Georgia,serif;--fontstack-monospace:Menlo,Consolas,monospace;--fontstack-default:var(--fontstack-prefix) var(--fontstack-sans-serif);--font-size-base:1rem;--font-size-factor:1vw;--font-size:1.6vw;--font-features:"halt","cv01","cv02","cv03";--line-height:calc(20 / 14);--heading-letter-spacing:-.04em;--breakpoint-lg:1600px;--breakpoint-md:1080px;--breakpoint-sm:640px;--breakpoint-xs:400px;--space-lg:24vw;--space-md:8vw;--space-sm:4vw;--space-xs:1.2vw;--border-lg:4px;--border-md:2px;--border-sm:1px;--nav-padding:.75vmax;--nav-item-space:1.4vmax;--text-color-h:318;--text-color-s:30%;--text-color-l:10%;--text-color-hsl:var(--text-color-h),var(--text-color-s),var(--text-color-l);--text-color:hsl(var(--text-color-hsl));--text-color-0:hsla(var(--text-color-hsl), 0);--text-color-3:hsla(var(--text-color-hsl), .03);--text-color-5:hsla(var(--text-color-hsl), .05);--text-color-7:hsla(var(--text-color-hsl), .07);--text-color-10:hsla(var(--text-color-hsl), .1);--text-color-20:hsla(var(--text-color-hsl), .2);--text-color-30:hsla(var(--text-color-hsl), .3);--text-color-40:hsla(var(--text-color-hsl), .4);--text-color-50:hsla(var(--text-color-hsl), .5);--text-color-60:hsla(var(--text-color-hsl), .6);--text-color-70:hsla(var(--text-color-hsl), .7);--text-color-80:hsla(var(--text-color-hsl), .8);--text-color-90:hsla(var(--text-color-hsl), .9);--text-color-light:hsl(var(--text-color-h), var(--text-color-s), calc(var(--text-color-l) / .9));--text-color-dark:hsl(var(--text-color-h), var(--text-color-s), calc(var(--text-color-l) * .9));--link-color-h:318;--link-color-s:100%;--link-color-l:50%;--link-color-hsl:var(--link-color-h),var(--link-color-s),var(--link-color-l);--link-color:hsl(var(--link-color-hsl));--link-color-0:hsla(var(--link-color-hsl), 0);--link-color-3:hsla(var(--link-color-hsl), .03);--link-color-5:hsla(var(--link-color-hsl), .05);--link-color-7:hsla(var(--link-color-hsl), .07);--link-color-10:hsla(var(--link-color-hsl), .1);--link-color-20:hsla(var(--link-color-hsl), .2);--link-color-30:hsla(var(--link-color-hsl), .3);--link-color-40:hsla(var(--link-color-hsl), .4);--link-color-50:hsla(var(--link-color-hsl), .5);--link-color-60:hsla(var(--link-color-hsl), .6);--link-color-70:hsla(var(--link-color-hsl), .7);--link-color-80:hsla(var(--link-color-hsl), .8);--link-color-90:hsla(var(--link-color-hsl), .9);--link-color-light:hsl(var(--link-color-h), var(--link-color-s), calc(var(--link-color-l) / .9));--link-color-dark:hsl(var(--link-color-h), var(--link-color-s), calc(var(--link-color-l) * .9));--bg-color-h:318;--bg-color-s:30%;--bg-color-l:100%;--bg-color-hsl:var(--bg-color-h),var(--bg-color-s),var(--bg-color-l);--bg-color:hsl(var(--bg-color-hsl));--bg-color-0:hsla(var(--bg-color-hsl), 0);--bg-color-3:hsla(var(--bg-color-hsl), .03);--bg-color-5:hsla(var(--bg-color-hsl), .05);--bg-color-7:hsla(var(--bg-color-hsl), .07);--bg-color-10:hsla(var(--bg-color-hsl), .1);--bg-color-20:hsla(var(--bg-color-hsl), .2);--bg-color-30:hsla(var(--bg-color-hsl), .3);--bg-color-40:hsla(var(--bg-color-hsl), .4);--bg-color-50:hsla(var(--bg-color-hsl), .5);--bg-color-60:hsla(var(--bg-color-hsl), .6);--bg-color-70:hsla(var(--bg-color-hsl), .7);--bg-color-80:hsla(var(--bg-color-hsl), .8);--bg-color-90:hsla(var(--bg-color-hsl), .9);--bg-color-light:hsl(var(--bg-color-h), var(--bg-color-s), calc(var(--bg-color-l) / .9));--bg-color-dark:hsl(var(--bg-color-h), var(--bg-color-s), calc(var(--bg-color-l) * .9));--code-color-h:calc(var(--link-color-h) + 30);--code-color-s:calc(var(--link-color-s) * .2 + 30%);--code-color-l:var(--link-color-l);--code-color-hsl:var(--code-color-h),var(--code-color-s),var(--code-color-l);--code-color:hsl(var(--code-color-hsl));--code-color-0:hsla(var(--code-color-hsl), 0);--code-color-3:hsla(var(--code-color-hsl), .03);--code-color-5:hsla(var(--code-color-hsl), .05);--code-color-7:hsla(var(--code-color-hsl), .07);--code-color-10:hsla(var(--code-color-hsl), .1);--code-color-20:hsla(var(--code-color-hsl), .2);--code-color-30:hsla(var(--code-color-hsl), .3);--code-color-40:hsla(var(--code-color-hsl), .4);--code-color-50:hsla(var(--code-color-hsl), .5);--code-color-60:hsla(var(--code-color-hsl), .6);--code-color-70:hsla(var(--code-color-hsl), .7);--code-color-80:hsla(var(--code-color-hsl), .8);--code-color-90:hsla(var(--code-color-hsl), .9);--code-color-light:hsl(var(--code-color-h), var(--code-color-s), calc(var(--code-color-l) / .9));--code-color-dark:hsl(var(--code-color-h), var(--code-color-s), calc(var(--code-color-l) * .9))}*,::after,::before{padding:0;margin:0;box-sizing:border-box}html{font-size:100%;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;text-size-adjust:none;text-rendering:optimizelegibility;image-rendering:optimizequality;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:var(--bg-color)}body{--space-body:var(--space-lg);padding-top:0;padding-bottom:0;padding-left:var(--space-body);padding-right:var(--space-body);margin:0 auto 0;font-family:var(--fontstack-default);font-size:var(--font-size);-webkit-font-feature-settings:var(--font-features);font-feature-settings:var(--font-features);line-height:var(--line-height);hanging-punctuation:first allow-end;color:var(--text-color);background:var(--bg-color);transition:all .2s ease}@media(max-width:1080px){body{--space-body:var(--space-md);font-size:calc(var(--font-size)*1.4)}}@media(max-width:640px){body{--space-body:var(--space-sm);font-size:calc(var(--font-size)*2.4)}}@media(max-width:400px){body{font-size:calc(var(--font-size)*3.2)}}a{color:var(--text-color);text-decoration:none;transition:color .5s ease,border-color .5s ease,background .5s ease,opacity 1.5s ease}a:focus,a:hover{transition:color .1s ease,border-color .1s ease,background .1s ease,opacity .1s ease;text-decoration:underline}img{border:0}::-webkit-input-placeholder{color:var(--text-color);opacity:.2}:-ms-input-placeholder{color:var(--text-color);opacity:.2}:focus::-webkit-input-placeholder{color:var(--link-color)}:focus:-ms-input-placeholder{color:var(--link-color)}.navigation{padding-top:var(--nav-padding);padding-bottom:var(--nav-padding);margin-right:calc(var(--nav-item-space)*-1);margin-left:calc(var(--nav-item-space)*-1);font-size:90%;font-weight:700}.navigation li{display:inline-block;line-height:2}.navigation li a{padding:.5em var(--nav-item-space)}.navigation li a:focus,.navigation li a:hover{color:var(--link-color);text-decoration:none}.content{margin-bottom:16vmin}.content::after,.content::before{display:table;content:""}.content::after{clear:both}.content article>:last-child{margin-bottom:0!important}.content article>:last-child>:last-child{margin-bottom:0!important}.content article>:last-child>:last-child>:last-child{margin-bottom:0!important}.content .post-content>:first-child{margin-top:0}.content .post-content>:first-child>:first-child{margin-top:0}.content a{font-weight:700}.content a:has(>code){-webkit-text-decoration-color:var(--code-color);text-decoration-color:var(--code-color)}.content p{margin-bottom:1.6rem;line-height:calc(var(--line-height)*1.2)}.content header{--header-height:100vh;--space-header:var(--space-lg);display:flex;min-height:calc(var(--header-height) - var(--nav-padding)*4 - var(--nav-item-space)*4 - 1.8ex);padding-top:10vmin;padding-bottom:10vmin;margin-bottom:16vmin;flex-direction:column;justify-content:center;background:var(--text-color-3);padding-left:var(--space-header);padding-right:var(--space-header);margin-left:calc(var(--space-header)*-1);margin-right:calc(var(--space-header)*-1)}@media(max-width:1080px){.content header{--header-height:70vh;--space-header:var(--space-md);padding-top:16vmin;padding-bottom:16vmin}}@media(max-width:640px){.content header{--space-header:var(--space-sm)}}.content header h1{font-size:360%;font-weight:700;letter-spacing:var(--heading-letter-spacing);margin-left:-2px;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.1}@media(max-width:640px){.content header h1{font-size:280%}}.content header small{display:block;margin-top:2vmin}.content h2,.content h3{margin:10vmin 0 1rem;font-size:72%;font-weight:400;opacity:.5}.content ul{margin-bottom:1.8rem;list-style:none;counter-reset:list}@media(max-width:640px){.content ul{margin-left:1em}}.content ul li{line-height:calc(var(--line-height)*1.2)}.content ul li::before{position:absolute;display:flex;justify-content:flex-end;width:4em;margin-top:0;margin-left:-4em;text-align:right;opacity:.4;pointer-events:none}.content ul li::before{content:"-";padding-right:.5em}.content img{--space-deco:var(--space-md);display:block;width:calc(100% + var(--space-deco)*2);margin-left:calc(var(--space-deco)*-1);margin-right:calc(var(--space-deco)*-1);margin-bottom:1.8rem}@media(max-width:1080px){.content img{--space-deco:var(--space-md)}}@media(max-width:640px){.content img{--space-deco:var(--space-sm)}}.content code,.content pre{font-family:var(--fontstack-monospace);color:var(--code-color)}.content pre{background:var(--code-color-5)}.content code{font-size:92%;overflow-wrap:break-word}.content .highlight>pre,.content .highlighter-rouge pre.highlight,.content pre{--space-code:var(--space-xs);padding-top:var(--space-xs);padding-bottom:var(--space-xs);padding-left:var(--space-code);padding-right:var(--space-code);margin-left:calc(var(--space-code)*-1);margin-right:calc(var(--space-code)*-1);margin-bottom:1.8rem;overflow-x:auto;font-size:80%;line-height:calc(var(--line-height)*1.2);-webkit-overflow-scrolling:touch}@media(max-width:1080px){.content .highlight>pre,.content .highlighter-rouge pre.highlight,.content pre{--space-code:var(--space-md)}}@media(max-width:640px){.content .highlight>pre,.content .highlighter-rouge pre.highlight,.content pre{--space-code:var(--space-sm)}}.content .highlight>pre code,.content .highlighter-rouge pre.highlight code,.content pre code{overflow-wrap:normal}.footer{padding:0 0 16vmin;margin-right:calc(var(--nav-item-space)*-1);margin-left:calc(var(--nav-item-space)*-1);font-size:80%;text-transform:lowercase}.footer ul li{display:inline-block;line-height:1.8}.footer ul li a{padding:.5em var(--nav-item-space)}@media print{*,::after,::before{background:rgba(0,0,0,0)!important;color:#000!important;box-shadow:none!important;text-shadow:none!important}body{padding:10mm!important;margin:0!important;font-size:calc(var(--font-size)*1.35)}a,a:visited{text-decoration:none}.content header{min-height:0;padding-bottom:0}.content .post-content{max-width:100%!important}.content .post-content a[href]::after{content:" (" attr(href) ")";font-weight:400;opacity:.5}pre{page-break-inside:avoid}img{page-break-inside:avoid}img{max-width:100%!important}h2,h3,p{orphans:3;widows:3}h2,h3{page-break-after:avoid}.footer,.navigation{display:none}}:root{--rdmz-h:var(--code-color-h, 254);--rdmz-s:var(--code-color-s, 80%);--rdmz-l:var(--code-color-l, 39%)}.highlight>pre,.highlighter-rouge pre.highlight{background:hsla(var(--rdmz-h),var(--rdmz-s),var(--rdmz-l),.03)}.highlight .c1,.highlighter-rouge .c1{font-style:italic}.highlight .nf,.highlighter-rouge .nf{font-weight:700}.highlight .o,.highlighter-rouge .o{font-weight:700}.highlight .k,.highlighter-rouge .k{font-weight:700}.highlight .kt,.highlighter-rouge .kt{font-weight:700}.highlight .kc,.highlighter-rouge .kc{font-weight:700}.highlight code,.highlight pre,.highlighter-rouge code,.highlighter-rouge pre{--rdmz-h-local:var(--rdmz-h);color:hsl(var(--rdmz-h),var(--rdmz-s),var(--rdmz-l))}.highlight .n,.highlighter-rouge .n{--rdmz-h-local:calc(var(--rdmz-h) + 16.1194029851);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .na,.highlighter-rouge .na{--rdmz-h-local:calc(var(--rdmz-h) + 21.4925373134);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .nb,.highlighter-rouge .nb{--rdmz-h-local:calc(var(--rdmz-h) + 26.8656716418);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .no,.highlighter-rouge .no{--rdmz-h-local:calc(var(--rdmz-h) + 42.9850746269);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .nf,.highlighter-rouge .nf{--rdmz-h-local:calc(var(--rdmz-h) + 64.4776119403);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .nl,.highlighter-rouge .nl{--rdmz-h-local:calc(var(--rdmz-h) + 69.8507462687);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .nn,.highlighter-rouge .nn{--rdmz-h-local:calc(var(--rdmz-h) + 75.223880597);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .nt,.highlighter-rouge .nt{--rdmz-h-local:calc(var(--rdmz-h) + 85.9701492537);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .nv,.highlighter-rouge .nv{--rdmz-h-local:calc(var(--rdmz-h) + 91.3432835821);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .k,.highlighter-rouge .k{--rdmz-h-local:calc(var(--rdmz-h) + 177.3134328358);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .kc,.highlighter-rouge .kc{--rdmz-h-local:calc(var(--rdmz-h) + 182.6865671642);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .kn,.highlighter-rouge .kn{--rdmz-h-local:calc(var(--rdmz-h) + 193.4328358209);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .kt,.highlighter-rouge .kt{--rdmz-h-local:calc(var(--rdmz-h) + 209.552238806);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .w,.highlighter-rouge .w{--rdmz-h-local:calc(var(--rdmz-h) + 220.2985074627);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .s,.highlighter-rouge .s{--rdmz-h-local:calc(var(--rdmz-h) + 236.4179104478);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .s2,.highlighter-rouge .s2{--rdmz-h-local:calc(var(--rdmz-h) + 257.9104477612);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .se,.highlighter-rouge .se{--rdmz-h-local:calc(var(--rdmz-h) + 263.2835820896);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .si,.highlighter-rouge .si{--rdmz-h-local:calc(var(--rdmz-h) + 274.0298507463);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .s1,.highlighter-rouge .s1{--rdmz-h-local:calc(var(--rdmz-h) + 290.1492537313);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .mi,.highlighter-rouge .mi{--rdmz-h-local:calc(var(--rdmz-h) + 317.0149253731);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .o,.highlighter-rouge .o{--rdmz-h-local:calc(var(--rdmz-h) + 343.8805970149);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .p,.highlighter-rouge .p{--rdmz-h-local:calc(var(--rdmz-h) + 354.6268656716);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .pi,.highlighter-rouge .pi{--rdmz-h-local:calc(var(--rdmz-h) + 360);color:hsl(var(--rdmz-h-local),var(--rdmz-s),var(--rdmz-l))}.highlight .c1,.highlighter-rouge .c1{color:hsla(calc(var(--rdmz-h) + 26.8656716418),calc(var(--rdmz-s) * .7),var(--rdmz-l),.6)}:root{--font-size:1.5vw;--space-lg:12vw;--bg-color-h:168;--bg-color-s:100%;--bg-color-l:25%;--bg-color-hsl:var(--bg-color-h),var(--bg-color-s),var(--bg-color-l);--bg-color:hsl(var(--bg-color-hsl));--bg-color-light:hsl(var(--bg-color-h), var(--bg-color-s), calc(var(--bg-color-l) ));--bg-color-dark:hsl(var(--bg-color-h), var(--bg-color-s), calc(var(--bg-color-l) ));--text-color:white;--link-color-h:168;--link-color-s:100%;--link-color-l:85%;--link-color-hsl:var(--link-color-h),var(--link-color-s),var(--link-color-l);--link-color:hsl(var(--link-color-hsl))}.content header{background-color:#003329;flex-direction:inherit}.content img{--space-deco:var(--space-md);display:block;margin-left:unset;margin-right:unset;margin-bottom:unset;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;width:100%}.content header h1{font-size:200%;padding-bottom:1rem}.content .highlight>pre,.content .highlighter-rouge pre.highlight,.content pre{margin-bottom:unset;line-height:unset;padding-left:unset;padding-right:unset;margin-left:unset;margin-right:unset}</style> <link rel="canonical" href="https://sparanoid.com/website/serverless-telegram-bot-jokes.html"> <meta property="og:type" content="article"> <meta property="og:site_name" content="Typhoon Orchestrator"> <meta property="og:title" content="How to create a Serverless Telegram Bot to send daily jokes to your friends"> <meta property="og:url" content="https://sparanoid.com/website/serverless-telegram-bot-jokes.html"> <meta property="og:description" content="Typhoon Orchestrator is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from https://jokeapi.dev..."> <meta property="og:image" content="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gfjtgfcfs5q19ay8jvrp.png"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:site" content="@sparanoid"> <meta property="article:published_time" content="2022-05-31T00:00:00-07:00"> <meta property="article:modified_time" content="2022-05-31T00:00:00-07:00"> <meta name="twitter:label1" value="Words"> <meta name="twitter:data1" value="2795 words"> <meta name="twitter:label2" value="Reading time"> <meta name="twitter:data2" value="13 mins"> </head><body><nav class="navigation"> <ul> <li> <a href="/website/">Typhoon Orchestrator</a> </li> <li> <a href="/website/#features">Features</a> </li> <li> <a href="/website/#plugins">Plugins</a> </li> <li> <a href="/website/#blog">Blog</a> </li> </ul> </nav> <main class="content" role="main"> <article lang="en"> <header> <h1 title="How to create a Serverless Telegram Bot to send daily jokes to your friends" data-title="How to create a Serverless Telegram Bot to send daily jokes to your friends"> How to create a Serverless Telegram Bot to send daily jokes to your friends<span class="dot dot--post"> </span> </h1> <small> By <span rel="author">biellls</span> on <time datetime="2022-05-31T00:00:00-07:00">May 31, 2022</time> </small> </header> <div class="post-content"> <p><a href="https://github.com/typhoon-data-org/typhoon-orchestrator">Typhoon Orchestrator</a> is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from <a href="https://jokeapi.dev">https://jokeapi.dev</a> once a day and sends it to your telegram group.</p> <h2 id="getting-started">Getting started</h2> <p>The first thing you need to do is install typhoon and the rest of the dependencies needed for this tutorial, preferrably in a virtual environment.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>typhoon-orchestrator[dev]
 pip <span class="nb">install </span>python-telegram-bot
 pip <span class="nb">install </span>requests
-</code></pre></div></div>
-
-<p>Next we create our project, we will call our project jester (we could call it anything).</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon init jester <span class="nt">--template</span> minimal
+</code></pre></div></div> <p>Next we create our project, we will call our project jester (we could call it anything).</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon init jester <span class="nt">--template</span> minimal
 <span class="nb">cd </span>jester
 typhoon status
-</code></pre></div></div>
-
-<p>Notice that the status command gives us the following warning: <code class="language-plaintext highlighter-rouge">Connections YAML not found. To add connections create connections.yml</code>. This is normal because typhoon normally uses a metadata database where you can store connections and variables, but we don’t want to create and use any DynamoDB tables for this tutorial so we used the minimal template that doesn’t include anything related to the metadata database. If you see any warnings about the metadata database during the course of the tutorial don’t worry, it’s for the same reason.</p>
-
-<h2 id="tell-me-a-joke">Tell me a joke!</h2>
-
-<p>Before we worry about telegram, let’s create a workflow that calls the joke API and prints the joke on your CLI. Create the file: <code class="language-plaintext highlighter-rouge">dags/send_me_a_joke.yml</code>:</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">send_me_a_joke</span>
+</code></pre></div></div> <p>Notice that the status command gives us the following warning: <code class="language-plaintext highlighter-rouge">Connections YAML not found. To add connections create connections.yml</code>. This is normal because typhoon normally uses a metadata database where you can store connections and variables, but we don’t want to create and use any DynamoDB tables for this tutorial so we used the minimal template that doesn’t include anything related to the metadata database. If you see any warnings about the metadata database during the course of the tutorial don’t worry, it’s for the same reason.</p> <h2 id="tell-me-a-joke">Tell me a joke!</h2> <p>Before we worry about telegram, let’s create a workflow that calls the joke API and prints the joke on your CLI. Create the file: <code class="language-plaintext highlighter-rouge">dags/send_me_a_joke.yml</code>:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">send_me_a_joke</span>
 <span class="na">schedule_interval</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@daily'</span>
 
 <span class="na">tasks</span><span class="pi">:</span>
@@ -183,15 +25,7 @@ typhoon status
     <span class="na">function</span><span class="pi">:</span> <span class="s">typhoon.debug.echo</span>
     <span class="na">args</span><span class="pi">:</span>
       <span class="na">joke</span><span class="pi">:</span> <span class="kt">!Py</span> <span class="s">$BATCH</span>
-</code></pre></div></div>
-
-<p>This workflow has three tasks using built-in functions:</p>
-
-<ul>
-  <li>
-    <p><strong>get_joke</strong>: Calls the joke API and gets a response like to the following:</p>
-
-    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
+</code></pre></div></div> <p>This workflow has three tasks using built-in functions:</p> <ul> <li> <p><strong>get_joke</strong>: Calls the joke API and gets a response like to the following:</p> <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
       </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programming"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single"</span><span class="p">,</span><span class="w">
@@ -208,28 +42,8 @@ typhoon status
       </span><span class="nl">"safe"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nl">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre></div>    </div>
-  </li>
-  <li><strong>select_joke_text</strong>: Uses a <a href="https://jmespath.org/">JMESPath</a> expression to select data from the JSON text.</li>
-  <li><strong>tell_joke</strong>: Prints the joke text.</li>
-</ul>
-
-<p>The <code class="language-plaintext highlighter-rouge">!Py</code> tag means that instead of passing it a YAML object, you are passing it a string representing python code to run. For example, <code class="language-plaintext highlighter-rouge">foo: 4</code> is equivalent to <code class="language-plaintext highlighter-rouge">foo: !Py 2+2</code>.  <code class="language-plaintext highlighter-rouge">$BATCH</code> is a special variable that holds whatever the previous function returned or yielded. In the case of the <code class="language-plaintext highlighter-rouge">select_joke_test</code> task where the input is the <code class="language-plaintext highlighter-rouge">get_joke</code> task, its function returned a NamedTuple with a response and some metadata, so that <code class="language-plaintext highlighter-rouge">$BATCH.response</code>is a requests.Response object.</p>
-
-<p>Lets run to see a joke in our terminal</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag run <span class="nt">--dag-name</span> send_me_a_joke
-</code></pre></div></div>
-
-<p>Piece of cake! But here comes the interesting part…</p>
-
-<h2 id="i-want-the-joke-on-telegram">I want the joke on telegram</h2>
-
-<p>There is no built-in function in Typhoon to send a text to a telegram chat. Fortunately it’s very easy to extend Typhoon, so let’s make it ourselves.</p>
-
-<p>Create the following file <code class="language-plaintext highlighter-rouge">functions/msg.py</code>:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">telegram</span>
+</span></code></pre></div> </div> </li> <li><strong>select_joke_text</strong>: Uses a <a href="https://jmespath.org/">JMESPath</a> expression to select data from the JSON text.</li> <li><strong>tell_joke</strong>: Prints the joke text.</li> </ul> <p>The <code class="language-plaintext highlighter-rouge">!Py</code> tag means that instead of passing it a YAML object, you are passing it a string representing python code to run. For example, <code class="language-plaintext highlighter-rouge">foo: 4</code> is equivalent to <code class="language-plaintext highlighter-rouge">foo: !Py 2+2</code>. <code class="language-plaintext highlighter-rouge">$BATCH</code> is a special variable that holds whatever the previous function returned or yielded. In the case of the <code class="language-plaintext highlighter-rouge">select_joke_test</code> task where the input is the <code class="language-plaintext highlighter-rouge">get_joke</code> task, its function returned a NamedTuple with a response and some metadata, so that <code class="language-plaintext highlighter-rouge">$BATCH.response</code>is a requests.Response object.</p> <p>Lets run to see a joke in our terminal</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag run <span class="nt">--dag-name</span> send_me_a_joke
+</code></pre></div></div> <p>Piece of cake! But here comes the interesting part…</p> <h2 id="i-want-the-joke-on-telegram">I want the joke on telegram</h2> <p>There is no built-in function in Typhoon to send a text to a telegram chat. Fortunately it’s very easy to extend Typhoon, so let’s make it ourselves.</p> <p>Create the following file <code class="language-plaintext highlighter-rouge">functions/msg.py</code>:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">telegram</span>
 
 <span class="k">def</span> <span class="nf">send_message_telegram</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">chat_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="s">"""Given a telegram bot token, chat_id and message,
@@ -238,11 +52,7 @@ typhoon status
     <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Sending message </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s"> to </span><span class="si">{</span><span class="n">chat_id</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
     <span class="n">bot</span><span class="p">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">message</span>
-</code></pre></div></div>
-
-<p>And update the DAG file we created before at <code class="language-plaintext highlighter-rouge">dags/send_me_a_joke.yml</code>:</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">send_me_a_joke</span>
+</code></pre></div></div> <p>And update the DAG file we created before at <code class="language-plaintext highlighter-rouge">dags/send_me_a_joke.yml</code>:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">send_me_a_joke</span>
 <span class="na">schedule_interval</span><span class="pi">:</span> <span class="s">0 10 * * *</span>  <span class="c1"># Send the joke at 10am every day</span>
 
 <span class="na">tasks</span><span class="pi">:</span>
@@ -269,64 +79,14 @@ typhoon status
 <span class="na">requirements</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">python-telegram-bot</span>
   <span class="pi">-</span> <span class="s">requests</span>
-</code></pre></div></div>
-
-<p>Notice that for the token and chat id we have the <code class="language-plaintext highlighter-rouge">!Var</code> tag. This is because we don’t want to include a secret like a token in the code, so we will read it from a variable. If you are really perceptive you may be thinking: “Didn’t you say that we are using a minimal deployment where there is no metadata database to store variables on?” Yes, that’s 100% correct. Usually we would store variables in the metadata database. However, we will use the alternate method of storing variables which is using an environment variable that starts with <code class="language-plaintext highlighter-rouge">TYPHOON_VARIABLE_</code>.</p>
-
-<ul>
-  <li>To create a bot with the botfather and <strong>get a token</strong> follow the official tutorial <a href="https://core.telegram.org/bots#creating-a-new-bot">https://core.telegram.org/bots#creating-a-new-bot</a></li>
-  <li>To <strong>find out your chat ID</strong> check out <a href="https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id">https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id</a>. Keep in mind that <strong>you can only add the bot to group chats, not private conversations</strong>.</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">TYPHOON_VARIABLE_telegram_token</span><span class="o">=</span><span class="s2">"MY_SECRET_TELEGRAM_TOKEN"</span>
+</code></pre></div></div> <p>Notice that for the token and chat id we have the <code class="language-plaintext highlighter-rouge">!Var</code> tag. This is because we don’t want to include a secret like a token in the code, so we will read it from a variable. If you are really perceptive you may be thinking: “Didn’t you say that we are using a minimal deployment where there is no metadata database to store variables on?” Yes, that’s 100% correct. Usually we would store variables in the metadata database. However, we will use the alternate method of storing variables which is using an environment variable that starts with <code class="language-plaintext highlighter-rouge">TYPHOON_VARIABLE_</code>.</p> <ul> <li>To create a bot with the botfather and <strong>get a token</strong> follow the official tutorial <a href="https://core.telegram.org/bots#creating-a-new-bot">https://core.telegram.org/bots#creating-a-new-bot</a></li> <li>To <strong>find out your chat ID</strong> check out <a href="https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id">https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id</a>. Keep in mind that <strong>you can only add the bot to group chats, not private conversations</strong>.</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">TYPHOON_VARIABLE_telegram_token</span><span class="o">=</span><span class="s2">"MY_SECRET_TELEGRAM_TOKEN"</span>
 <span class="nb">export </span><span class="nv">TYPHOON_VARIABLE_chat_id</span><span class="o">=</span><span class="s2">"128332492187641"</span>
-</code></pre></div></div>
-
-<p>Now that we have everything ready, let’s send some jokes.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag run <span class="nt">--dag-name</span> send_me_a_joke
-</code></pre></div></div>
-
-<p>If everything was correctly set up you should get the notification with a random programmer joke!</p>
-
-<h2 id="aiming-for-the-clouds">Aiming for the clouds</h2>
-
-<h3 id="build-and-upload-the-workflow">Build and upload the workflow</h3>
-
-<p>This is all well and good, but we want the bot to tell us a joke every day without needing to run the code locally. First of all let’s compile our code into a zip and upload it to S3 so that Lambda can use it. This can be a little tedious, but luckily Typhoon takes care of that for us. We need to tell it to which S3 bucket we want to deploy to. <strong>You will also need a configured <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html#cli-configure-profiles-create">AWS profile</a></strong>. Open the <code class="language-plaintext highlighter-rouge">.typhoonremotes</code> file and modify it to use your profile and S3 bucket.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[test]
+</code></pre></div></div> <p>Now that we have everything ready, let’s send some jokes.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag run <span class="nt">--dag-name</span> send_me_a_joke
+</code></pre></div></div> <p>If everything was correctly set up you should get the notification with a random programmer joke!</p> <h2 id="aiming-for-the-clouds">Aiming for the clouds</h2> <h3 id="build-and-upload-the-workflow">Build and upload the workflow</h3> <p>This is all well and good, but we want the bot to tell us a joke every day without needing to run the code locally. First of all let’s compile our code into a zip and upload it to S3 so that Lambda can use it. This can be a little tedious, but luckily Typhoon takes care of that for us. We need to tell it to which S3 bucket we want to deploy to. <strong>You will also need a configured <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html#cli-configure-profiles-create">AWS profile</a></strong>. Open the <code class="language-plaintext highlighter-rouge">.typhoonremotes</code> file and modify it to use your profile and S3 bucket.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[test]
 aws-profile=myaws
 s3-bucket=typhoon-orchestrator
-</code></pre></div></div>
-
-<p>Now that we have a remote called <code class="language-plaintext highlighter-rouge">test</code> we are ready to create the zip files and push them to S3. You will need to have docker installed for this step because the dependencies need to be built in an OS that is compatible with the one Lambda is using, otherwise they won’t work. This is a very common source of problems that Typhoon helps you avoid. If you are sure that your OS is compatible you can add the flag <code class="language-plaintext highlighter-rouge">--build-deps-locally</code>, but <strong>it is generally not recomended</strong>.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag push --dag-name send_me_a_joke test
-</code></pre></div></div>
-
-<p>This will have taken a very long time because Typhoon built all of the dependencies, but don’t worry <strong>updating the workflow code is much much faster since the dependencies are separated into a layer and don’t need to be re-deployed unless they change</strong>.</p>
-
-<p>The <code class="language-plaintext highlighter-rouge">test</code> at the end tells it what remote to deploy to. In the future we could add a different production environment with its own remote.</p>
-
-<p>If you check your S3 bucket now you’ll find two files:</p>
-
-<ul>
-  <li><strong>The lambda code:</strong> <code class="language-plaintext highlighter-rouge">typhoon_dag_builds/send_me_a_joke/lambda.zip</code></li>
-  <li><strong>All the necessary dependencies</strong>: <code class="language-plaintext highlighter-rouge">typhoon_dag_builds/send_me_a_joke/layer.zip</code></li>
-</ul>
-
-<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gfjtgfcfs5q19ay8jvrp.png" alt="S3 objects" /></p>
-
-<h3 id="deploying-infrastructure">Deploying infrastructure</h3>
-
-<p>For this part you will need to <a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">install and set up terraform</a>. Learn more about infrastructure as code <a href="https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/aws-get-started">here</a>.</p>
-
-<p><strong>Typhoon automatically creates some terraform files that describe all the necessary infrastructure</strong> to create in order to deploy our workflow to AWS Lambda. This greatly simplifies the creation of all the necessary resources that you would otherwise need to create manually. More importantly, it provides you a starting point while also giving you full control to change the terraform files until you have the desired configuration.</p>
-
-<p>For this tutorial you just need to <strong>update the test variables file to include the S3 bucket name and some DAG info</strong>. We can get the info for all the dags by running <code class="language-plaintext highlighter-rouge">typhoon dag info --json-output --indent 2</code>, but in this case we will need to adapt it to include the necessary environment variables. This means that you will need to add the following to the file <code class="language-plaintext highlighter-rouge">terraform/test.tfvars</code>.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dag_info = {
+</code></pre></div></div> <p>Now that we have a remote called <code class="language-plaintext highlighter-rouge">test</code> we are ready to create the zip files and push them to S3. You will need to have docker installed for this step because the dependencies need to be built in an OS that is compatible with the one Lambda is using, otherwise they won’t work. This is a very common source of problems that Typhoon helps you avoid. If you are sure that your OS is compatible you can add the flag <code class="language-plaintext highlighter-rouge">--build-deps-locally</code>, but <strong>it is generally not recomended</strong>.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag push --dag-name send_me_a_joke test
+</code></pre></div></div> <p>This will have taken a very long time because Typhoon built all of the dependencies, but don’t worry <strong>updating the workflow code is much much faster since the dependencies are separated into a layer and don’t need to be re-deployed unless they change</strong>.</p> <p>The <code class="language-plaintext highlighter-rouge">test</code> at the end tells it what remote to deploy to. In the future we could add a different production environment with its own remote.</p> <p>If you check your S3 bucket now you’ll find two files:</p> <ul> <li><strong>The lambda code:</strong> <code class="language-plaintext highlighter-rouge">typhoon_dag_builds/send_me_a_joke/lambda.zip</code></li> <li><strong>All the necessary dependencies</strong>: <code class="language-plaintext highlighter-rouge">typhoon_dag_builds/send_me_a_joke/layer.zip</code></li> </ul> <p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gfjtgfcfs5q19ay8jvrp.png" alt="S3 objects"></p> <h3 id="deploying-infrastructure">Deploying infrastructure</h3> <p>For this part you will need to <a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">install and set up terraform</a>. Learn more about infrastructure as code <a href="https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/aws-get-started">here</a>.</p> <p><strong>Typhoon automatically creates some terraform files that describe all the necessary infrastructure</strong> to create in order to deploy our workflow to AWS Lambda. This greatly simplifies the creation of all the necessary resources that you would otherwise need to create manually. More importantly, it provides you a starting point while also giving you full control to change the terraform files until you have the desired configuration.</p> <p>For this tutorial you just need to <strong>update the test variables file to include the S3 bucket name and some DAG info</strong>. We can get the info for all the dags by running <code class="language-plaintext highlighter-rouge">typhoon dag info --json-output --indent 2</code>, but in this case we will need to adapt it to include the necessary environment variables. This means that you will need to add the following to the file <code class="language-plaintext highlighter-rouge">terraform/test.tfvars</code>.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dag_info = {
     "send_me_a_joke": {
         "schedule_interval": "cron(0 10 * * ? *)",
         "environment": {
@@ -335,42 +95,14 @@ s3-bucket=typhoon-orchestrator
         }
     }
 }
-</code></pre></div></div>
-
-<p>Notice how the schedule interval is in a different format than the one we defined. This is because Terraform maps to AWS resources, and AWS uses its own flavor of cron expressions which is incompatible with the standard Unix cron expressions used by tools like cron, crontab, Airflow and many more. Typhoon aims to be a framework that can deploy to many platforms (currently supports AWS Lambda and Airflow) so we decided to follow the industry standard instead of AWS’s. Luckily, when we run <code class="language-plaintext highlighter-rouge">typhoon dag info ...</code> <strong>Typhoon converts it to AWS’s standard so you don’t need to do that yourself!</strong></p>
-
-<p>Now we are ready to create the infrastructure with terraform.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">AWS_PROFILE</span><span class="o">=</span>my-aws-profile
+</code></pre></div></div> <p>Notice how the schedule interval is in a different format than the one we defined. This is because Terraform maps to AWS resources, and AWS uses its own flavor of cron expressions which is incompatible with the standard Unix cron expressions used by tools like cron, crontab, Airflow and many more. Typhoon aims to be a framework that can deploy to many platforms (currently supports AWS Lambda and Airflow) so we decided to follow the industry standard instead of AWS’s. Luckily, when we run <code class="language-plaintext highlighter-rouge">typhoon dag info ...</code> <strong>Typhoon converts it to AWS’s standard so you don’t need to do that yourself!</strong></p> <p>Now we are ready to create the infrastructure with terraform.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">AWS_PROFILE</span><span class="o">=</span>my-aws-profile
 <span class="nb">export </span><span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>eu-west-1
 <span class="nb">cd </span>terraform
 terraform init
 terraform plan <span class="nt">-var-file</span><span class="o">=</span>test.tfvars <span class="nt">-out</span><span class="o">=</span>tfplan
 terraform apply tfplan
-</code></pre></div></div>
-
-<p>And voila! You can check all of the resources that have been created in AWS and take a moment to appreciate how much time we’ve saved.</p>
-
-<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ymarmji5bglvr7axo16r.png" alt="AWS Lambda Function" /></p>
-
-<h2 id="lets-take-it-for-a-spin">Let’s take it for a spin</h2>
-
-<p>If everything worked correctly you will get a joke in your telegram chat at 10am, but we don’t want to wait that long, we want to hear one now! You could invoke the Lambda from the AWS console, but we will invoke it with Typhoon.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag run <span class="nt">--dag-name</span> send_me_a_joke <span class="nb">test</span>
-</code></pre></div></div>
-
-<p>Hopefully you got a hilarious joke sent right to your group chat.</p>
-
-<p>This is the same command we used earlier to run the workflow locally, but with <code class="language-plaintext highlighter-rouge">test</code>at the end specifying that we want to run it in the remote environment. This has invoked a lambda and shown you the logs. Actually, to be more precise, it has invoked a Lambda that has then invoked another Lambda and then invoked another Lambda. Why? Because Typhoon is asynchronous by default which means that as soon as a function returns or yields a batch we invoke a new Lambda to process it. This is useful because you can have a lot of tasks performing work in parallel. For example, imagine you have a workflow that reads FTP CSV files, zips them up and uploads to S3. The first task could list all the CSV files in the FTP and yields each path as a batch. Then the next task will compress them which can take a long time, but we actually invoked a new Lambda instance for each batch so we are processing them all in parallel!</p>
-
-<p>Notice how even though the workflow ran across three lambdas, you still got the full log in your terminal. Lambdas can be hard to monitor and debug, but Typhoon tries to make this process easier. This is why when you run a Typhoon DAG manually, it waits for a response so that it can print the logs. Every invocation will in turn also wait for the response of any Lambdas it invokes so you will end up with the full log no matter how many Lambda invocations the workflow ran on. It’s extremely useful to be able to see if the DAG is working correctly, but it does introduce synchronicity so the DAG will run slower. We believe it’s a worthwile tradeoff for manual invocations. <strong>Rest assured that when the workflow is triggered on schedule it will run at full speed</strong>.</p>
-
-<h2 id="why-cant-i-just-run-everything-in-one-lambda">Why can’t I just run everything in one lambda?</h2>
-
-<p>Great question, and there’s no reason not to since our worflow is very light and doesn’t benefit from parallelism. You just need to modify the first two tasks to make them synchronous with <code class="language-plaintext highlighter-rouge">asynchronous: False</code>. This is the relevant part of the code:</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tasks</span><span class="pi">:</span>
+</code></pre></div></div> <p>And voila! You can check all of the resources that have been created in AWS and take a moment to appreciate how much time we’ve saved.</p> <p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ymarmji5bglvr7axo16r.png" alt="AWS Lambda Function"></p> <h2 id="lets-take-it-for-a-spin">Let’s take it for a spin</h2> <p>If everything worked correctly you will get a joke in your telegram chat at 10am, but we don’t want to wait that long, we want to hear one now! You could invoke the Lambda from the AWS console, but we will invoke it with Typhoon.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag run <span class="nt">--dag-name</span> send_me_a_joke <span class="nb">test</span>
+</code></pre></div></div> <p>Hopefully you got a hilarious joke sent right to your group chat.</p> <p>This is the same command we used earlier to run the workflow locally, but with <code class="language-plaintext highlighter-rouge">test</code>at the end specifying that we want to run it in the remote environment. This has invoked a lambda and shown you the logs. Actually, to be more precise, it has invoked a Lambda that has then invoked another Lambda and then invoked another Lambda. Why? Because Typhoon is asynchronous by default which means that as soon as a function returns or yields a batch we invoke a new Lambda to process it. This is useful because you can have a lot of tasks performing work in parallel. For example, imagine you have a workflow that reads FTP CSV files, zips them up and uploads to S3. The first task could list all the CSV files in the FTP and yields each path as a batch. Then the next task will compress them which can take a long time, but we actually invoked a new Lambda instance for each batch so we are processing them all in parallel!</p> <p>Notice how even though the workflow ran across three lambdas, you still got the full log in your terminal. Lambdas can be hard to monitor and debug, but Typhoon tries to make this process easier. This is why when you run a Typhoon DAG manually, it waits for a response so that it can print the logs. Every invocation will in turn also wait for the response of any Lambdas it invokes so you will end up with the full log no matter how many Lambda invocations the workflow ran on. It’s extremely useful to be able to see if the DAG is working correctly, but it does introduce synchronicity so the DAG will run slower. We believe it’s a worthwile tradeoff for manual invocations. <strong>Rest assured that when the workflow is triggered on schedule it will run at full speed</strong>.</p> <h2 id="why-cant-i-just-run-everything-in-one-lambda">Why can’t I just run everything in one lambda?</h2> <p>Great question, and there’s no reason not to since our worflow is very light and doesn’t benefit from parallelism. You just need to modify the first two tasks to make them synchronous with <code class="language-plaintext highlighter-rouge">asynchronous: False</code>. This is the relevant part of the code:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tasks</span><span class="pi">:</span>
   <span class="na">get_joke</span><span class="pi">:</span>
     <span class="na">function</span><span class="pi">:</span> <span class="s">typhoon.http.get_raw</span>
     <span class="na">asynchronous</span><span class="pi">:</span> <span class="no">false</span>
@@ -384,86 +116,7 @@ terraform apply tfplan
     <span class="na">args</span><span class="pi">:</span>
       <span class="na">data</span><span class="pi">:</span> <span class="kt">!Py</span> <span class="s">$BATCH.response.json()</span>
       <span class="na">expression</span><span class="pi">:</span> <span class="s">joke</span>
-</code></pre></div></div>
-
-<p>Lets build and deploy the code, this time without dependencies by using the flag <code class="language-plaintext highlighter-rouge">--code</code>.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag push <span class="nt">--dag-name</span> send_me_a_joke <span class="nb">test</span> <span class="nt">--code</span>
-</code></pre></div></div>
-
-<p>Wow, that was much faster! You can see that once the workflow has been deployed one time with all the dependencies, <strong>making changes and deploying them is very fast and easy</strong>. Feel free to run the DAG again to check out how only one Lambda will be invoked now.</p>
-
-<h2 id="this-is-good-to-be-true-can-i-really-build-all-my-etls-like-this">This is good to be true, can I really build all my ETLs like this?</h2>
-
-<p>Yes and no… Depending on your use case Lambda can be a good fit, but there are currently some limitations to this approach:</p>
-
-<ul>
-  <li><strong>Lambdas can only run for 15 minutes</strong>. If you have a long running task this will not work for you. In the future <strong>we intend to support Fargate to run heavier tasks</strong> and solve this issue.</li>
-  <li><strong>Can we really do away with the scheduler?</strong> We have shown you a utopian vision of the future of ETLs. It still remains to be seen if we can fully avoid running a scheduler, and we may run into the harsh reality that if you want to be able to implement sensors, rate-limit tasks, etc. we may need a scheduler. Even if that turns out to be true, it would always be opt-in and much simpler than a traditional one.</li>
-</ul>
-
-<h2 id="does-that-mean-that-typhoon-is-not-ready-for-prime-time">Does that mean that Typhoon is not ready for prime time?</h2>
-
-<p><strong>Absolutely not!</strong> We may have a long (albeit exciting) path ahead to realize our vision of a battle tested, fully serverless, asynchronous workflow orchestrator, but AWS is not the only target. <strong>Typhoon supports compilation to native Airflow code</strong>, the most popular orchestrator around today. This feature can bridge the gap between the simplicity of our vision and the complex reality we currently live in as Data Engineers.</p>
-
-<p>Our hope is that you will use Typhoon and fall in love with the simplicity of our vision, and deploy to Airflow if the current state of AWS deployment can’t meet your needs.</p>
-
-<h2 id="cleaning-up">Cleaning up</h2>
-
-<p>If you want to clean up all the resources that were created on this tutorial run the following command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform plan <span class="nt">-var-file</span><span class="o">=</span>test.tfvars <span class="nt">-out</span><span class="o">=</span>tfplan <span class="nt">-destroy</span>
+</code></pre></div></div> <p>Lets build and deploy the code, this time without dependencies by using the flag <code class="language-plaintext highlighter-rouge">--code</code>.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typhoon dag push <span class="nt">--dag-name</span> send_me_a_joke <span class="nb">test</span> <span class="nt">--code</span>
+</code></pre></div></div> <p>Wow, that was much faster! You can see that once the workflow has been deployed one time with all the dependencies, <strong>making changes and deploying them is very fast and easy</strong>. Feel free to run the DAG again to check out how only one Lambda will be invoked now.</p> <h2 id="this-is-good-to-be-true-can-i-really-build-all-my-etls-like-this">This is good to be true, can I really build all my ETLs like this?</h2> <p>Yes and no… Depending on your use case Lambda can be a good fit, but there are currently some limitations to this approach:</p> <ul> <li><strong>Lambdas can only run for 15 minutes</strong>. If you have a long running task this will not work for you. In the future <strong>we intend to support Fargate to run heavier tasks</strong> and solve this issue.</li> <li><strong>Can we really do away with the scheduler?</strong> We have shown you a utopian vision of the future of ETLs. It still remains to be seen if we can fully avoid running a scheduler, and we may run into the harsh reality that if you want to be able to implement sensors, rate-limit tasks, etc. we may need a scheduler. Even if that turns out to be true, it would always be opt-in and much simpler than a traditional one.</li> </ul> <h2 id="does-that-mean-that-typhoon-is-not-ready-for-prime-time">Does that mean that Typhoon is not ready for prime time?</h2> <p><strong>Absolutely not!</strong> We may have a long (albeit exciting) path ahead to realize our vision of a battle tested, fully serverless, asynchronous workflow orchestrator, but AWS is not the only target. <strong>Typhoon supports compilation to native Airflow code</strong>, the most popular orchestrator around today. This feature can bridge the gap between the simplicity of our vision and the complex reality we currently live in as Data Engineers.</p> <p>Our hope is that you will use Typhoon and fall in love with the simplicity of our vision, and deploy to Airflow if the current state of AWS deployment can’t meet your needs.</p> <h2 id="cleaning-up">Cleaning up</h2> <p>If you want to clean up all the resources that were created on this tutorial run the following command:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform plan <span class="nt">-var-file</span><span class="o">=</span>test.tfvars <span class="nt">-out</span><span class="o">=</span>tfplan <span class="nt">-destroy</span>
 terraform apply <span class="nt">-destroy</span> tfplan
-</code></pre></div></div>
-
-<h2 id="thanks-for-following-along">Thanks for following along!</h2>
-
-<p>If you enjoyed this tutorial we hope to see you soon at <a href="https://github.com/typhoon-data-org/typhoon-orchestrator">https://github.com/typhoon-data-org/typhoon-orchestrator</a>. Check out the code, leave a star, open an issue or come say hi on our discord!</p>
-
-
-    
-    
-
-    
-  </div>
-
-</article>
-
-</main>
-<!-- Footer section -->
-
-  <footer class="footer">
-    <ul>
-      <li><a href="/">Typhoon Orchestrator</a></li>
-
-      
-        <li>
-          <a href="https://sparanoid.com/lab/amsf/" title="Almace Scaffolding with theme Curtana">AMSF</a>
-        </li>
-      
-
-      
-    </ul>
-  </footer>
-
-
-<!-- Theme scripts -->
-<script src="/assets/themes/curtana/js/app.js?assets-inline"></script>
-
-<!-- User scripts -->
-<script src="/assets/js/user.js?assets-inline"></script>
-
-<!-- Lightense Images -->
-
-
-<!-- Service Worker  -->
-
-
-<!-- Google Analytics -->
-
-
-<!-- Foot hooks -->
-
-
-<!-- Finale -->
-</html>
+</code></pre></div></div> <h2 id="thanks-for-following-along">Thanks for following along!</h2> <p>If you enjoyed this tutorial we hope to see you soon at <a href="https://github.com/typhoon-data-org/typhoon-orchestrator">https://github.com/typhoon-data-org/typhoon-orchestrator</a>. Check out the code, leave a star, open an issue or come say hi on our discord!</p> </div> </article> </main> <footer class="footer"> <ul> <li><a href="/website/">Typhoon Orchestrator</a></li> <li> <a href="https://sparanoid.com/lab/amsf/" title="Almace Scaffolding with theme Curtana">AMSF</a> </li> </ul> </footer> <script></script> <script></script> <script>"serviceWorker"in navigator&&"sparanoid.com"===window.location.hostname&&navigator.serviceWorker.register("/website/service-worker.js").then(function(e){console.log("ServiceWorker registration successful with scope: ",e.scope)}).catch(function(e){console.log("ServiceWorker registration failed: ",e)})</script></body></html>

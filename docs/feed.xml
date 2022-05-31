@@ -1,42 +1,292 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Typhoon Orchestrator</title>
-  <subtitle>Elegant Serverless YAML Data Pipelines</subtitle>
-  <updated>2022-05-31T13:18:14-07:00</updated>
-  <id>http://0.0.0.0:4321/</id>
-  <generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-05-31T14:12:06-07:00</updated><id>https://sparanoid.com/website/</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://sparanoid.com/website/" /><link rel="self" type="application/atom+xml" href="https://sparanoid.com/website/feed.xml" /><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/website/</uri><email>t@sparanoid.com</email></author><entry><title>How to create a Serverless Telegram Bot to send daily jokes to your friends</title><id>https://sparanoid.com/website/serverless-telegram-bot-jokes.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/serverless-telegram-bot-jokes.html" /><published>2022-05-31T00:00:00-07:00</published><updated>2022-05-31T13:58:24-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+          
+            &lt;p&gt;&lt;a href=&quot;https://github.com/typhoon-data-org/typhoon-orchestrator&quot;&gt;Typhoon Orchestrator&lt;/a&gt; is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from &lt;a href=&quot;https://jokeapi.dev&quot;&gt;https://jokeapi.dev&lt;/a&gt; once a day and sends it to your telegram group.&lt;/p&gt;
 
-  <link rel="alternate" type="text/html" hreflang="en" href="http://0.0.0.0:4321/" />
-  <link rel="self" type="application/atom+xml" href="http://0.0.0.0:4321/feed.xml" />
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting started&lt;/h2&gt;
 
-  <author>
-    <name>Tunghsiao Liu</name>
-    <uri>http://0.0.0.0:4321/</uri>
-    <email>t@sparanoid.com</email>
-  </author>
+&lt;p&gt;The first thing you need to do is install typhoon and the rest of the dependencies needed for this tutorial, preferrably in a virtual environment.&lt;/p&gt;
 
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;typhoon-orchestrator[dev]
+pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python-telegram-bot
+pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;requests
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Next we create our project, we will call our project jester (we could call it anything).&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;typhoon init jester &lt;span class=&quot;nt&quot;&gt;--template&lt;/span&gt; minimal
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;jester
+typhoon status
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that the status command gives us the following warning: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Connections YAML not found. To add connections create connections.yml&lt;/code&gt;. This is normal because typhoon normally uses a metadata database where you can store connections and variables, but we don’t want to create and use any DynamoDB tables for this tutorial so we used the minimal template that doesn’t include anything related to the metadata database. If you see any warnings about the metadata database during the course of the tutorial don’t worry, it’s for the same reason.&lt;/p&gt;
+
+&lt;h2 id=&quot;tell-me-a-joke&quot;&gt;Tell me a joke!&lt;/h2&gt;
+
+&lt;p&gt;Before we worry about telegram, let’s create a workflow that calls the joke API and prints the joke on your CLI. Create the file: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dags/send_me_a_joke.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;send_me_a_joke&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;schedule_interval&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@daily&apos;&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;get_joke&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;typhoon.http.get_raw&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&amp;amp;type=single&lt;/span&gt;
   
-    
-      
+  &lt;span class=&quot;na&quot;&gt;select_joke_text&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;get_joke&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;typhoon.json.search&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;!Py&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$BATCH.response.json()&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;expression&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;joke&lt;/span&gt;
 
-      
+  &lt;span class=&quot;na&quot;&gt;tell_joke&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;select_joke_text&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;typhoon.debug.echo&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;joke&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;!Py&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$BATCH&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-      <entry>
-        <title>Upgrading Guide from v1 to v2</title>
-        <id>http://0.0.0.0:4321/upgrading-from-v1-to-v2.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/upgrading-from-v1-to-v2.html" />
-        <published>2018-07-23T00:00:00-07:00</published>
+&lt;p&gt;This workflow has three tasks using built-in functions:&lt;/p&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;get_joke&lt;/strong&gt;: Calls the joke API and gets a response like to the following:&lt;/p&gt;
+
+    &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;error&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;category&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Programming&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;single&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;joke&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A man is smoking a cigarette and blowing smoke rings into the air. His girlfriend becomes irritated with the smoke and says &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Can&apos;t you see the warning on the cigarette pack? Smoking is hazardous to your health!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; to which the man replies, &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;I am a programmer.  We don&apos;t worry about warnings; we only worry about errors.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;flags&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;nsfw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;religious&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;political&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;racist&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;sexist&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;explicit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;38&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;safe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;lang&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;select_joke_text&lt;/strong&gt;: Uses a &lt;a href=&quot;https://jmespath.org/&quot;&gt;JMESPath&lt;/a&gt; expression to select data from the JSON text.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;tell_joke&lt;/strong&gt;: Prints the joke text.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;!Py&lt;/code&gt; tag means that instead of passing it a YAML object, you are passing it a string representing python code to run. For example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;foo: 4&lt;/code&gt; is equivalent to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;foo: !Py 2+2&lt;/code&gt;.  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$BATCH&lt;/code&gt; is a special variable that holds whatever the previous function returned or yielded. In the case of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;select_joke_test&lt;/code&gt; task where the input is the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get_joke&lt;/code&gt; task, its function returned a NamedTuple with a response and some metadata, so that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$BATCH.response&lt;/code&gt;is a requests.Response object.&lt;/p&gt;
+
+&lt;p&gt;Lets run to see a joke in our terminal&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;typhoon dag run &lt;span class=&quot;nt&quot;&gt;--dag-name&lt;/span&gt; send_me_a_joke
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Piece of cake! But here comes the interesting part…&lt;/p&gt;
+
+&lt;h2 id=&quot;i-want-the-joke-on-telegram&quot;&gt;I want the joke on telegram&lt;/h2&gt;
+
+&lt;p&gt;There is no built-in function in Typhoon to send a text to a telegram chat. Fortunately it’s very easy to extend Typhoon, so let’s make it ourselves.&lt;/p&gt;
+
+&lt;p&gt;Create the following file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;functions/msg.py&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;telegram&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;send_message_telegram&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chat_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Given a telegram bot token, chat_id and message,
+       send the message to that chat&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;bot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;telegram&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Sending message &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; to &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chat_id&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;bot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chat_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chat_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And update the DAG file we created before at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dags/send_me_a_joke.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;send_me_a_joke&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;schedule_interval&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;0 10 * * *&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# Send the joke at 10am every day&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;get_joke&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;typhoon.http.get_raw&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&amp;amp;type=single&lt;/span&gt;
+  
+  &lt;span class=&quot;na&quot;&gt;select_joke_text&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;get_joke&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;typhoon.json.search&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;!Py&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$BATCH.response.json()&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;expression&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;joke&lt;/span&gt;
+
+  &lt;span class=&quot;na&quot;&gt;tell_joke&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;select_joke_text&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;functions.msg.send_message_telegram&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;!Py&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$BATCH&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;!Var&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;telegram_token&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;chat_id&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;!Var&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;chat_id&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;requirements&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;python-telegram-bot&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;requests&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that for the token and chat id we have the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;!Var&lt;/code&gt; tag. This is because we don’t want to include a secret like a token in the code, so we will read it from a variable. If you are really perceptive you may be thinking: “Didn’t you say that we are using a minimal deployment where there is no metadata database to store variables on?” Yes, that’s 100% correct. Usually we would store variables in the metadata database. However, we will use the alternate method of storing variables which is using an environment variable that starts with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TYPHOON_VARIABLE_&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To create a bot with the botfather and &lt;strong&gt;get a token&lt;/strong&gt; follow the official tutorial &lt;a href=&quot;https://core.telegram.org/bots#creating-a-new-bot&quot;&gt;https://core.telegram.org/bots#creating-a-new-bot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;To &lt;strong&gt;find out your chat ID&lt;/strong&gt; check out &lt;a href=&quot;https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id&quot;&gt;https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id&lt;/a&gt;. Keep in mind that &lt;strong&gt;you can only add the bot to group chats, not private conversations&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TYPHOON_VARIABLE_telegram_token&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MY_SECRET_TELEGRAM_TOKEN&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TYPHOON_VARIABLE_chat_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;128332492187641&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that we have everything ready, let’s send some jokes.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;typhoon dag run &lt;span class=&quot;nt&quot;&gt;--dag-name&lt;/span&gt; send_me_a_joke
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If everything was correctly set up you should get the notification with a random programmer joke!&lt;/p&gt;
+
+&lt;h2 id=&quot;aiming-for-the-clouds&quot;&gt;Aiming for the clouds&lt;/h2&gt;
+
+&lt;h3 id=&quot;build-and-upload-the-workflow&quot;&gt;Build and upload the workflow&lt;/h3&gt;
+
+&lt;p&gt;This is all well and good, but we want the bot to tell us a joke every day without needing to run the code locally. First of all let’s compile our code into a zip and upload it to S3 so that Lambda can use it. This can be a little tedious, but luckily Typhoon takes care of that for us. We need to tell it to which S3 bucket we want to deploy to. &lt;strong&gt;You will also need a configured &lt;a href=&quot;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html#cli-configure-profiles-create&quot;&gt;AWS profile&lt;/a&gt;&lt;/strong&gt;. Open the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.typhoonremotes&lt;/code&gt; file and modify it to use your profile and S3 bucket.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[test]
+aws-profile=myaws
+s3-bucket=typhoon-orchestrator
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that we have a remote called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test&lt;/code&gt; we are ready to create the zip files and push them to S3. You will need to have docker installed for this step because the dependencies need to be built in an OS that is compatible with the one Lambda is using, otherwise they won’t work. This is a very common source of problems that Typhoon helps you avoid. If you are sure that your OS is compatible you can add the flag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--build-deps-locally&lt;/code&gt;, but &lt;strong&gt;it is generally not recomended&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;typhoon dag push --dag-name send_me_a_joke test
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will have taken a very long time because Typhoon built all of the dependencies, but don’t worry &lt;strong&gt;updating the workflow code is much much faster since the dependencies are separated into a layer and don’t need to be re-deployed unless they change&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test&lt;/code&gt; at the end tells it what remote to deploy to. In the future we could add a different production environment with its own remote.&lt;/p&gt;
+
+&lt;p&gt;If you check your S3 bucket now you’ll find two files:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;The lambda code:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;typhoon_dag_builds/send_me_a_joke/lambda.zip&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;All the necessary dependencies&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;typhoon_dag_builds/send_me_a_joke/layer.zip&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gfjtgfcfs5q19ay8jvrp.png&quot; alt=&quot;S3 objects&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;deploying-infrastructure&quot;&gt;Deploying infrastructure&lt;/h3&gt;
+
+&lt;p&gt;For this part you will need to &lt;a href=&quot;https://learn.hashicorp.com/tutorials/terraform/install-cli&quot;&gt;install and set up terraform&lt;/a&gt;. Learn more about infrastructure as code &lt;a href=&quot;https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/aws-get-started&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Typhoon automatically creates some terraform files that describe all the necessary infrastructure&lt;/strong&gt; to create in order to deploy our workflow to AWS Lambda. This greatly simplifies the creation of all the necessary resources that you would otherwise need to create manually. More importantly, it provides you a starting point while also giving you full control to change the terraform files until you have the desired configuration.&lt;/p&gt;
+
+&lt;p&gt;For this tutorial you just need to &lt;strong&gt;update the test variables file to include the S3 bucket name and some DAG info&lt;/strong&gt;. We can get the info for all the dags by running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;typhoon dag info --json-output --indent 2&lt;/code&gt;, but in this case we will need to adapt it to include the necessary environment variables. This means that you will need to add the following to the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;terraform/test.tfvars&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dag_info = {
+    &quot;send_me_a_joke&quot;: {
+        &quot;schedule_interval&quot;: &quot;cron(0 10 * * ? *)&quot;,
+        &quot;environment&quot;: {
+            &quot;TYPHOON_VARIABLE_telegram_token&quot;: &quot;MY_SECRET_TELEGRAM_TOKEN&quot;,
+            &quot;TYPHOON_VARIABLE_chat_id&quot;: &quot;128332492187641&quot;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice how the schedule interval is in a different format than the one we defined. This is because Terraform maps to AWS resources, and AWS uses its own flavor of cron expressions which is incompatible with the standard Unix cron expressions used by tools like cron, crontab, Airflow and many more. Typhoon aims to be a framework that can deploy to many platforms (currently supports AWS Lambda and Airflow) so we decided to follow the industry standard instead of AWS’s. Luckily, when we run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;typhoon dag info ...&lt;/code&gt; &lt;strong&gt;Typhoon converts it to AWS’s standard so you don’t need to do that yourself!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we are ready to create the infrastructure with terraform.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;AWS_PROFILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;my-aws-profile
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;AWS_DEFAULT_REGION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;eu-west-1
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;terraform
+terraform init
+terraform plan &lt;span class=&quot;nt&quot;&gt;-var-file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;test.tfvars &lt;span class=&quot;nt&quot;&gt;-out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tfplan
+terraform apply tfplan
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And voila! You can check all of the resources that have been created in AWS and take a moment to appreciate how much time we’ve saved.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ymarmji5bglvr7axo16r.png&quot; alt=&quot;AWS Lambda Function&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;lets-take-it-for-a-spin&quot;&gt;Let’s take it for a spin&lt;/h2&gt;
+
+&lt;p&gt;If everything worked correctly you will get a joke in your telegram chat at 10am, but we don’t want to wait that long, we want to hear one now! You could invoke the Lambda from the AWS console, but we will invoke it with Typhoon.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;typhoon dag run &lt;span class=&quot;nt&quot;&gt;--dag-name&lt;/span&gt; send_me_a_joke &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hopefully you got a hilarious joke sent right to your group chat.&lt;/p&gt;
+
+&lt;p&gt;This is the same command we used earlier to run the workflow locally, but with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test&lt;/code&gt;at the end specifying that we want to run it in the remote environment. This has invoked a lambda and shown you the logs. Actually, to be more precise, it has invoked a Lambda that has then invoked another Lambda and then invoked another Lambda. Why? Because Typhoon is asynchronous by default which means that as soon as a function returns or yields a batch we invoke a new Lambda to process it. This is useful because you can have a lot of tasks performing work in parallel. For example, imagine you have a workflow that reads FTP CSV files, zips them up and uploads to S3. The first task could list all the CSV files in the FTP and yields each path as a batch. Then the next task will compress them which can take a long time, but we actually invoked a new Lambda instance for each batch so we are processing them all in parallel!&lt;/p&gt;
+
+&lt;p&gt;Notice how even though the workflow ran across three lambdas, you still got the full log in your terminal. Lambdas can be hard to monitor and debug, but Typhoon tries to make this process easier. This is why when you run a Typhoon DAG manually, it waits for a response so that it can print the logs. Every invocation will in turn also wait for the response of any Lambdas it invokes so you will end up with the full log no matter how many Lambda invocations the workflow ran on. It’s extremely useful to be able to see if the DAG is working correctly, but it does introduce synchronicity so the DAG will run slower. We believe it’s a worthwile tradeoff for manual invocations. &lt;strong&gt;Rest assured that when the workflow is triggered on schedule it will run at full speed&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-cant-i-just-run-everything-in-one-lambda&quot;&gt;Why can’t I just run everything in one lambda?&lt;/h2&gt;
+
+&lt;p&gt;Great question, and there’s no reason not to since our worflow is very light and doesn’t benefit from parallelism. You just need to modify the first two tasks to make them synchronous with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;asynchronous: False&lt;/code&gt;. This is the relevant part of the code:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;get_joke&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;typhoon.http.get_raw&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;asynchronous&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&amp;amp;type=single&lt;/span&gt;
+  
+  &lt;span class=&quot;na&quot;&gt;select_joke_text&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;get_joke&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;typhoon.json.search&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;asynchronous&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;!Py&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$BATCH.response.json()&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;expression&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;joke&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Lets build and deploy the code, this time without dependencies by using the flag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--code&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;typhoon dag push &lt;span class=&quot;nt&quot;&gt;--dag-name&lt;/span&gt; send_me_a_joke &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--code&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Wow, that was much faster! You can see that once the workflow has been deployed one time with all the dependencies, &lt;strong&gt;making changes and deploying them is very fast and easy&lt;/strong&gt;. Feel free to run the DAG again to check out how only one Lambda will be invoked now.&lt;/p&gt;
+
+&lt;h2 id=&quot;this-is-good-to-be-true-can-i-really-build-all-my-etls-like-this&quot;&gt;This is good to be true, can I really build all my ETLs like this?&lt;/h2&gt;
+
+&lt;p&gt;Yes and no… Depending on your use case Lambda can be a good fit, but there are currently some limitations to this approach:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Lambdas can only run for 15 minutes&lt;/strong&gt;. If you have a long running task this will not work for you. In the future &lt;strong&gt;we intend to support Fargate to run heavier tasks&lt;/strong&gt; and solve this issue.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Can we really do away with the scheduler?&lt;/strong&gt; We have shown you a utopian vision of the future of ETLs. It still remains to be seen if we can fully avoid running a scheduler, and we may run into the harsh reality that if you want to be able to implement sensors, rate-limit tasks, etc. we may need a scheduler. Even if that turns out to be true, it would always be opt-in and much simpler than a traditional one.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;does-that-mean-that-typhoon-is-not-ready-for-prime-time&quot;&gt;Does that mean that Typhoon is not ready for prime time?&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Absolutely not!&lt;/strong&gt; We may have a long (albeit exciting) path ahead to realize our vision of a battle tested, fully serverless, asynchronous workflow orchestrator, but AWS is not the only target. &lt;strong&gt;Typhoon supports compilation to native Airflow code&lt;/strong&gt;, the most popular orchestrator around today. This feature can bridge the gap between the simplicity of our vision and the complex reality we currently live in as Data Engineers.&lt;/p&gt;
+
+&lt;p&gt;Our hope is that you will use Typhoon and fall in love with the simplicity of our vision, and deploy to Airflow if the current state of AWS deployment can’t meet your needs.&lt;/p&gt;
+
+&lt;h2 id=&quot;cleaning-up&quot;&gt;Cleaning up&lt;/h2&gt;
+
+&lt;p&gt;If you want to clean up all the resources that were created on this tutorial run the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;terraform plan &lt;span class=&quot;nt&quot;&gt;-var-file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;test.tfvars &lt;span class=&quot;nt&quot;&gt;-out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tfplan &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt;
+terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;thanks-for-following-along&quot;&gt;Thanks for following along!&lt;/h2&gt;
+
+&lt;p&gt;If you enjoyed this tutorial we hope to see you soon at &lt;a href=&quot;https://github.com/typhoon-data-org/typhoon-orchestrator&quot;&gt;https://github.com/typhoon-data-org/typhoon-orchestrator&lt;/a&gt;. Check out the code, leave a star, open an issue or come say hi on our discord!&lt;/p&gt;
+
+          
+          
         
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+      
+        </content><summary>Typhoon Orchestrator is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from https://jokeapi.dev once a day and sends it to your telegram group.</summary></entry><entry><title>Upgrading Guide from v1 to v2</title><id>https://sparanoid.com/website/upgrading-from-v1-to-v2.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/upgrading-from-v1-to-v2.html" /><published>2018-07-23T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;Almace Scaffolding now migrates from Less to Sass, this may make your existing projects non-upgradable, it needs quite a lot of work for you to do the migration if you use a custom theme that it’s powered by Less preprocessor. You have to compare your existing projects to &lt;a href=&quot;https://github.com/sparanoid/almace-scaffolding/pull/85&quot;&gt;this Pull Request&lt;/a&gt; side to side to make sure every change you made are synced correctly.&lt;/p&gt;
 
@@ -62,36 +312,7 @@
           
         
       
-        </content>
-
-        
-          <summary>Almace Scaffolding now migrates from Less to Sass, this may make your existing projects non-upgradable, it needs quite a lot of work for you to do the migration if you use a custom theme that it’s powered by Less preprocessor. You have to compare your existing projects to this Pull Request side to side to make sure every change you made are synced correctly.</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Upgrading Guide: v1.1.0</title>
-        <id>http://0.0.0.0:4321/upgrading-guide-v1.1.0.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/upgrading-guide-v1.1.0.html" />
-        <published>2017-01-07T00:00:00-08:00</published>
-
-        
-          <updated>2017-01-10T19:17:09-08:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Almace Scaffolding now migrates from Less to Sass, this may make your existing projects non-upgradable, it needs quite a lot of work for you to do the migration if you use a custom theme that it’s powered by Less preprocessor. You have to compare your existing projects to this Pull Request side to side to make sure every change you made are synced correctly.</summary></entry><entry><title>Upgrading Guide: v1.1.0</title><id>https://sparanoid.com/website/upgrading-guide-v1.1.0.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/upgrading-guide-v1.1.0.html" /><published>2017-01-07T00:00:00-08:00</published><updated>2017-01-10T19:17:09-08:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;There’re some significant changes in update v1.1.0, action required after you upgrade Almace Scaffolding.&lt;/p&gt;
 
@@ -116,36 +337,7 @@
           
         
       
-        </content>
-
-        
-          <summary>There’re some significant changes in update v1.1.0, action required after you upgrade Almace Scaffolding.</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Open Graph</title>
-        <id>http://0.0.0.0:4321/open-graph.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/open-graph.html" />
-        <published>2017-01-06T00:00:00-08:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>There’re some significant changes in update v1.1.0, action required after you upgrade Almace Scaffolding.</summary></entry><entry><title>Open Graph</title><id>https://sparanoid.com/website/open-graph.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/open-graph.html" /><published>2017-01-06T00:00:00-08:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;Theme Curtana has full Open Graph and Twitter Cards support.&lt;/p&gt;
 
@@ -153,7 +345,7 @@
 
 &lt;ol&gt;
   &lt;li&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page.thumbnail&lt;/code&gt; if defined in your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;If no specified &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page.thumbnail&lt;/code&gt; defined, it uses &lt;a href=&quot;/custom-heading-background.html&quot;&gt;Heading Background Image&lt;/a&gt; (aka. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page.heading-bg&lt;/code&gt;) if defined in your post front-matter field.&lt;/li&gt;
+  &lt;li&gt;If no specified &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page.thumbnail&lt;/code&gt; defined, it uses &lt;a href=&quot;/website/custom-heading-background.html&quot;&gt;Heading Background Image&lt;/a&gt; (aka. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page.heading-bg&lt;/code&gt;) if defined in your post front-matter field.&lt;/li&gt;
   &lt;li&gt;If no heading background image found, Curtana will try to grab the first image (wrapped inside &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img&amp;gt;&lt;/code&gt;) in your post as your post thumbnail&lt;/li&gt;
   &lt;li&gt;If nothing found, it falls back to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logo.png&lt;/code&gt; located at your site root.&lt;/li&gt;
 &lt;/ol&gt;
@@ -162,42 +354,13 @@
 
 &lt;p&gt;Here’s a preview on Twitter:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/open-graph-preview.png&quot; alt=&quot;Twitter Cards (Open Graph compatible) Preview&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/open-graph-preview.png&quot; alt=&quot;Twitter Cards (Open Graph compatible) Preview&quot; /&gt;&lt;/p&gt;
 
           
           
         
       
-        </content>
-
-        
-          <summary>Theme Curtana has full Open Graph and Twitter Cards support.</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Jekyll Theme Compatibility</title>
-        <id>http://0.0.0.0:4321/jekyll-theme-compatibility.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/jekyll-theme-compatibility.html" />
-        <published>2016-11-07T00:00:00-08:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Theme Curtana has full Open Graph and Twitter Cards support.</summary></entry><entry><title>Jekyll Theme Compatibility</title><id>https://sparanoid.com/website/jekyll-theme-compatibility.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/jekyll-theme-compatibility.html" /><published>2016-11-07T00:00:00-08:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;With the recent release of Jekyll, it gets the built-in ability to support &lt;a href=&quot;https://jekyllrb.com/docs/themes/&quot;&gt;themes&lt;/a&gt;, since we’ve already added theme support in 2015, the original config variables &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;theme&lt;/code&gt; would be conflicted with the built-in one.&lt;/p&gt;
 
@@ -213,36 +376,7 @@
           
         
       
-        </content>
-
-        
-          <summary>With the recent release of Jekyll, it gets the built-in ability to support themes, since we’ve already added theme support in 2015, the original config variables theme would be conflicted with the built-in one.</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Introducing Curtana</title>
-        <id>http://0.0.0.0:4321/theme-curtana.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/theme-curtana.html" />
-        <published>2016-06-01T00:00:00-07:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>With the recent release of Jekyll, it gets the built-in ability to support themes, since we’ve already added theme support in 2015, the original config variables theme would be conflicted with the built-in one.</summary></entry><entry><title>Introducing Curtana</title><id>https://sparanoid.com/website/theme-curtana.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/theme-curtana.html" /><published>2016-06-01T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;Curtana is the default theme of &lt;a href=&quot;https://sparanoid.com/lab/amsf/&quot;&gt;AMSF&lt;/a&gt; (Almace Scaffolding).&lt;/p&gt;
 
@@ -264,36 +398,7 @@
           
         
       
-        </content>
-
-        
-          <summary>Curtana is the default theme of AMSF (Almace Scaffolding).</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Deployment Methods</title>
-        <id>http://0.0.0.0:4321/deployment-methods.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/deployment-methods.html" />
-        <published>2016-03-18T00:00:00-07:00</published>
-
-        
-          <updated>2021-03-12T20:33:14-08:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Curtana is the default theme of AMSF (Almace Scaffolding).</summary></entry><entry><title>Deployment Methods</title><id>https://sparanoid.com/website/deployment-methods.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/deployment-methods.html" /><published>2016-03-18T00:00:00-07:00</published><updated>2021-03-12T20:33:14-08:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;Sites generated using Almace Scaffolding can be deployed in nearly any web hosting services. A few of the most common deployment techniques are described below. More deployment methods please refer to &lt;a href=&quot;https://jekyllrb.com/docs/deployment-methods/&quot;&gt;Jekyll - Deployment methods&lt;/a&gt;.&lt;/p&gt;
 
@@ -331,78 +436,20 @@
           
         
       
-        </content>
-
-        
-          <summary>Sites generated using Almace Scaffolding can be deployed in nearly any web hosting services. A few of the most common deployment techniques are described below. More deployment methods please refer to Jekyll - Deployment methods.</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Multiple Themes Support</title>
-        <id>http://0.0.0.0:4321/multiple-themes-support.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/multiple-themes-support.html" />
-        <published>2015-08-18T00:00:00-07:00</published>
-
-        
-          <updated>2017-01-20T01:00:20-08:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Sites generated using Almace Scaffolding can be deployed in nearly any web hosting services. A few of the most common deployment techniques are described below. More deployment methods please refer to Jekyll - Deployment methods.</summary></entry><entry><title>Multiple Themes Support</title><id>https://sparanoid.com/website/multiple-themes-support.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/multiple-themes-support.html" /><published>2015-08-18T00:00:00-07:00</published><updated>2017-01-20T01:00:20-08:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
-            &lt;p&gt;From version 0.0.31, you can now use multiple themes in Almace Scaffolding. See &lt;a href=&quot;/themes.html&quot;&gt;Themes&lt;/a&gt; for more information.&lt;/p&gt;
+            &lt;p&gt;From version 0.0.31, you can now use multiple themes in Almace Scaffolding. See &lt;a href=&quot;/website/themes.html&quot;&gt;Themes&lt;/a&gt; for more information.&lt;/p&gt;
 
           
           
         
       
-        </content>
-
-        
-          <summary>From version 0.0.31, you can now use multiple themes in Almace Scaffolding. See Themes for more information.</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Welcome</title>
-        <id>http://0.0.0.0:4321/welcome.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/welcome.html" />
-        <published>2014-06-13T00:00:00-07:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>From version 0.0.31, you can now use multiple themes in Almace Scaffolding. See Themes for more information.</summary></entry><entry><title>Welcome</title><id>https://sparanoid.com/website/welcome.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/welcome.html" /><published>2014-06-13T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;AMSF, a.k.a. &lt;strong&gt;Almace Scaffolding&lt;/strong&gt;, is a super-fast Jekyll framework fighting against the website obesity. It supports LiveReload, Sass, HTML minification, inlined stylesheets and more.&lt;/p&gt;
 
 &lt;p class=&quot;largetype&quot;&gt;
-  &lt;a href=&quot;/getting-started.html&quot;&gt;Getting Started →&lt;/a&gt;
+  &lt;a href=&quot;/website/getting-started.html&quot;&gt;Getting Started →&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Go to the &lt;a href=&quot;https://github.com/sparanoid/almace-scaffolding&quot;&gt;GitHub&lt;/a&gt; page for downloads, bug reports, and feature requests.&lt;/p&gt;
@@ -432,36 +479,7 @@
           
         
       
-        </content>
-
-        
-          <summary>AMSF, a.k.a. Almace Scaffolding, is a super-fast Jekyll framework fighting against the website obesity. It supports LiveReload, Sass, HTML minification, inlined stylesheets and more.</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Getting Started</title>
-        <id>http://0.0.0.0:4321/getting-started.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/getting-started.html" />
-        <published>2014-06-12T00:00:00-07:00</published>
-
-        
-          <updated>2021-10-02T09:10:20-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>AMSF, a.k.a. Almace Scaffolding, is a super-fast Jekyll framework fighting against the website obesity. It supports LiveReload, Sass, HTML minification, inlined stylesheets and more.</summary></entry><entry><title>Getting Started</title><id>https://sparanoid.com/website/getting-started.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/getting-started.html" /><published>2014-06-12T00:00:00-07:00</published><updated>2021-10-02T09:10:20-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#requirements&quot; id=&quot;markdown-toc-requirements&quot;&gt;Requirements&lt;/a&gt;&lt;/li&gt;
@@ -628,34 +646,7 @@
           
         
       
-        </content>
-
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Customizing Styles</title>
-        <id>http://0.0.0.0:4321/customizing-styles.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/customizing-styles.html" />
-        <published>2014-06-11T00:00:00-07:00</published>
-
-        
-          <updated>2019-02-18T22:51:32-08:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content></entry><entry><title>Customizing Styles</title><id>https://sparanoid.com/website/customizing-styles.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/customizing-styles.html" /><published>2014-06-11T00:00:00-07:00</published><updated>2019-02-18T22:51:32-08:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;You can customize the basic look and feel without touching the theme files by changing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user.js&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user.scss&lt;/code&gt;:&lt;/p&gt;
 
@@ -675,36 +666,7 @@
           
         
       
-        </content>
-
-        
-          <summary>You can customize the basic look and feel without touching the theme files by changing user.js and user.scss:</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Configuration</title>
-        <id>http://0.0.0.0:4321/configuration.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/configuration.html" />
-        <published>2014-06-11T00:00:00-07:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>You can customize the basic look and feel without touching the theme files by changing user.js and user.scss:</summary></entry><entry><title>Configuration</title><id>https://sparanoid.com/website/configuration.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/configuration.html" /><published>2014-06-11T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;h2 id=&quot;configuration-settings&quot;&gt;Configuration Settings&lt;/h2&gt;
 
@@ -729,36 +691,7 @@
           
         
       
-        </content>
-
-        
-          <summary>Configuration Settings</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Themes</title>
-        <id>http://0.0.0.0:4321/themes.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/themes.html" />
-        <published>2014-06-10T00:00:00-07:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Configuration Settings</summary></entry><entry><title>Themes</title><id>https://sparanoid.com/website/themes.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/themes.html" /><published>2014-06-10T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
 
@@ -817,36 +750,7 @@
           
         
       
-        </content>
-
-        
-          <summary>Overview</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Creating Your Own Theme</title>
-        <id>http://0.0.0.0:4321/creating-themes.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/creating-themes.html" />
-        <published>2014-06-09T00:00:00-07:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Overview</summary></entry><entry><title>Creating Your Own Theme</title><id>https://sparanoid.com/website/creating-themes.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/creating-themes.html" /><published>2014-06-09T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
 
@@ -1174,36 +1078,7 @@ Reading time: 3 hrs 20 mins
           
         
       
-        </content>
-
-        
-          <summary>Overview</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Syntax Highlighting</title>
-        <id>http://0.0.0.0:4321/syntax-highlighting.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/syntax-highlighting.html" />
-        <published>2014-06-06T00:00:00-07:00</published>
-
-        
-          <updated>2018-10-15T10:28:58-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Overview</summary></entry><entry><title>Syntax Highlighting</title><id>https://sparanoid.com/website/syntax-highlighting.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/syntax-highlighting.html" /><published>2014-06-06T00:00:00-07:00</published><updated>2018-10-15T10:28:58-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;Code highlighting demo, powered by Rouge. More info about code highlighting can be found at &lt;a href=&quot;https://jekyllrb.com/docs/templates/#code-snippet-highlighting&quot;&gt;Jekyll’s documentation&lt;/a&gt;.&lt;/p&gt;
 
@@ -1505,36 +1380,7 @@ and &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&
           
         
       
-        </content>
-
-        
-          <summary>Code highlighting demo, powered by Rouge. More info about code highlighting can be found at Jekyll’s documentation.</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Markdown Features Test</title>
-        <id>http://0.0.0.0:4321/markdown-features-test.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/markdown-features-test.html" />
-        <published>2014-06-06T00:00:00-07:00</published>
-
-        
-          <updated>2018-08-10T07:04:53-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Code highlighting demo, powered by Rouge. More info about code highlighting can be found at Jekyll’s documentation.</summary></entry><entry><title>Markdown Features Test</title><id>https://sparanoid.com/website/markdown-features-test.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/markdown-features-test.html" /><published>2014-06-06T00:00:00-07:00</published><updated>2018-08-10T07:04:53-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;h2 id=&quot;indented-code-blocks&quot;&gt;Indented Code Blocks&lt;/h2&gt;
 
@@ -1669,36 +1515,7 @@ end
           
         
       
-        </content>
-
-        
-          <summary>Indented Code Blocks</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Markup Example</title>
-        <id>http://0.0.0.0:4321/markup-example.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/markup-example.html" />
-        <published>2014-06-05T00:00:00-07:00</published>
-
-        
-          <updated>2018-08-23T23:51:53-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Indented Code Blocks</summary></entry><entry><title>Markup Example</title><id>https://sparanoid.com/website/markup-example.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/markup-example.html" /><published>2014-06-05T00:00:00-07:00</published><updated>2018-08-23T23:51:53-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;Lorem lean startup ipsum &lt;strong&gt;product market fit customer development&lt;/strong&gt; acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying &lt;a href=&quot;#&quot;&gt;crowded market&lt;/a&gt; pivot onboarding freemium prototype ping pong. Early stage disruptive ecosystem community outreach dynamic location based strategic investor.&lt;/p&gt;
 
@@ -1942,36 +1759,7 @@ Careful Skippy, you really aren’t as convincing as you think you are.&lt;/p&gt
           
         
       
-        </content>
-
-        
-          <summary>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying crowded market pivot onboarding freemium prototype ping pong. Early stage disruptive ecosystem community outreach dynamic location based strategic investor.</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Custom HTML Markups</title>
-        <id>http://0.0.0.0:4321/custom-html-markups.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-html-markups.html" />
-        <published>2014-06-01T00:00:00-07:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying crowded market pivot onboarding freemium prototype ping pong. Early stage disruptive ecosystem community outreach dynamic location based strategic investor.</summary></entry><entry><title>Custom HTML Markups</title><id>https://sparanoid.com/website/custom-html-markups.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/custom-html-markups.html" /><published>2014-06-01T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;h2 id=&quot;note-store-and-download&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.note&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.store&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.download&lt;/code&gt;&lt;/h2&gt;
 
@@ -2018,7 +1806,7 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 
 &lt;h3 id=&quot;example-2&quot;&gt;Example&lt;/h3&gt;
 
-&lt;p class=&quot;browser&quot;&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/delicious.com.png&quot; alt=&quot;Delicious Preview&quot; class=&quot;no-lightense&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;browser&quot;&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/delicious.com.png&quot; alt=&quot;Delicious Preview&quot; class=&quot;no-lightense&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;lightense-images&quot;&gt;&lt;a href=&quot;https://sparanoid.com/work/lightense-images/&quot;&gt;Lightense Images&lt;/a&gt;&lt;/h2&gt;
 
@@ -2045,7 +1833,7 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 
 &lt;h3 id=&quot;example-3&quot;&gt;Example&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/moonstruck-princess-ext-red.jpg&quot; alt=&quot;Moonstruck Princess Extended - Red&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/moonstruck-princess-ext-red.jpg&quot; alt=&quot;Moonstruck Princess Extended - Red&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;image-sizes&quot;&gt;Image Sizes&lt;/h2&gt;
 
@@ -2056,7 +1844,7 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 &lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{: .size-small}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/moonstruck-princess-ext-orange.jpg&quot; alt=&quot;Moonstruck Princess Extended - orange&quot; class=&quot;size-small&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/moonstruck-princess-ext-orange.jpg&quot; alt=&quot;Moonstruck Princess Extended - orange&quot; class=&quot;size-small&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;medium-size&quot;&gt;Medium Size&lt;/h3&gt;
 
@@ -2065,14 +1853,14 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 &lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/moonstruck-princess-ext-yellow.jpg&quot; alt=&quot;Moonstruck Princess Extended - Yellow&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/moonstruck-princess-ext-yellow.jpg&quot; alt=&quot;Moonstruck Princess Extended - Yellow&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;large-size&quot;&gt;Large Size&lt;/h3&gt;
 
 &lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{: .size-large}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/moonstruck-princess-ext-green.jpg&quot; alt=&quot;Moonstruck Princess Extended - Green&quot; class=&quot;size-large&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/moonstruck-princess-ext-green.jpg&quot; alt=&quot;Moonstruck Princess Extended - Green&quot; class=&quot;size-large&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;aligned-images&quot;&gt;Aligned Images&lt;/h3&gt;
 
@@ -2081,7 +1869,7 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{: .size-right}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/moonstruck-princess-ext-blue.jpg&quot; alt=&quot;Moonstruck Princess Extended - Blue&quot; class=&quot;size-left&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/moonstruck-princess-ext-blue.jpg&quot; alt=&quot;Moonstruck Princess Extended - Blue&quot; class=&quot;size-left&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Aligned images are smaller images beside the text, you can just apply &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.size-left&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.size-right&lt;/code&gt; to your images and nothing special markup required. However, that aligned images will be responded to normal large size for small desktops or mobile devices.&lt;/p&gt;
 
@@ -2092,49 +1880,20 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
 &lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{: .no-resize}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/who-can-run.png&quot; alt=&quot;Run?&quot; class=&quot;no-resize&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/who-can-run.png&quot; alt=&quot;Run?&quot; class=&quot;no-resize&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;small-images-center&quot;&gt;Small Images (center)&lt;/h3&gt;
 
 &lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://sparanoid.com/logo.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{: .no-resize.center}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/sparanoid/who-can-run.png&quot; alt=&quot;Run?&quot; class=&quot;no-resize center&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://d349cztnlupsuf.cloudfront.net/who-can-run.png&quot; alt=&quot;Run?&quot; class=&quot;no-resize center&quot; /&gt;&lt;/p&gt;
 
           
           
         
       
-        </content>
-
-        
-          <summary>.note, .store, and .download</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Custom Color Scheme</title>
-        <id>http://0.0.0.0:4321/custom-color-scheme.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-color-scheme.html" />
-        <published>2014-05-01T00:00:00-07:00</published>
-
-        
-          <updated>2018-08-10T07:04:53-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>.note, .store, and .download</summary></entry><entry><title>Custom Color Scheme</title><id>https://sparanoid.com/website/custom-color-scheme.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/custom-color-scheme.html" /><published>2014-05-01T00:00:00-07:00</published><updated>2018-08-10T07:04:53-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;This is an example how to change your post color scheme for specific posts. You can simply add the following variables to your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;:&lt;/p&gt;
 
@@ -2157,36 +1916,7 @@ scheme-hero-bg: &quot;#0029ff&quot;
           
         
       
-        </content>
-
-        
-          <summary>This is an example how to change your post color scheme for specific posts. You can simply add the following variables to your post front-matter field:</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Unique Post Styling via Custom CSS</title>
-        <id>http://0.0.0.0:4321/custom-css.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-css.html" />
-        <published>2014-04-01T00:00:00-07:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>This is an example how to change your post color scheme for specific posts. You can simply add the following variables to your post front-matter field:</summary></entry><entry><title>Unique Post Styling via Custom CSS</title><id>https://sparanoid.com/website/custom-css.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/custom-css.html" /><published>2014-04-01T00:00:00-07:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;This is an example how to change your post styling via CSS. You can simply add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;css&lt;/code&gt; option to your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;:&lt;/p&gt;
 
@@ -2206,38 +1936,7 @@ css: |
           
         
       
-        </content>
-
-        
-          <summary>This is an example how to change your post styling via CSS. You can simply add the css option to your post front-matter field:</summary>
-        
-      </entry>
-    
-  
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>External Link Post</title>
-        <id>http://0.0.0.0:4321/external-link-post.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/external-link-post.html" />
-        <published>2014-02-01T00:00:00-08:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>This is an example how to change your post styling via CSS. You can simply add the css option to your post front-matter field:</summary></entry><entry><title>External Link Post</title><id>https://sparanoid.com/website/external-link-post.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/external-link-post.html" /><published>2014-02-01T00:00:00-08:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;This is an example of a Tumblr-like external link post. You can simply add the following setting to your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;:&lt;/p&gt;
 
@@ -2250,36 +1949,7 @@ css: |
           &lt;p&gt;&lt;a href=&quot;https://sparanoid.com/&quot;&gt;&lt;small&gt;◉ Direct Link to Original Site&lt;/small&gt;&lt;/a&gt;&lt;/p&gt;
         
       
-        </content>
-
-        
-          <summary>This is an example of a Tumblr-like external link post. You can simply add the following setting to your post front-matter field:</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Custom Heading Image</title>
-        <id>http://0.0.0.0:4321/custom-heading-image.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-heading-image.html" />
-        <published>2014-02-01T00:00:00-08:00</published>
-
-        
-          <updated>2018-08-10T07:04:53-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>This is an example of a Tumblr-like external link post. You can simply add the following setting to your post front-matter field:</summary></entry><entry><title>Custom Heading Image</title><id>https://sparanoid.com/website/custom-heading-image.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/custom-heading-image.html" /><published>2014-02-01T00:00:00-08:00</published><updated>2018-08-10T07:04:53-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;This is an example of custom post heading image. You can simply add the following setting to your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;:&lt;/p&gt;
 
@@ -2314,36 +1984,7 @@ css: |
           
         
       
-        </content>
-
-        
-          <summary>This is an example of custom post heading image. You can simply add the following setting to your post front-matter field:</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Custom Heading Background</title>
-        <id>http://0.0.0.0:4321/custom-heading-background.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-heading-background.html" />
-        <published>2014-02-01T00:00:00-08:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>This is an example of custom post heading image. You can simply add the following setting to your post front-matter field:</summary></entry><entry><title>Custom Heading Background</title><id>https://sparanoid.com/website/custom-heading-background.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/custom-heading-background.html" /><published>2014-02-01T00:00:00-08:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;p&gt;This is an example of custom heading background. You can simply add the following setting to your post &lt;a href=&quot;https://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter field&lt;/a&gt;:&lt;/p&gt;
 
@@ -2382,36 +2023,7 @@ css: |
           
         
       
-        </content>
-
-        
-          <summary>This is an example of custom heading background. You can simply add the following setting to your post front-matter field:</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>GitHub Pages Setup Guide</title>
-        <id>http://0.0.0.0:4321/github-pages-setup.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/github-pages-setup.html" />
-        <published>2014-01-01T00:00:00-08:00</published>
-
-        
-          <updated>2019-09-03T00:30:46-07:00</updated>
-        
-
-        <author>
-          <name>Tunghsiao Liu</name>
-          <uri>https://sparanoid.com/</uri>
-          <email>t@sparanoid.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>This is an example of custom heading background. You can simply add the following setting to your post front-matter field:</summary></entry><entry><title>GitHub Pages Setup Guide</title><id>https://sparanoid.com/website/github-pages-setup.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/github-pages-setup.html" /><published>2014-01-01T00:00:00-08:00</published><updated>2019-09-03T00:30:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
           
             &lt;h2 id=&quot;the-problem&quot;&gt;The Problem&lt;/h2&gt;
 
@@ -2467,12 +2079,4 @@ css: |
           
         
       
-        </content>
-
-        
-          <summary>The Problem</summary>
-        
-      </entry>
-    
-  
-</feed>
+        </content><summary>The Problem</summary></entry></feed>
