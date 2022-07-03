@@ -95,24 +95,32 @@
     
 </style>
 <!-- Main navigation with current page / categoriy highlighted -->
-<nav class="navigation">
-  <ul>
-    <li >
-        <a href="/">Typhoon Orchestrator</a>
-      </li>
-    <li >
-        <a href="/#features">Features</a>
-      </li>
-    <li >
-        <a href="/#plugins">Plugins</a>
-      </li>
-    <li >
-        <a href="/#blog">Blog</a>
-      </li>
-    
-  </ul>
-</nav>
-<!-- Main content wrap -->
+
+<div class="header-site">
+	<div class="heder__body">
+		<div class="header__container">
+			<nav class="navigation header__menu menu-header">
+				<div class="menu-header__logo"><a href="#"><img src="/assets/img/logo.svg" alt="Logo"></a></div>
+				<ul class="menu-header__list">
+					<li >
+						<a href="/">Typhoon Orchestrator</a>
+						</li>
+					<li >
+						<a href="/#features">Features</a>
+						</li>
+					<li >
+						<a href="/#plugins">Plugins</a>
+						</li>
+					<li >
+						<a href="/#blog">Blog</a>
+						</li>
+					
+				</ul>
+				<button type="button" class="menu-header__burger-menu"><span></span></button>
+			</nav>
+		</div>
+	</div>
+</div><!-- Main content wrap -->
 <main class="content " role=main>
   <!-- Post-wide custom CSS -->
 
@@ -205,20 +213,25 @@
 </main>
 <!-- Footer section -->
 
-  <footer class="footer">
-    <ul>
-      <li><a href="/">Typhoon Orchestrator</a></li>
 
-      
-        <li>
-          <a href="https://sparanoid.com/lab/amsf/" title="Almace Scaffolding with theme Curtana">AMSF</a>
-        </li>
-      
+  <div class="footer">
+  		<div class="footer__container">
+			<div class="footer__copy">
+				© 2022 All Rights Reserved
+			</div>
+			<ul class="footer__links">
+				<li class="footer__link><a href="/">Typhoon Orchestrator</a></li>
 
-      
-    </ul>
-  </footer>
+				
+				<li class="footer__link>
+					<a href="https://sparanoid.com/lab/amsf/" title="Almace Scaffolding with theme Curtana">AMSF</a>
+				</li>
+				
 
+				
+			</ul>
+		</div>
+  </div>
 
 <!-- Theme scripts -->
 <script src="/assets/themes/curtana/js/app.js?assets-inline"></script>
@@ -236,6 +249,9 @@
 
 
 <!-- Foot hooks -->
+
+
+
 
 
 <!-- Finale -->
