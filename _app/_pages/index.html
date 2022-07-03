@@ -6,11 +6,351 @@ plugin: lightense
 ---
 
 {%- include amsf/core -%}
-
 <!-- Article wrapper, limit width -->
-<article>
 
-  <!-- Post title -->
+	<div class="header">
+		<div class="header__container">
+			<nav class="header__menu menu-header">
+				<div class="menu-header__logo"><a href="#"><img src="{{ amsf_user_assets }}/img/logo.svg" alt="Logo"></a></div>
+				<ul class="menu-header__list">
+					<li class="menu-header__item"><a href="#" class="menu-header__link">Features</a></li>
+					<li class="menu-header__item"><a href="#" class="menu-header__link">Plugins</a></li>
+					<li class="menu-header__item"><a href="#" class="menu-header__link">Blog</a></li>
+				</ul>
+				<button type="button" class="menu-header__burger-menu"><span></span></button>
+			</nav>
+		</div>
+	</div>
+	<section class="home__hero hero-home">
+		<div class="hero-home__container">
+			<div class="hero-home__body">
+				<div class="hero-home__item item-hero item-hero__left">
+					<h1 class="item-hero__title title title_big">Serverless data pipelines written for <span class="title_tagged title_italic">Data Engineers.</span></h1>
+					<h3 class="item-hero__subtitle subtitle"><span class="subtitle_tagged subtitle_italic">Frameworkless.</span> No dependencies. Write testable tasks in modern Python.</h3>
+					<p class="item-hero__text text text_big">Compose in YAML and schedule them in serverless Lambda or Airflow. Package them in reusable components for your data analysts to use from the UI.</p>
+					<p class="item-hero__text text text_big">Fully <span class="text_tagged text_italic">Open Source.</span> View on GitHub.</p>
+					<div class="item-hero__buttons buttons-hero">
+						<button class="buttons-hero__button button" type="submit">Try With Docker</button>
+						<p class="buttons-hero__text text text_italic">or install locally.</p>
+					</div>
+				</div>
+				<div class="hero-home__item item-hero item-hero__right">
+					<img src="{{ amsf_user_assets }}/img/auto_complete_small.gif" class="item-hero__image" alt="Hero">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="home__features features-home">
+		<div class="features-home__container">
+			<h2 class="features-home__title title title_big title_uppercase">Features</h2>
+			<div class="features-home__items">
+				<article class="features-home__item item-features">
+					<div class="item-features__body">
+						<h4 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h4>
+						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+					</div>
+					<div class="item-features__image">
+					</div>
+				</article>
+				<article class="features-home__item item-features">
+					<div class="item-features__body">
+						<h4 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h4>
+						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+					</div>
+					<div class="item-features__image">
+					</div>
+				</article>
+				<article class="features-home__item item-features">
+					<div class="item-features__body">
+						<h4 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h4>
+						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+					</div>
+					<div class="item-features__image">
+					</div>
+				</article>
+				<article class="features-home__item item-features">
+					<div class="item-features__body">
+						<h4 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h4>
+						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+					</div>
+					<div class="item-features__image">
+					</div>
+				</article>
+				<article class="features-home__item item-features">
+					<div class="item-features__body">
+						<h4 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h4>
+						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+					</div>
+					<div class="item-features__image">
+					</div>
+				</article>
+				<article class="features-home__item item-features">
+					<div class="item-features__body">
+						<h4 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h4>
+						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+					</div>
+					<div class="item-features__image">
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+	<section class="home__lambda lambda-home">
+		<div class="lambda-home__container">
+			<div class="lambda-home__body">
+				<div class="lambda-home__item item-lambda item-lambda-left">
+					<div class="item-lambda-left__body">
+						<div class="item-lambda-left__image">
+							<img src="{{ amsf_user_assets }}/img/lambda.svg" alt="Lambda">
+						</div>
+						<div class="item-lambda-left__expression">
+							<p class="expression-lambda__text text text_mono">TYPHOON_DEPLOY_TARGET=typhoon</p>
+						</div>
+					</div>
+				</div>
+				<div class="lambda-home__item item-lambda item-lambda-right">
+					<article class="item-lambda-right__body">
+						<h3 class="item-lambda__title title">Serverless deployment with AWS <span class="title_tagged title_italic">Lambda.</span></h3>
+						<h4 class="item-lambda__subtitle subtitle subtitle_gradient">BLOG: Make a serverless telegram bot (20 mins).</h4>
+						<p class="item-lambda__subtitle subtitle subtitle_regular">Or try it with zero migration risk with robust Airflow transpilation.</p>
+					</article>
+					<div class="item-lambda-right__expression expression-lambda">
+						<img class="expression-lambda__image" src="{{ amsf_user_assets }}/img/rose.svg" alt="Rose">
+						<div class="expression-lambda__content">
+							<p class="expression-lambda__text text text_mono"># Simply add this to .cfg and a few settings</p>
+							<p class="expression-lambda__text text text_mono">TYPHOON_DEPLOY_TARGET=airflow</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="home__extend extend-home">
+		<div class="extend-home__container">
+			<div class="extend-home__body">
+				<div class="extend-home__item item-extend item-extend-left">
+					<h2 class="item-extend__titile title"><span class="title_tagged title_italic">Extend</span> with pure python. Create a function and reference it directly in YAML.</h2>
+					<p class="item-extend__subtitle subtitle subtitle_regular">Because they are pure python you can also easily test them with pytest.</p>
+				</div>
+				<div class="extend-home__item item-extend item-extend-right">
+					<img src="{{ amsf_user_assets }}/img/extend.jpg" alt="Extend">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="home__compose compose-home">
+		<div class="compose-home__container">
+			<div class="compose-home__body">
+				<div class="compose-home__item item-compose item-compose-left">
+					<p class="item-compose__text text_mono text_high">
+						name: favorite_authors<br>
+						<span class="text_tab-20">schedule_interval: rate(1 day)</span>
+					</p>
+					<br>
+					<p class="item-compose__text text_mono text_high">
+						<span class="text_tab-20">tasks:</span><br>
+						<span class="text_tab-40">choose_favorites:</span><br>
+						<span class="text_tab-60">function: typhoon.flow_control.branch</span><br>
+						<span class="text_tab-60">args:</span><br>
+						<span class="text_tab-80">branches:</span><br>
+						<span class="text_tab-100">- J. K. Rowling</span><br>
+						<span class="text_tab-100">- George R. R. Martin</span><br>
+						<span class="text_tab-100">- James Clavell</span><br>
+					</p>
+					<br>
+					<p class="item-compose__text text_mono text_high">
+						<span class="text_tab-40">get_author:</span><br>
+						<span class="text_tab-60">input: choose_favorites</span><br>
+						<span class="text_tab-60">function: functions.open_library_api.get_author</span><br>
+						<span class="text_tab-60">args:</span><br>
+						<span class="text_tab-80">author: !Py $BATCH</span><br>
+					</p>
+				</div>
+				<div class="compose-home__item item-compose item-compose-right">
+					<h2 class="item-compose__titile title"><span class="title_tagged title_italic">Compose</span> elegant YAML DAGs using re-usable hooks and pure python functions just like lego.</h2>
+					<p class="item-compose__subtitle subtitle subtitle_regular">VSCode has <span class="subtitle_tagged subtitle_italic">auto-complete</span> so its really quick to compose any complex task.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="home__component component-home">
+		<div class="component-home__container">
+			<div class="component-home__body">
+				<div class="component-home__item item-component item-component-left">
+					<h2 class="item-component__titile title"><span class="title_tagged title_italic">Component UI</span> templates can abstract complex workflows for other users.</h2>
+					<p class="item-component__subtitle subtitle subtitle_regular">Make your analytics team self-sufficient by creating <span class="subtitle_tagged subtitle_italic">data pipeline apps</span> so they can create schedules themselves via the api.</p>
+				</div>
+				<div class="component-home__item item-component item-component-right">
+					<img src="{{ amsf_user_assets }}/img/component.jpg" alt="Extend">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="home__plugins plugins-home">
+		<div class="plugins-home__container">
+			<h2 class="plugins-home__title title title_big title_uppercase">Plugins</h2>
+			<h4 class="plugins-home__subtitle subtitle subtitle_green">Typhoon supports any DB that works with Python DB API 2.0</h4>
+			<div class="plugins-home__items">
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/python.svg" alt="python">
+					</div>
+					<h5 class="item-plugins__title title_small">Python DB API 2.0</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/postgres.svg" alt="postgres">
+					</div>
+					<h5 class="item-plugins__title title_small">Postgres</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/storage.svg" alt="storage">
+					</div>
+					<h5 class="item-plugins__title title_small">Local File Storage</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/dynamo.svg" alt="dynamo">
+					</div>
+					<h5 class="item-plugins__title title_small">Dynamo DB</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/sql.svg" alt="sql">
+					</div>
+					<h5 class="item-plugins__title title_small">SQL Alchemy</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/snowflake.svg" alt="snowflake">
+					</div>
+					<h5 class="item-plugins__title title_small">Snowflake</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/ftp.svg" alt="ftp">
+					</div>
+					<h5 class="item-plugins__title title_small">FTP</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/singertaps.svg" alt="singertaps">
+					</div>
+					<h5 class="item-plugins__title title_small">Singer Taps (any)</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/sqlite.svg" alt="sqlite">
+					</div>
+					<h5 class="item-plugins__title title_small">SqLite</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/googlebigquery.svg" alt="googlebigquery">
+					</div>
+					<h5 class="item-plugins__title title_small">Google Big Query</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/aws.svg" alt="aws">
+					</div>
+					<h5 class="item-plugins__title title_small">AWS S3</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/kafkapro.svg" alt="kafkapro">
+					</div>
+					<h5 class="item-plugins__title title_small">Kafka Producer</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/mysql.svg" alt="mysql">
+					</div>
+					<h5 class="item-plugins__title title_small">My Sql</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/googlecloud.svg" alt="googlecloud">
+					</div>
+					<h5 class="item-plugins__title title_small">Google Cloud Storage</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/kafkacons.svg" alt="kafkaconsn">
+					</div>
+					<h5 class="item-plugins__title title_small">Kafka Consumer</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/duck.svg" alt="duck">
+					</div>
+					<h5 class="item-plugins__title title_small">Duck DB</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/http.svg" alt="http">
+					</div>
+					<h5 class="item-plugins__title title_small">HTTP Basic Auth</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/elastic.svg" alt="elastic">
+					</div>
+					<h5 class="item-plugins__title title_small">Elastic Search</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/oracle.svg" alt="oracle">
+					</div>
+					<h5 class="item-plugins__title title_small">Oracle</h5>
+				</div>
+				<div class="plugins-home__item item-plugins">
+					<div class="item-plugins__image">
+						<img src="{{ amsf_user_assets }}/img/plugins/awssession.svg" alt="awssession">
+					</div>
+					<h5 class="item-plugins__title title_small">AWS Session</h5>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="home__posts posts-home">
+		<div class="posts-home__container">
+			<h2 class="posts-home__title title title_big title_uppercase">BLOG POSTS</h2>
+			<div class="posts-home__body">
+				<div class="posts-home__item item-posts-left">
+					<h3 class="posts-home__subtitle subtitle">Blog - Getting-started</h3>
+					<div class="posts-home__links">
+						<a class="posts-home__link text" href="#">Welcome</a>
+						<a class="posts-home__link text" href="#">Getting Started</a>
+						<a class="posts-home__link text" href="#">Configuration</a>
+					</div>
+				</div>
+				<div class="posts-home__item item-posts-right">
+					<h3 class="posts-home__subtitle subtitle">Blog - Articles</h3>
+					<a class="posts-home__link text" href="#">How to create a Serverless Telegram<br> Bot to send daily jokes to your friends.</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="footer__container">
+			<div class="footer__copy">
+				© 2022 All Rights Reserved
+			</div>
+			<div class="footer__links">
+				<a class="footer__link" href="#">Features</a>
+				<a class="footer__link" href="#">Plugins</a>
+				<a class="footer__link" href="#">Blogs</a>
+			</div>
+		</div>
+	</footer>
+
+<!--
+<article>
+-->
+
+<!--
   <header class="row">        
     <div class="col">
       <h1>
@@ -270,4 +610,5 @@ plugin: lightense
     </div>
 
   </div>
+
 </article>
