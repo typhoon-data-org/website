@@ -1,26 +1,35 @@
 <!-- Footer section -->
+
+<section class="home__posts posts-home">
+		<div class="posts-home__container">
+			<h2 id="blog" class="posts-home__title title title_big title_uppercase">BLOG POSTS</h2>
+			<div class="posts-home__body">
+				<div class="posts-home__item item-posts-left">
+					<h3 class="posts-home__subtitle subtitle">Blog - Getting-started</h3>
+					<div class="posts-home__links">
+						{% for post in site.tags.getting-started %}
+						{%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
+						{% endfor %}
+					</div>
+				</div>
+				<div class="posts-home__item item-posts-right">
+					<h3 class="posts-home__subtitle subtitle">Blog - Articles</h3>					
+					{% for post in site.tags.article %}
+					{%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+	
+
+
+
 {% unless page.permalink == '/' and site.data.curtana.clean_homepage %}
-  <footer class="footer">
-    <ul>
-      <li><a href="{{ '/' | relative_url }}">{{ amsf_site_name }}</a></li>
 
-      {% if site.credits %}
-        <li>
-          <a href="https://sparanoid.com/lab/amsf/" title="Almace Scaffolding with theme {{ site.data.curtana.meta.name }}">AMSF</a>
-        </li>
-      {% endif %}
-
-      {% for item in site.data.footer %}
-        {%- include amsf/relative_url url=item.url -%}
-        {%- assign item_url = amsf_relative_url -%}
-        {%- assign lowercased_title = item.title | slugify -%}
-        <li>
-          <a href="{{ item_url }}">{{ item.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </footer>
 {% endunless %}
+
+  
 
 <!-- Theme scripts -->
 <script src="{{ '/js/app.js?assets-inline' | prepend: amsf_theme_assets }}"></script>
@@ -48,6 +57,9 @@
 {% if page.foot %}
   {{ page.foot }}
 {% endif %}
+
+
+
 
 <!-- Finale -->
 </html>
