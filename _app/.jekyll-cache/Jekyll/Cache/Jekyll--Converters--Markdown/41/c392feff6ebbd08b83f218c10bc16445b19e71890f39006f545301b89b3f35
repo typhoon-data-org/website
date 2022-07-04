@@ -1,0 +1,2 @@
+I"F<p>With the recent release of Jekyll, it gets the built-in ability to support <a href="https://jekyllrb.com/docs/themes/">themes</a>, since we’ve already added theme support in 2015, the original config variables <code class="language-plaintext highlighter-rouge">theme</code> would be conflicted with the built-in one.</p>
+:ET

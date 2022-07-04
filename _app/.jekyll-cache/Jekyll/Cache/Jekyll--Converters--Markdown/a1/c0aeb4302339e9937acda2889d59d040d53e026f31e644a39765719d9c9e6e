@@ -1,0 +1,2 @@
+I"¸<p>Almace Scaffolding now migrates from Less to Sass, this may make your existing projects non-upgradable, it needs quite a lot of work for you to do the migration if you use a custom theme that itâ€™s powered by Less preprocessor. You have to compare your existing projects to <a href="https://github.com/sparanoid/almace-scaffolding/pull/85">this Pull Request</a> side to side to make sure every change you made are synced correctly.</p>
+:ET

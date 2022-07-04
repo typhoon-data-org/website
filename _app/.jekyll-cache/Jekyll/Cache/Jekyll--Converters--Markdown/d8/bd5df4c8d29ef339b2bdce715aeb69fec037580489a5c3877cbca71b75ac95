@@ -1,0 +1,33 @@
+I"<p>This is an example of custom heading background. You can simply add the following setting to your post <a href="https://jekyllrb.com/docs/frontmatter/">front-matter field</a>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">heading-bg</span><span class="pi">:</span> <span class="s">img/heading-background.jpg</span>
+<span class="na">heading-bg-local</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">heading-bg-color</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#8141b1"</span>
+<span class="na">heading-bg-size</span><span class="pi">:</span> <span class="s2">"</span><span class="s">100px</span><span class="nv"> </span><span class="s">100px"</span>
+<span class="na">heading-bg-position</span><span class="pi">:</span> <span class="s2">"</span><span class="s">center</span><span class="nv"> </span><span class="s">bottom"</span>
+<span class="na">heading-bg-repeat</span><span class="pi">:</span> <span class="s2">"</span><span class="s">repeat"</span>
+<span class="na">heading-bg-text</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#fff"</span>
+</code></pre></div></div>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">heading-bg</code></dt>
+  <dd>Background image filename, if a relative URL (non-external URL) is provided, the file will be prefixed with <code class="language-plaintext highlighter-rouge">site.file</code>.</dd>
+  <dt><code class="language-plaintext highlighter-rouge">heading-bg-local</code></dt>
+  <dd>To avoid relative URL prefixed by <code class="language-plaintext highlighter-rouge">site.file</code>, you can set this option to <code class="language-plaintext highlighter-rouge">true</code> to prefix it with <code class="language-plaintext highlighter-rouge">amsf_user_assets</code>, then you can store your images in <code class="language-plaintext highlighter-rouge">_app/assets/</code>.</dd>
+  <dt><code class="language-plaintext highlighter-rouge">heading-bg-color</code></dt>
+  <dd>Background color, recommend setting its value matches your image color tone.</dd>
+  <dt><code class="language-plaintext highlighter-rouge">heading-bg-size</code></dt>
+  <dd>Background size, default value is <code class="language-plaintext highlighter-rouge">cover</code>.</dd>
+  <dt><code class="language-plaintext highlighter-rouge">heading-bg-position</code></dt>
+  <dd>Background position, default value is <code class="language-plaintext highlighter-rouge">center center</code>.</dd>
+  <dt><code class="language-plaintext highlighter-rouge">heading-bg-repeat</code></dt>
+  <dd>Background repeat, default value is <code class="language-plaintext highlighter-rouge">no-repeat</code>.</dd>
+  <dt><code class="language-plaintext highlighter-rouge">heading-bg-text</code></dt>
+  <dd>Text color of the heading, set it based on your background image.</dd>
+</dl>
+
+<blockquote>
+  <p>Heading image copyright info:
+© 士郎正宗・Production I.G／講談社・「攻殻機動隊」製作委員会</p>
+</blockquote>
+:ET

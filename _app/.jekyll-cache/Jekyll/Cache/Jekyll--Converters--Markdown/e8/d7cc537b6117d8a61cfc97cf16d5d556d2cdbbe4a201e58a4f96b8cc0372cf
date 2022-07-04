@@ -1,0 +1,50 @@
+I"J<h2 id="the-problem">The Problem</h2>
+
+<p>In short answer: yes, but additional actions required.</p>
+
+<p>tl;dr: You can serve AMSF as a static site on GitHub Pages, but not a Jekyll site using Jekyll renderer provided by GitHub Pages.</p>
+
+<p>There’re some factors that prevent it from generating pages using GitHub Pages renderer:</p>
+
+<ul>
+  <li>Many features Almace Scaffolding provides like LiveReload, Sass support, inline SVG, and HTML minification are implemented using <a href="https://gruntjs.com/">Grunt.js</a>, it’s not supported by GitHub Pages.</li>
+  <li>Almace Scaffolding uses the latest pre-release Jekyll, so not all features are supported by GitHub Pages renderers.</li>
+  <li>GItHub Pages build server <a href="https://help.github.com/articles/pages-don-t-build-unable-to-run-jekyll#source-setting">overwrites the <code class="language-plaintext highlighter-rouge">source</code> settings</a>. This prevents it from generating pages from current file structure.</li>
+</ul>
+
+<h2 id="the-solution-for-users-or-organization-sites">The Solution for Users or Organization Sites</h2>
+
+<p>Since GitHub Pages for users or organization sites can only be served from the root directory of your master branch. You have to:</p>
+
+<ul>
+  <li>Make sure your <code class="language-plaintext highlighter-rouge">baseurl</code> is set to <code class="language-plaintext highlighter-rouge">""</code> (empty) in your <code class="language-plaintext highlighter-rouge">_config.yml</code>.</li>
+  <li>Build your site locally (<code class="language-plaintext highlighter-rouge">grunt build</code>).</li>
+  <li>Use your own method, create a script, bash, whatever it works to move the generated pages to the root directory of your repository.</li>
+  <li>Upload Jekyll generated static files to your <code class="language-plaintext highlighter-rouge">username.github.io</code> repository.</li>
+</ul>
+
+<p>If you’d like to keep all things under Git control, you can try the following file structure:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── _amsf/ (Almace Scaffolding source code)
+├── *.html (Jekyll-generated static pages)
+└── README.md (your own readme)
+</code></pre></div></div>
+
+<p>You can see this <a href="https://github.com/amsf/amsf.github.io/">live demo</a> how it actually works.</p>
+
+<h2 id="the-solution-for-project-sites">The Solution for Project Sites</h2>
+
+<p>Things can be simpler if you need AMSF for your project sites since GitHub Pages supports serve your site from a subdirectory:</p>
+
+<ul>
+  <li>Make the following changes in your <code class="language-plaintext highlighter-rouge">_config.yml</code>:
+    <ul>
+      <li>Change <code class="language-plaintext highlighter-rouge">destination</code> to <code class="language-plaintext highlighter-rouge">docs</code></li>
+      <li>Change <code class="language-plaintext highlighter-rouge">baseurl</code> to the name of your repository slug, ie. <code class="language-plaintext highlighter-rouge">/my-project</code>.</li>
+      <li>Change <code class="language-plaintext highlighter-rouge">flatten_base</code> to <code class="language-plaintext highlighter-rouge">true</code>.</li>
+    </ul>
+  </li>
+  <li>Build your site locally (<code class="language-plaintext highlighter-rouge">grunt build</code>).</li>
+  <li>Push changes to GitHub</li>
+</ul>
+:ET

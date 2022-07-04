@@ -1,0 +1,30 @@
+I"
+<p>This is an example of custom post heading image. You can simply add the following setting to your post <a href="https://jekyllrb.com/docs/frontmatter/">front-matter field</a>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">heading-img</span><span class="pi">:</span> <span class="s">svg/heading-image.svg</span>
+<span class="na">heading-img-local</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">heading-img-width</span><span class="pi">:</span> <span class="m">400</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>In Almace Scaffolding v1.1.0, the original <code class="language-plaintext highlighter-rouge">svg-headline*</code>, and <code class="language-plaintext highlighter-rouge">img-headline*</code> options are deprecated.</p>
+</blockquote>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">heading-img</code></dt>
+  <dd>Heading image filename, if a relative URL (non-external URL) is provided, the file will be prefixed with <code class="language-plaintext highlighter-rouge">site.file</code>.</dd>
+  <dt><code class="language-plaintext highlighter-rouge">heading-img-local</code></dt>
+  <dd>To avoid relative URL prefixed by <code class="language-plaintext highlighter-rouge">site.file</code>, you can set this option to <code class="language-plaintext highlighter-rouge">true</code> to prefix it with <code class="language-plaintext highlighter-rouge">amsf_user_assets</code>, then you can store your images in <code class="language-plaintext highlighter-rouge">_app/assets/</code>.</dd>
+  <dt><code class="language-plaintext highlighter-rouge">heading-img-width</code></dt>
+  <dd>Set the width of your heading image. The value will be converted to viewport unit automatically. ie. <code class="language-plaintext highlighter-rouge">heading-img-width: 400</code> will be converted to <code class="language-plaintext highlighter-rouge">width: 40vw</code>;</dd>
+</dl>
+
+<blockquote>
+  <p><strong>Pro Tips</strong>: Keep a <code class="language-plaintext highlighter-rouge">&lt;title&gt;</code> tag for your SVG can help Safari generate correct post title for its Reader mode:</p>
+</blockquote>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;svg</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;title&gt;</span>Cool Article<span class="nt">&lt;/title&gt;</span>
+…
+</code></pre></div></div>
+:ET

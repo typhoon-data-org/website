@@ -1,0 +1,53 @@
+I"m<h2 id="overview">Overview</h2>
+
+<p>In the latest build, I’ve added multiple themes support, finally, you can switch themes with just one command.</p>
+
+<p class="note">This is an experimental feature and may change until the feature stabilizes.</p>
+
+<h2 id="installing-themes">Installing Themes</h2>
+
+<p>The AMSF framework ships a default theme <a href="https://github.com/amsf/amsf-curtana">Curtana</a>. You can also install as many themes as you like and switch to the one you prefer at any time.</p>
+
+<h3 id="via-git-github">Via Git (GitHub)</h3>
+
+<p>The easiest way to install a new theme is via <code class="language-plaintext highlighter-rouge">theme-add</code>, the following command will install theme Curtana from its official repo <code class="language-plaintext highlighter-rouge">amsf/amsf-curtana</code>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>grunt theme-add <span class="nt">--theme</span><span class="o">=</span>curtana
+</code></pre></div></div>
+
+<p>If you’d install a custom theme from other users, append <code class="language-plaintext highlighter-rouge">--user</code> in your command, the following command will install a new theme named <code class="language-plaintext highlighter-rouge">bootstrap-sass</code> from <code class="language-plaintext highlighter-rouge">sparanoid/amsf-bootstrap-sass</code></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>grunt theme-add <span class="nt">--theme</span><span class="o">=</span>bootstrap-sass <span class="nt">--user</span><span class="o">=</span>sparanoid
+</code></pre></div></div>
+
+<h3 id="manually-install">Manually Install</h3>
+
+<p>You can also install themes manually. find an AMSF theme (Curtana, for example), download the package and uncompress all files to <code class="language-plaintext highlighter-rouge">.amsf-cache/themes</code> directory, the file structure should look like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── .amsf-cache/ (Almace Scaffolding cache directory)
+|   ├── themes/
+|   |   └── curtana/
+|   |   |   └── assets/
+|   |   |   └── includes/
+|   |   |   └── layouts/
+|   |   |   └── pages/
+|   |   |   └── config.yml
+└── _app/
+</code></pre></div></div>
+
+<p>Then execute the following command:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>grunt activate <span class="nt">--theme</span><span class="o">=</span>curtana
+</code></pre></div></div>
+
+<p>Your current theme will be backed up to <code class="language-plaintext highlighter-rouge">.amsf-cache/themes/your-old-theme/</code> and the new theme <code class="language-plaintext highlighter-rouge">curtana</code> will be installed to the appropriate directories.</p>
+
+<h2 id="upgrading-themes">Upgrading Themes</h2>
+
+<p>You can update your current activated theme by the following command. The activated theme will be downloaded from GitHub automatically if there’s any update:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>grunt theme-update
+</code></pre></div></div>
+
+<p>Please note that only themes added via GitHub can be updated.</p>
+:ET

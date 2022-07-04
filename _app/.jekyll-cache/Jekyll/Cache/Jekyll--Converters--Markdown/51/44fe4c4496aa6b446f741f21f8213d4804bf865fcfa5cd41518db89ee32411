@@ -1,0 +1,19 @@
+I")<h2 id="configuration-settings">Configuration Settings</h2>
+
+<ul>
+  <li>All AMSF built-in settings can be configured at <a href="https://github.com/sparanoid/almace-scaffolding/blob/master/_config.yml"><code class="language-plaintext highlighter-rouge">_config.yml</code></a>.</li>
+  <li>Theme specific variables can be found at <code class="language-plaintext highlighter-rouge">./_app/_data/theme-name.yml</code>.</li>
+  <li>Additional variables are stored in <a href="https://github.com/sparanoid/almace-scaffolding/blob/master/_app/_data"><code class="language-plaintext highlighter-rouge">./_app/_data/</code></a> directory. They can be accessed by Jekyll. (<a href="https://jekyllrb.com/docs/datafiles/">More info</a>)</li>
+  <li>You should also change <code class="language-plaintext highlighter-rouge">favicon.*</code> and <code class="language-plaintext highlighter-rouge">apple-touch-icon.png</code> to yours.</li>
+  <li><code class="language-plaintext highlighter-rouge">logo.png</code> is mainly used by Open Graph and Twitter Cards when there’s no featured image in a post, you should also design your own.</li>
+  <li>More customization please refer to theme-specific documentation</li>
+</ul>
+
+<h2 id="tips">Tips</h2>
+
+<ul>
+  <li>Not familiar with <a href="https://daringfireball.net/projects/markdown/">Markdown</a>? Try <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a>.</li>
+  <li>You can use Jekyll’s <a href="https://jekyllrb.com/docs/templates/#code-snippet-highlighting">built-in syntax highlighting</a>, I’ve included a default theme for this project.</li>
+  <li><a href="https://kramdown.gettalong.org/quickref.html#tables">Tables</a> and <a href="https://kramdown.gettalong.org/quickref.html#footnotes">footnotes</a> are also available to use.</li>
+</ul>
+:ET

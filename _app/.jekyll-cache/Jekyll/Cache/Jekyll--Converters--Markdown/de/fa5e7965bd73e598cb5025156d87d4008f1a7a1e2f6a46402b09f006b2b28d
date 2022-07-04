@@ -1,0 +1,29 @@
+I"�<p>AMSF, a.k.a. <strong>Almace Scaffolding</strong>, is a super-fast Jekyll framework fighting against the website obesity. It supports LiveReload, Sass, HTML minification, inlined stylesheets and more.</p>
+
+<p class="largetype">
+  <a href="/website/getting-started.html">Getting Started →</a>
+</p>
+
+<p>Go to the <a href="https://github.com/sparanoid/almace-scaffolding">GitHub</a> page for downloads, bug reports, and feature requests.</p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>Theme switching, you can switch themes with just one command</li>
+  <li>A fully configured Jekyll setup with well-defined <a href="https://github.com/sparanoid/almace-scaffolding/blob/master/_app/feed-atom.xml">Atom feed</a> and <a href="https://github.com/sparanoid/almace-scaffolding/blob/master/_app/sitemap.xml">sitemap</a></li>
+  <li><strong>Almace Scaffolding</strong> ships a sleek responsive theme <a href="https://github.com/amsf/amsf-curtana">Curtana</a>, a variant of <a href="https://sparanoid.com/">sparanoid.com</a>, looking great on any modern browsers</li>
+  <li>Every minified page generates only one HTTP request <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></li>
+  <li><a href="https://github.com/sparanoid/almace-scaffolding/blob/master/_config.example.yml">Tons of configurable settings</a> for your posts and site customization</li>
+  <li>Service Worker support for lightning-fast experience</li>
+  <li>Built with Grunt.js for easy development</li>
+  <li>Travis support</li>
+</ul>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Based on the theme you’re using, theme Curtana generates only one HTTP request for production build when your posts don’t have fancy sliders or other external media files. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

@@ -1,0 +1,33 @@
+I"
+<p>Sites generated using Almace Scaffolding can be deployed in nearly any web hosting services. A few of the most common deployment techniques are described below. More deployment methods please refer to <a href="https://jekyllrb.com/docs/deployment-methods/">Jekyll - Deployment methods</a>.</p>
+
+<h2 id="cloudflare-pages">Cloudflare Pages</h2>
+
+<p>The simplest way to deploy your AMSF site is using <a href="https://pages.cloudflare.com/">Cloudflare Pages</a>. Just signup for Cloudflare and connect it with your GitHub account. Create a Pages project and use the following settings:</p>
+
+<ul>
+  <li>Framework preset: Jekyll</li>
+  <li>Build command: <code class="language-plaintext highlighter-rouge">grunt build</code></li>
+  <li>Build output directory: <code class="language-plaintext highlighter-rouge">_site</code></li>
+</ul>
+
+<h2 id="web-hosting-providers-ftpsftp">Web Hosting Providers (FTP/SFTP)</h2>
+
+<p>Just about any traditional web hosting provider will let you upload files to their servers over FTP. You can simply run the <code class="language-plaintext highlighter-rouge">grunt build</code> command and upload all files generated under <code class="language-plaintext highlighter-rouge">_site</code> to the HTTP root folder of your hosting account.</p>
+
+<h2 id="rsync">rsync</h2>
+
+<p>There’s a <code class="language-plaintext highlighter-rouge">_deploy.yml</code> at the root of your AMSF project containing a basic <code class="language-plaintext highlighter-rouge">rsync</code> configurations. Change these configurations to yours and then run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>grunt deploy:rsync
+</code></pre></div></div>
+
+<p>You can deploy it for specific environments, the following command will deploy your site to <code class="language-plaintext highlighter-rouge">beta</code> environment via <code class="language-plaintext highlighter-rouge">rsync</code> method you defined in <code class="language-plaintext highlighter-rouge">_deploy.yml</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>grunt deploy:rsync <span class="nt">--env</span><span class="o">=</span>beta
+</code></pre></div></div>
+
+<h2 id="amazon-s3-s3_website">Amazon S3 (s3_website)</h2>
+
+<p>You can also deploy your site to Amazon S3 via <a href="https://github.com/laurilehmijoki/s3_website">s3_website</a>, see <code class="language-plaintext highlighter-rouge">s3_website.example.yml</code> for more info.</p>
+:ET

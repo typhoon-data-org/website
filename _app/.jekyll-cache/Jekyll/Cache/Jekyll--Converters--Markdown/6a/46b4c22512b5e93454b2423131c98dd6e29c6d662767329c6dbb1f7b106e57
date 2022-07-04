@@ -1,0 +1,129 @@
+I"g<h2 id="indented-code-blocks">Indented Code Blocks</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+</code></pre></div></div>
+
+<h2 id="liquid-tag-with-linenos-support">Liquid Tag with <code class="language-plaintext highlighter-rouge">linenos</code> Support</h2>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">show</span>
+  <span class="vi">@widget</span> <span class="o">=</span> <span class="no">Widget</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+    <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="c1"># show.html.erb</span>
+    <span class="nb">format</span><span class="p">.</span><span class="nf">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json: </span><span class="vi">@widget</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="gfm-code-blocks-fenced_code_blocks">GFM Code Blocks (<code class="language-plaintext highlighter-rouge">fenced_code_blocks</code>)</h2>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Background color function */</span>
+<span class="nc">.code-bg</span> <span class="o">(</span><span class="k">@v</span><span class="p">)</span> <span class="n">when</span> <span class="p">(</span><span class="n">lightness</span><span class="p">(</span><span class="err">@</span><span class="n">v</span><span class="p">)</span> <span class="err">&gt;=</span> <span class="m">50%</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">@return-bg</span><span class="p">:</span> <span class="nb">mix</span><span class="p">(</span><span class="m">#000</span><span class="p">,</span> <span class="n">lighten</span><span class="p">(</span><span class="err">@</span><span class="n">v</span><span class="p">,</span> <span class="m">30%</span><span class="p">),</span> <span class="m">10%</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.code-bg</span> <span class="o">(</span><span class="k">@v</span><span class="p">)</span> <span class="n">when</span> <span class="p">(</span><span class="n">lightness</span><span class="p">(</span><span class="err">@</span><span class="n">v</span><span class="p">)</span> <span class="err">&lt;</span> <span class="m">50%</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">@return-bg</span><span class="p">:</span> <span class="nb">mix</span><span class="p">(</span><span class="m">#fff</span><span class="p">,</span> <span class="n">darken</span><span class="p">(</span><span class="err">@</span><span class="n">v</span><span class="p">,</span> <span class="m">10%</span><span class="p">),</span> <span class="m">70%</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="smartypants">SmartyPants</h3>
+
+<p>“Aha! What’s up, man?” – Jony said.</p>
+
+<h2 id="tables">Tables</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+      <th>Abstentions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alice</td>
+      <td>10</td>
+      <td>11</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Bob</td>
+      <td>4</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Charlie</td>
+      <td>7</td>
+      <td>9</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Totals</td>
+      <td>21</td>
+      <td>23</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="intra-emphasis">Intra-emphasis</h2>
+
+<p>foo_bar_baz</p>
+
+<h2 id="auto-link">Auto-link</h2>
+
+<p>https://sparanoid.com/</p>
+
+<h2 id="strikethroughs">Strikethroughs</h2>
+
+<p>This is <del>good</del> bad.</p>
+
+<h2 id="space-after-headers">Space after Headers</h2>
+
+<p>###This is not a header.</p>
+
+<h2 id="superscripts">Superscripts</h2>
+
+<p>This is the 2^(nd) time.</p>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<p>This<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> is<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> a sentence<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>.</p>
+
+<h2 id="id-日本語タイトル">ID 日本語タイトル</h2>
+
+<p>Expected id should be <code class="language-plaintext highlighter-rouge">id-ri-ben-yu-taitoru</code>.</p>
+
+<h2 id="id-中文標題">ID 中文標題</h2>
+
+<p>Expected id should be <code class="language-plaintext highlighter-rouge">id-zhong-wen-biao-ti</code>.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Lorem lean startup ipsum <strong>product market fit customer development</strong> acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying <a href="#">crowded market</a> pivot onboarding freemium prototype ping pong. Early stage disruptive ecosystem community outreach dynamic location based strategic investor. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://web.archive.org/web/20160425094356/http://blog.readability.com:80/2012/06/announcement/">An Important Announcement</a> by Richard Ziade at Readability <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Good afterble constanoon, this sweet hongi is as bung as a stuffed morepork. Mean while, in the marae, Dr Ropata and Hairy Maclary from Donaldson’s Dairy were up to no good with a bunch of bloody troties. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>
+:ET
