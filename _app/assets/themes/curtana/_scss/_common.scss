@@ -43,7 +43,7 @@ body:hover .latest {
 
 // Main content
 .content {
-  margin-bottom: 16vmin;
+//   margin-bottom: 16vmin;
 
   // For some specified posts in work category
   @include cf;
@@ -837,8 +837,8 @@ body:hover .latest {
 
 .footer {
   padding: 0 0 16vmin;
-  margin-right: calc(var(--nav-item-space) * -1);
-  margin-left: calc(var(--nav-item-space) * -1);
+//   margin-right: calc(var(--nav-item-space) * -1);
+//   margin-left: calc(var(--nav-item-space) * -1);
   font-size: 80%;
   text-transform: lowercase;
 

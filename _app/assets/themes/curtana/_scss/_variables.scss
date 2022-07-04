@@ -6,7 +6,7 @@
 // variables, since CSS variables still don't support media query, I still need
 // some Sass variables here:
 $breakpoint-lg: 1600px !default;
-$breakpoint-md: 1080px !default;
+$breakpoint-md: px !default;
 $breakpoint-sm: 640px !default;
 $breakpoint-xs: 400px !default;
 
