@@ -527,8 +527,6 @@ body {
 	overflow: hidden;
 	// .header__container
 	&__container {
-		position: relative;
-		left: 32px;
 	}
 	// .header__menu
 	&__menu {
@@ -675,8 +673,12 @@ body {
 .content {
 	margin-bottom: 0 !important;
 }
+footer.footer {
+	text-transform: none !important;
+}
 .footer {
 	padding: 0 !important;
+	margin-right: 0 !important;
 	background-color: $secondaryBodyColor;
 	// .footer__container
 	&__container {
