@@ -10,6 +10,6 @@
 - title: Blog
   url:   /#blog
 
-- title: Star us on Github
-  url:   https://github.com/typhoon-data-org/typhoon-orchestrator
-  target: _blank
+# - title: Star us on Github
+#   url:   https://github.com/typhoon-data-org/typhoon-orchestrator
+#   target: _blank

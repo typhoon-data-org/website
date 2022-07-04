@@ -13,6 +13,13 @@ function burgerMenu() {
 			body.classList.remove('locked')
 		}
 	})
+	
+	menu.querySelectorAll('li').forEach(element => element.addEventListener('click', () => {
+		menu.classList.remove('active')
+		burger.classList.remove('active-burger')
+		body.classList.remove('locked')
+	 })
+  	);
 
 	window.addEventListener('resize', () => {
 		if (window.innerWidth > 767.98) {

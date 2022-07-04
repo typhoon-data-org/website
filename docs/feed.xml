@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>Typhoon Orchestrator</title>
   <subtitle>Elegant Serverless YAML Data Pipelines</subtitle>
-  <updated>2022-07-04T12:06:58-07:00</updated>
+  <updated>2022-07-04T13:34:02-07:00</updated>
   <id>http://0.0.0.0:4321/</id>
   <generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator>
 
@@ -27,7 +27,7 @@
         <published>2022-05-31T00:00:00-07:00</published>
 
         
-          <updated>2022-05-31T13:58:24-07:00</updated>
+          <updated>2022-07-04T12:54:00-07:00</updated>
         
 
         <author>
@@ -38,7 +38,29 @@
 
         <content type="html" xml:base="http://0.0.0.0:4321/">
           
-            &lt;p&gt;&lt;a href=&quot;https://github.com/typhoon-data-org/typhoon-orchestrator&quot;&gt;Typhoon Orchestrator&lt;/a&gt; is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from &lt;a href=&quot;https://jokeapi.dev&quot;&gt;https://jokeapi.dev&lt;/a&gt; once a day and sends it to your telegram group.&lt;/p&gt;
+            &lt;h4 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h4&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#table-of-contents&quot; id=&quot;markdown-toc-table-of-contents&quot;&gt;Table of contents&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#getting-started&quot; id=&quot;markdown-toc-getting-started&quot;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tell-me-a-joke&quot; id=&quot;markdown-toc-tell-me-a-joke&quot;&gt;Tell me a joke!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#i-want-the-joke-on-telegram&quot; id=&quot;markdown-toc-i-want-the-joke-on-telegram&quot;&gt;I want the joke on telegram&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#aiming-for-the-clouds&quot; id=&quot;markdown-toc-aiming-for-the-clouds&quot;&gt;Aiming for the clouds&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#build-and-upload-the-workflow&quot; id=&quot;markdown-toc-build-and-upload-the-workflow&quot;&gt;Build and upload the workflow&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#deploying-infrastructure&quot; id=&quot;markdown-toc-deploying-infrastructure&quot;&gt;Deploying infrastructure&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#lets-take-it-for-a-spin&quot; id=&quot;markdown-toc-lets-take-it-for-a-spin&quot;&gt;Let’s take it for a spin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#why-cant-i-just-run-everything-in-one-lambda&quot; id=&quot;markdown-toc-why-cant-i-just-run-everything-in-one-lambda&quot;&gt;Why can’t I just run everything in one lambda?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#this-is-good-to-be-true-can-i-really-build-all-my-etls-like-this&quot; id=&quot;markdown-toc-this-is-good-to-be-true-can-i-really-build-all-my-etls-like-this&quot;&gt;This is good to be true, can I really build all my ETLs like this?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#does-that-mean-that-typhoon-is-not-ready-for-prime-time&quot; id=&quot;markdown-toc-does-that-mean-that-typhoon-is-not-ready-for-prime-time&quot;&gt;Does that mean that Typhoon is not ready for prime time?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cleaning-up&quot; id=&quot;markdown-toc-cleaning-up&quot;&gt;Cleaning up&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#thanks-for-following-along&quot; id=&quot;markdown-toc-thanks-for-following-along&quot;&gt;Thanks for following along!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;summary&quot;&gt;Summary&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/typhoon-data-org/typhoon-orchestrator&quot;&gt;Typhoon Orchestrator&lt;/a&gt; is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from &lt;a href=&quot;https://jokeapi.dev&quot;&gt;https://jokeapi.dev&lt;/a&gt; once a day and sends it to your telegram group.&lt;/p&gt;
 
 &lt;h2 id=&quot;getting-started&quot;&gt;Getting started&lt;/h2&gt;
 
@@ -327,7 +349,7 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         </content>
 
         
-          <summary>Typhoon Orchestrator is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from https://jokeapi.dev once a day and sends it to your telegram group.</summary>
+          <summary>Table of contents  Table of contents</summary>
         
       </entry>
     
