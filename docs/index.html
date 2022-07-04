@@ -93,19 +93,19 @@
 	<div class="heder__body">
 		<div class="header__container">
 			<nav class="navigation header__menu menu-header">
-				<div class="menu-header__logo"><a href="#"><img src="/assets/img/logo.svg" alt="Logo"></a></div>
+				<div class="menu-header__logo"><a href="/"><img src="/assets/img/logo.svg" alt="Logo"></a></div>
 				<ul class="menu-header__list">
-					<li class=current>
-						<a href="/">Typhoon Orchestrator</a>
+					<li >
+						<a href="/#features" target="">Features</a>
 						</li>
 					<li >
-						<a href="/#features">Features</a>
+						<a href="/#plugins" target="">Plugins</a>
 						</li>
 					<li >
-						<a href="/#plugins">Plugins</a>
+						<a href="/#blog" target="">Blog</a>
 						</li>
 					<li >
-						<a href="/#blog">Blog</a>
+						<a href="https://github.com/typhoon-data-org/typhoon-orchestrator" target="_blank">Star us on Github</a>
 						</li>
 					
 				</ul>
@@ -124,14 +124,15 @@
 					<h1 class="item-hero__title title title_big">Serverless data pipelines written for <span class="title_tagged title_italic">Data Engineers.</span></h1>
 					<h4 class="item-hero__subtitle subtitle"><span class="subtitle_tagged subtitle_italic">Frameworkless.</span> No dependencies. Write testable tasks in modern Python.</h4>
 					<p class="item-hero__text text text_big">Compose in YAML and schedule them in serverless Lambda or Airflow. Package them in reusable components for your data analysts to use from the UI.</p>
-					<p class="item-hero__text text text_big">Fully <span class="text_tagged text_italic">Open Source.</span> View on GitHub.</p>
 					<div class="item-hero__buttons buttons-hero">
 						<button class="buttons-hero__button button" type="submit">Try With Docker</button>
 						<p class="buttons-hero__text text text_italic">or install locally.</p>
-					</div>
+					</div>					
 				</div>
 				<div class="hero-home__item item-hero item-hero__right">
-					<img src="/assets/img/auto_complete_small.gif" class="item-hero__image" alt="Hero">
+					<p class="browser">
+					<img src="/assets/img/auto_complete_small.gif" class="" alt="Hero">
+					</p>
 				</div>
 			</div>
 		</div>
@@ -142,56 +143,62 @@
 			<div class="features-home__items">
 				<article class="features-home__item item-features">
 					<div class="item-features__body">
-						<h5 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h5>
-						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+						<h5 class="item-features__title subtitle subtitle_black"><a href="#lambda">Serverless deployment to AWS Lambda</a></h5>
+						<p class="item-features__text text text_light-black">Serverless deployment on AWS. Robust, cheap and scalable.</p>
 					</div>
 					<div class="item-features__image">
+						<img src="/assets/img/lambda.svg" alt="Lambda">
 					</div>
 				</article>
 				<article class="features-home__item item-features">
 					<div class="item-features__body">
-						<h5 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h5>
-						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+						<h5 class="item-features__title subtitle subtitle_black"><a href="#lambda">Airflow deployment - 10x productivity</a></h5>
+						<p class="item-features__text text text_light-black">Productivity leap without risk with Airflow transpilation.</p>
 					</div>
 					<div class="item-features__image">
+						<img src="/assets/img/airflow_icon.png" alt="Airflow">
 					</div>
 				</article>
 				<article class="features-home__item item-features">
 					<div class="item-features__body">
-						<h5 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h5>
-						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+						<h5 class="item-features__title subtitle subtitle_black"><a href="#python">Frameworkless native python</a></h5>
+						<p class="item-features__text text text_light-black">No dependencies or limitations. Simply pure, testable python functions.</p>
 					</div>
 					<div class="item-features__image">
+						<img src="/assets/img/plugins/python.svg" alt="Python">
 					</div>
 				</article>
 				<article class="features-home__item item-features">
 					<div class="item-features__body">
-						<h5 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h5>
-						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+						<h5 class="item-features__title subtitle subtitle_black"><a href="#compose">Simple composability</a></h5>
+						<p class="item-features__text text text_light-black">Reuse any source easily composing them like Lego blocks.</p>
 					</div>
 					<div class="item-features__image">
+						<img src="/assets/img/lego.png" alt="Composability">
 					</div>
 				</article>
 				<article class="features-home__item item-features">
 					<div class="item-features__body">
-						<h5 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h5>
-						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+						<h5 class="item-features__title subtitle subtitle_black"><a href="#compose">Elegant YAML</a></h5>
+						<p class="item-features__text text text_light-black">Everyone likes YAML, don't they? Easy to pick up, very productive.</p>
 					</div>
 					<div class="item-features__image">
+						<img src="/assets/img/yml.png" alt="YAML">
 					</div>
 				</article>
 				<article class="features-home__item item-features">
 					<div class="item-features__body">
-						<h5 class="item-features__title subtitle subtitle_black"><a href="#">Lorem Ipsum</a></h4>
-						<p class="item-features__text text text_light-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+						<h5 class="item-features__title subtitle subtitle_black"><a href="#team">Components UI</a></h4>
+						<p class="item-features__text text text_light-black">Compose data pipeline mini-apps for your team to use. Scale your workflows.</p>
 					</div>
 					<div class="item-features__image">
+						<img src="/assets/img/team.png" alt="Team">
 					</div>
 				</article>
 			</div>
 		</div>
 	</section>
-	<section class="home__lambda lambda-home">
+	<section class="home__lambda lambda-home" id="lambda">
 		<div class="lambda-home__container">
 			<div class="lambda-home__body">
 				<div class="lambda-home__item item-lambda item-lambda-left">
@@ -221,46 +228,42 @@
 			</div>
 		</div>
 	</section>
-	<section class="home__extend extend-home">
+	<section class="home__extend extend-home" id="python">
 		<div class="extend-home__container">
 			<div class="extend-home__body">
 				<div class="extend-home__item item-extend item-extend-left">
 					<h3 class="item-extend__titile title"><span class="title_tagged title_italic">Extend</span> with pure python. Create a function and reference it directly in YAML.</h3>
 					<p class="item-extend__subtitle subtitle subtitle_regular">Because they are pure python you can also easily test them with pytest.</p>
 				</div>
-				<div class="extend-home__item item-extend item-extend-right">
-					<img src="/assets/img/extend.jpg" alt="Extend">
+				<div class="extend-home__item item-extend">
+					<p class="browser">
+						<img src="/assets/img/extend.jpg" alt="Extend">
+					</p>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section class="home__compose compose-home">
+	<section class="home__compose compose-home" id="compose">
 		<div class="compose-home__container">
 			<div class="compose-home__body">
 				<div class="compose-home__item item-compose item-compose-left">
-					<p class="item-compose__text text_mono text_high">
-						name: favorite_authors<br>
-						<span class="text_tab-20">schedule_interval: rate(1 day)</span>
-					</p>
-					<br>
-					<p class="item-compose__text text_mono text_high">
-						<span class="text_tab-20">tasks:</span><br>
-						<span class="text_tab-40">choose_favorites:</span><br>
-						<span class="text_tab-60">function: typhoon.flow_control.branch</span><br>
-						<span class="text_tab-60">args:</span><br>
-						<span class="text_tab-80">branches:</span><br>
-						<span class="text_tab-100">- J. K. Rowling</span><br>
-						<span class="text_tab-100">- George R. R. Martin</span><br>
-						<span class="text_tab-100">- James Clavell</span><br>
-					</p>
-					<br>
-					<p class="item-compose__text text_mono text_high">
-						<span class="text_tab-40">get_author:</span><br>
-						<span class="text_tab-60">input: choose_favorites</span><br>
-						<span class="text_tab-60">function: functions.open_library_api.get_author</span><br>
-						<span class="text_tab-60">args:</span><br>
-						<span class="text_tab-80">author: !Py $BATCH</span><br>
-					</p>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">name</span><span class="pi">:</span> <span class="s">favorite_authors</span>
+<span class="na">schedule_interval</span><span class="pi">:</span> <span class="s">rate(1 day)</span>
+
+<span class="na">tasks</span><span class="pi">:</span>
+<span class="err">	</span><span class="na">choose_favorites</span><span class="pi">:</span>
+<span class="err">	</span><span class="na">function</span><span class="pi">:</span> <span class="s">typhoon.flow_control.branch</span>
+<span class="na">	args</span><span class="pi">:</span>
+<span class="err">		</span><span class="na">branches</span><span class="pi">:</span>
+<span class="err">		</span><span class="pi">-</span> <span class="s">J. K. Rowling</span>
+<span class="err">		</span><span class="s">- George R. R. Martin</span>
+<span class="err">		</span><span class="s">- James Clavell</span>
+
+<span class="na">	get_author</span><span class="pi">:</span>
+<span class="err">	</span><span class="na">input</span><span class="pi">:</span> <span class="s">choose_favorites</span>
+<span class="na">	function</span><span class="pi">:</span> <span class="s">functions.open_library_api.get_author</span>
+<span class="na">	args</span><span class="pi">:</span>
+<span class="err">		</span><span class="na">author</span><span class="pi">:</span> <span class="kt">!Py</span> <span class="s">$BATCH</span></code></pre></figure>
 				</div>
 				<div class="compose-home__item item-compose item-compose-right">
 					<h3 class="item-compose__titile title"><span class="title_tagged title_italic">Compose</span> elegant YAML DAGs using re-usable hooks and pure python functions just like lego.</h3>
@@ -269,15 +272,17 @@
 			</div>
 		</div>
 	</section>
-	<section class="home__component component-home">
+	<section class="home__component component-home" id="team">
 		<div class="component-home__container">
 			<div class="component-home__body">
 				<div class="component-home__item item-component item-component-left">
 					<h3 class="item-component__titile title"><span class="title_tagged title_italic">Component UI</span> templates can abstract complex workflows for other users.</h3>
 					<p class="item-component__subtitle subtitle subtitle_regular">Make your analytics team self-sufficient by creating <span class="subtitle_tagged subtitle_italic">data pipeline apps</span> so they can create schedules themselves via the api.</p>
 				</div>
-				<div class="component-home__item item-component item-component-right">
-					<img src="/assets/img/component.jpg" alt="Extend">
+				<div class="component-home__item item-component">
+					<p class="browser">
+						<img src="/assets/img/component.jpg" alt="Extend">
+					</p>
 				</div>
 			</div>
 		</div>
@@ -410,47 +415,102 @@
 			</div>
 		</div>
 	</section>
-	<section class="home__posts posts-home">
+	
+</main>
+<!-- Footer section -->
+
+<section class="home__posts posts-home">
 		<div class="posts-home__container">
-			<h2 class="posts-home__title title title_big title_uppercase">BLOG POSTS</h2>
+			<h2 id="blog" class="posts-home__title title title_big title_uppercase">BLOG POSTS</h2>
 			<div class="posts-home__body">
 				<div class="posts-home__item item-posts-left">
 					<h3 class="posts-home__subtitle subtitle">Blog - Getting-started</h3>
 					<div class="posts-home__links">
-						<a class="posts-home__link text" href="#">Welcome</a>
-						<a class="posts-home__link text" href="#">Getting Started</a>
-						<a class="posts-home__link text" href="#">Configuration</a>
+						<!-- List snippets -->
+
+<!-- Dynamic link color based on post color scheme -->
+
+
+<!-- Dynamic background color based on post color scheme -->
+
+
+<section class="list">
+  
+    <!-- Item title -->
+    <a class="posts-home__link text" href="/welcome.html" >Welcome</a>
+
+    <!-- External link indicator -->
+    
+  
+</section>
+<!-- List snippets -->
+
+<!-- Dynamic link color based on post color scheme -->
+
+
+<!-- Dynamic background color based on post color scheme -->
+
+
+<section class="list">
+  
+    <!-- Item title -->
+    <a class="posts-home__link text" href="/getting-started.html" >Getting Started</a>
+
+    <!-- External link indicator -->
+    
+  
+</section>
+<!-- List snippets -->
+
+<!-- Dynamic link color based on post color scheme -->
+
+
+<!-- Dynamic background color based on post color scheme -->
+
+
+<section class="list">
+  
+    <!-- Item title -->
+    <a class="posts-home__link text" href="/configuration.html" >Configuration</a>
+
+    <!-- External link indicator -->
+    
+  
+</section>
+
 					</div>
 				</div>
 				<div class="posts-home__item item-posts-right">
-					<h3 class="posts-home__subtitle subtitle">Blog - Articles</h3>
-					<a class="posts-home__link text" href="#">How to create a Serverless Telegram<br> Bot to send daily jokes to your friends.</a>
+					<h3 class="posts-home__subtitle subtitle">Blog - Articles</h3>					
+					<!-- List snippets -->
+
+<!-- Dynamic link color based on post color scheme -->
+
+
+<!-- Dynamic background color based on post color scheme -->
+
+
+<section class="list">
+  
+    <!-- Item title -->
+    <a class="posts-home__link text" href="/serverless-telegram-bot-jokes.html" >How to create a Serverless Telegram Bot to send daily jokes to your friends</a>
+
+    <!-- External link indicator -->
+    
+  
+</section>
+
 				</div>
 			</div>
 		</div>
 	</section>
-</main>
-<!-- Footer section -->
+	
 
 
-  <footer class="footer">
-  		<div class="footer__container">
-			<div class="footer__copy">
-				© 2022 All Rights Reserved
-			</div>
-			<ul class="footer__links">
-				<li class="footer__link><a href="/">Typhoon Orchestrator</a></li>
 
-				
-				<li class="footer__link>
-					<a href="https://sparanoid.com/lab/amsf/" title="Almace Scaffolding with theme Curtana">AMSF</a>
-				</li>
-				
 
-				
-			</ul>
-		</div>
-  </footer>
+
+  
 
 <!-- Theme scripts -->
 <script src="/assets/themes/curtana/js/app.js?assets-inline"></script>

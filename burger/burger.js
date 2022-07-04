@@ -1,4 +1,4 @@
-function burgerMenu() {
+export function burgerMenu() {
 	const burger = document.querySelector('.menu-header__burger-menu')
 	const menu = document.querySelector('.menu-header__list')
 	const body = document.querySelector('body')
@@ -23,6 +23,4 @@ function burgerMenu() {
 	})
 }
 
-
-
-burgerMenu();
+flsFunctions.burgerMenu();

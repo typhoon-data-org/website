@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>Typhoon Orchestrator</title>
   <subtitle>Elegant Serverless YAML Data Pipelines</subtitle>
-  <updated>2022-07-04T02:24:50+00:00</updated>
+  <updated>2022-07-04T12:06:58-07:00</updated>
   <id>http://0.0.0.0:4321/</id>
   <generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator>
 
@@ -24,10 +24,10 @@
         <title>How to create a Serverless Telegram Bot to send daily jokes to your friends</title>
         <id>http://0.0.0.0:4321/serverless-telegram-bot-jokes.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/serverless-telegram-bot-jokes.html" />
-        <published>2022-05-31T00:00:00+00:00</published>
+        <published>2022-05-31T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2022-05-31T13:58:24-07:00</updated>
         
 
         <author>
@@ -63,7 +63,7 @@ typhoon status
 &lt;p&gt;Before we worry about telegram, let’s create a workflow that calls the joke API and prints the joke on your CLI. Create the file: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dags/send_me_a_joke.yml&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;send_me_a_joke&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;schedule_interval&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@daily&apos;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;schedule_interval&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@daily'&lt;/span&gt;
 
 &lt;span class=&quot;na&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;get_joke&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
@@ -95,7 +95,7 @@ typhoon status
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;error&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;category&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Programming&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;single&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;joke&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A man is smoking a cigarette and blowing smoke rings into the air. His girlfriend becomes irritated with the smoke and says &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Can&apos;t you see the warning on the cigarette pack? Smoking is hazardous to your health!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; to which the man replies, &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;I am a programmer.  We don&apos;t worry about warnings; we only worry about errors.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;joke&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A man is smoking a cigarette and blowing smoke rings into the air. His girlfriend becomes irritated with the smoke and says &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Can't you see the warning on the cigarette pack? Smoking is hazardous to your health!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; to which the man replies, &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;I am a programmer.  We don't worry about warnings; we only worry about errors.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;flags&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;nsfw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;religious&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -135,7 +135,7 @@ typhoon status
     &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Given a telegram bot token, chat_id and message,
        send the message to that chat&quot;&quot;&quot;&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;bot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;telegram&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Sending message &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; to &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chat_id&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Sending message &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; to &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chat_id&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;bot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chat_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chat_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -341,10 +341,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Upgrading Guide from v1 to v2</title>
         <id>http://0.0.0.0:4321/upgrading-from-v1-to-v2.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/upgrading-from-v1-to-v2.html" />
-        <published>2018-07-23T00:00:00+00:00</published>
+        <published>2018-07-23T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -396,10 +396,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Upgrading Guide: v1.1.0</title>
         <id>http://0.0.0.0:4321/upgrading-guide-v1.1.0.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/upgrading-guide-v1.1.0.html" />
-        <published>2017-01-07T00:00:00+00:00</published>
+        <published>2017-01-07T00:00:00-08:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2017-01-10T19:17:09-08:00</updated>
         
 
         <author>
@@ -450,10 +450,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Open Graph</title>
         <id>http://0.0.0.0:4321/open-graph.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/open-graph.html" />
-        <published>2017-01-06T00:00:00+00:00</published>
+        <published>2017-01-06T00:00:00-08:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -502,10 +502,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Jekyll Theme Compatibility</title>
         <id>http://0.0.0.0:4321/jekyll-theme-compatibility.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/jekyll-theme-compatibility.html" />
-        <published>2016-11-07T00:00:00+00:00</published>
+        <published>2016-11-07T00:00:00-08:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -547,10 +547,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Introducing Curtana</title>
         <id>http://0.0.0.0:4321/theme-curtana.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/theme-curtana.html" />
-        <published>2016-06-01T00:00:00+00:00</published>
+        <published>2016-06-01T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -598,10 +598,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Deployment Methods</title>
         <id>http://0.0.0.0:4321/deployment-methods.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/deployment-methods.html" />
-        <published>2016-03-18T00:00:00+00:00</published>
+        <published>2016-03-18T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2021-03-12T20:33:14-08:00</updated>
         
 
         <author>
@@ -665,10 +665,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Multiple Themes Support</title>
         <id>http://0.0.0.0:4321/multiple-themes-support.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/multiple-themes-support.html" />
-        <published>2015-08-18T00:00:00+00:00</published>
+        <published>2015-08-18T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2017-01-20T01:00:20-08:00</updated>
         
 
         <author>
@@ -702,10 +702,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Welcome</title>
         <id>http://0.0.0.0:4321/welcome.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/welcome.html" />
-        <published>2014-06-13T00:00:00+00:00</published>
+        <published>2014-06-13T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -766,10 +766,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Getting Started</title>
         <id>http://0.0.0.0:4321/getting-started.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/getting-started.html" />
-        <published>2014-06-12T00:00:00+00:00</published>
+        <published>2014-06-12T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2021-10-02T09:10:20-07:00</updated>
         
 
         <author>
@@ -803,7 +803,7 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
 
 &lt;p&gt;You can simply run Almace Scaffolding in Docker with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compose&lt;/code&gt; command. Create your own &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose.yml&lt;/code&gt; file with the following content:&lt;/p&gt;
 
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3&apos;&lt;/span&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3'&lt;/span&gt;
 
 &lt;span class=&quot;na&quot;&gt;x-defaults&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;&amp;amp;defaults&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sparanoid/almace-scaffolding:latest&lt;/span&gt;
@@ -872,7 +872,7 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
 
 &lt;p&gt;Then build your image with Docker Compose:&lt;/p&gt;
 
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3&apos;&lt;/span&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3'&lt;/span&gt;
 
 &lt;span class=&quot;na&quot;&gt;x-defaults&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;&amp;amp;defaults&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
@@ -960,10 +960,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Customizing Styles</title>
         <id>http://0.0.0.0:4321/customizing-styles.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/customizing-styles.html" />
-        <published>2014-06-11T00:00:00+00:00</published>
+        <published>2014-06-11T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-02-18T22:51:32-08:00</updated>
         
 
         <author>
@@ -1009,10 +1009,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Configuration</title>
         <id>http://0.0.0.0:4321/configuration.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/configuration.html" />
-        <published>2014-06-11T00:00:00+00:00</published>
+        <published>2014-06-11T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -1063,10 +1063,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Themes</title>
         <id>http://0.0.0.0:4321/themes.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/themes.html" />
-        <published>2014-06-10T00:00:00+00:00</published>
+        <published>2014-06-10T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -1151,10 +1151,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
         <title>Creating Your Own Theme</title>
         <id>http://0.0.0.0:4321/creating-themes.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/creating-themes.html" />
-        <published>2014-06-09T00:00:00+00:00</published>
+        <published>2014-06-09T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -1384,10 +1384,10 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
 &lt;p&gt;You can simply add the query string &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?assets-inline&lt;/code&gt; at the end of the file you’d like to be inlined in production site:&lt;/p&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- This CSS will be inlined into HTML --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ &apos;/css/app.css?assets-inline&apos; | prepend: amsf_theme_assets }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/css/app.css?assets-inline' | prepend: amsf_theme_assets }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- This script will be inlined into HTML --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ &apos;/js/app.js?assets-inline&apos; | prepend: amsf_theme_assets }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/js/app.js?assets-inline' | prepend: amsf_theme_assets }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;user-custom-styles-support&quot;&gt;User Custom Styles Support&lt;/h3&gt;
@@ -1403,7 +1403,7 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
 &lt;p&gt;Define the following code snippet into your theme template (it’s recommended to put it in footer) will allow users to add custom scripts without touching the theme files:&lt;/p&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- User custom scripts --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ &apos;/js/user.js?assets-inline&apos; | prepend: amsf_user_assets }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/js/user.js?assets-inline' | prepend: amsf_user_assets }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;page--post-specific-css-block-support&quot;&gt;Page / Post Specific CSS Block Support&lt;/h3&gt;
@@ -1508,10 +1508,10 @@ Reading time: 3 hrs 20 mins
         <title>Syntax Highlighting</title>
         <id>http://0.0.0.0:4321/syntax-highlighting.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/syntax-highlighting.html" />
-        <published>2014-06-06T00:00:00+00:00</published>
+        <published>2014-06-06T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2018-10-15T10:28:58-07:00</updated>
         
 
         <author>
@@ -1559,8 +1559,8 @@ Reading time: 3 hrs 20 mins
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Tom&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -1589,7 +1589,7 @@ Reading time: 3 hrs 20 mins
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Load the http module to create an http server.&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// Configure our HTTP server to respond with Hello World to all requests.&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1653,14 +1653,14 @@ Reading time: 3 hrs 20 mins
 &lt;div class=&quot;language-moonscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;util&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;my.module&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a_table&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;foo:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;bar&apos;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;foo:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'bar'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;interpolated:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo-&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stuff&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;&quot;string&quot;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;do:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;keyword&apos;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;do:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'keyword'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MyClass&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SomeClass&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;new:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arg2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;default&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;new:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arg2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@derived&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@init&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 
@@ -1735,7 +1735,7 @@ Reading time: 3 hrs 20 mins
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;thrice&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))))&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;plot&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;thrice&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;deriv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;sin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;cos&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;#:color&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&apos;blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;cos&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;#:color&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;'blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;;; Print the Greek alphabet&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;in-range&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
@@ -1753,11 +1753,11 @@ Reading time: 3 hrs 20 mins
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;echo-server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-puppet highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;ntp&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;div class=&quot;language-puppet highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'ntp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
   &lt;span class=&quot;py&quot;&gt;name&lt;/span&gt;      &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$service_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;py&quot;&gt;ensure&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;running&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;py&quot;&gt;enable&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;subscribe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;ntp.conf&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;subscribe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ntp.conf'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1780,7 +1780,7 @@ Reading time: 3 hrs 20 mins
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-vb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;Private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Sub&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Form_Load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;&apos; Execute a simple message box that says &quot;Hello, World!&quot;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;' Execute a simple message box that says &quot;Hello, World!&quot;&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;MsgBox&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Sub&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -1813,9 +1813,9 @@ and &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&
     &lt;span class=&quot;na&quot;&gt;insertafter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;^;&quot;&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;with_items&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error_log&apos;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/var/log/php-fpm/error.log&apos;&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;log_level&apos;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&apos;&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;emergency_restart_threshold&apos;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;10&apos;&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error_log'&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/var/log/php-fpm/error.log'&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;log_level'&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error'&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;emergency_restart_threshold'&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;10'&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
           
@@ -1839,10 +1839,10 @@ and &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&
         <title>Markdown Features Test</title>
         <id>http://0.0.0.0:4321/markdown-features-test.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/markdown-features-test.html" />
-        <published>2014-06-06T00:00:00+00:00</published>
+        <published>2014-06-06T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2018-08-10T07:04:53-07:00</updated>
         
 
         <author>
@@ -2003,10 +2003,10 @@ end
         <title>Markup Example</title>
         <id>http://0.0.0.0:4321/markup-example.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/markup-example.html" />
-        <published>2014-06-05T00:00:00+00:00</published>
+        <published>2014-06-05T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2018-08-23T23:51:53-07:00</updated>
         
 
         <author>
@@ -2276,10 +2276,10 @@ Careful Skippy, you really aren’t as convincing as you think you are.&lt;/p&gt
         <title>Custom HTML Markups</title>
         <id>http://0.0.0.0:4321/custom-html-markups.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-html-markups.html" />
-        <published>2014-06-01T00:00:00+00:00</published>
+        <published>2014-06-01T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -2439,10 +2439,10 @@ Love this plugin? please consider &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
         <title>Custom Color Scheme</title>
         <id>http://0.0.0.0:4321/custom-color-scheme.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-color-scheme.html" />
-        <published>2014-05-01T00:00:00+00:00</published>
+        <published>2014-05-01T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2018-08-10T07:04:53-07:00</updated>
         
 
         <author>
@@ -2491,10 +2491,10 @@ scheme-hero-bg: &quot;#0029ff&quot;
         <title>Unique Post Styling via Custom CSS</title>
         <id>http://0.0.0.0:4321/custom-css.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-css.html" />
-        <published>2014-04-01T00:00:00+00:00</published>
+        <published>2014-04-01T00:00:00-07:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -2542,10 +2542,10 @@ css: |
         <title>External Link Post</title>
         <id>http://0.0.0.0:4321/external-link-post.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/external-link-post.html" />
-        <published>2014-02-01T00:00:00+00:00</published>
+        <published>2014-02-01T00:00:00-08:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -2584,10 +2584,10 @@ css: |
         <title>Custom Heading Image</title>
         <id>http://0.0.0.0:4321/custom-heading-image.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-heading-image.html" />
-        <published>2014-02-01T00:00:00+00:00</published>
+        <published>2014-02-01T00:00:00-08:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2018-08-10T07:04:53-07:00</updated>
         
 
         <author>
@@ -2648,10 +2648,10 @@ css: |
         <title>Custom Heading Background</title>
         <id>http://0.0.0.0:4321/custom-heading-background.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/custom-heading-background.html" />
-        <published>2014-02-01T00:00:00+00:00</published>
+        <published>2014-02-01T00:00:00-08:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>
@@ -2716,10 +2716,10 @@ css: |
         <title>GitHub Pages Setup Guide</title>
         <id>http://0.0.0.0:4321/github-pages-setup.html</id>
         <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/github-pages-setup.html" />
-        <published>2014-01-01T00:00:00+00:00</published>
+        <published>2014-01-01T00:00:00-08:00</published>
 
         
-          <updated>2022-07-01T19:46:50+00:00</updated>
+          <updated>2019-09-03T00:30:46-07:00</updated>
         
 
         <author>

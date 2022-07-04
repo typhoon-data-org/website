@@ -4,19 +4,20 @@
 	<div class="heder__body">
 		<div class="header__container">
 			<nav class="navigation header__menu menu-header">
-				<div class="menu-header__logo"><a href="#"><img src="{{ amsf_user_assets }}/img/logo.svg" alt="Logo"></a></div>
+				<div class="menu-header__logo"><a href="/"><img src="{{ amsf_user_assets }}/img/logo.svg" alt="Logo"></a></div>
 				<ul class="menu-header__list">
 					{% for item in site.data.header %}
 						{%- include amsf/relative_url url=item.url -%}
 						{%- assign item_url = amsf_relative_url -%}
 						{%- assign lowercased_title = item.title | slugify -%}
 						<li {% if page.permalink == item.url or page.category == lowercased_title %}class=current{% endif %}>
-						<a href="{{ item_url }}">
+						<a href="{{ item_url }}" target="{{item.target}}">
 							{%- if item.title == "__home__" -%}
 								{{ amsf_site_name }}
 							{%- else -%}
 								{{ item.title }}
 							{%- endif -%}
+											
 						</a>
 						</li>
 					{% endfor %}

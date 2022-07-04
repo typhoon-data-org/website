@@ -1,5 +1,5 @@
-- title: __home__
-  url:   /
+# - title: __home__
+#   url:   /
 
 - title: Features
   url:   /#features
@@ -9,3 +9,7 @@
 
 - title: Blog
   url:   /#blog
+
+- title: Star us on Github
+  url:   https://github.com/typhoon-data-org/typhoon-orchestrator
+  target: _blank

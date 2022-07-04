@@ -7,9 +7,9 @@
       "title": "How to create a Serverless Telegram Bot to send daily jokes to your friends",
       "permalink": "http://0.0.0.0:4321/serverless-telegram-bot-jokes.html",
       "link": "http://0.0.0.0:4321/serverless-telegram-bot-jokes.html",
-      "date": "2022-05-31T00:00:00+00:00",
+      "date": "2022-05-31T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2022-05-31T13:58:24-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -31,9 +31,9 @@
       "title": "Upgrading Guide from v1 to v2",
       "permalink": "http://0.0.0.0:4321/upgrading-from-v1-to-v2.html",
       "link": "http://0.0.0.0:4321/upgrading-from-v1-to-v2.html",
-      "date": "2018-07-23T00:00:00+00:00",
+      "date": "2018-07-23T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -55,9 +55,9 @@
       "title": "Upgrading Guide: v1.1.0",
       "permalink": "http://0.0.0.0:4321/upgrading-guide-v1.1.0.html",
       "link": "http://0.0.0.0:4321/upgrading-guide-v1.1.0.html",
-      "date": "2017-01-07T00:00:00+00:00",
+      "date": "2017-01-07T00:00:00-08:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2017-01-10T19:17:09-08:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -79,9 +79,9 @@
       "title": "Open Graph",
       "permalink": "http://0.0.0.0:4321/open-graph.html",
       "link": "http://0.0.0.0:4321/open-graph.html",
-      "date": "2017-01-06T00:00:00+00:00",
+      "date": "2017-01-06T00:00:00-08:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -103,9 +103,9 @@
       "title": "Jekyll Theme Compatibility",
       "permalink": "http://0.0.0.0:4321/jekyll-theme-compatibility.html",
       "link": "http://0.0.0.0:4321/jekyll-theme-compatibility.html",
-      "date": "2016-11-07T00:00:00+00:00",
+      "date": "2016-11-07T00:00:00-08:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -127,9 +127,9 @@
       "title": "Introducing Curtana",
       "permalink": "http://0.0.0.0:4321/theme-curtana.html",
       "link": "http://0.0.0.0:4321/theme-curtana.html",
-      "date": "2016-06-01T00:00:00+00:00",
+      "date": "2016-06-01T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -151,9 +151,9 @@
       "title": "Deployment Methods",
       "permalink": "http://0.0.0.0:4321/deployment-methods.html",
       "link": "http://0.0.0.0:4321/deployment-methods.html",
-      "date": "2016-03-18T00:00:00+00:00",
+      "date": "2016-03-18T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2021-03-12T20:33:14-08:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -175,9 +175,9 @@
       "title": "Multiple Themes Support",
       "permalink": "http://0.0.0.0:4321/multiple-themes-support.html",
       "link": "http://0.0.0.0:4321/multiple-themes-support.html",
-      "date": "2015-08-18T00:00:00+00:00",
+      "date": "2015-08-18T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2017-01-20T01:00:20-08:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -199,9 +199,9 @@
       "title": "Welcome",
       "permalink": "http://0.0.0.0:4321/welcome.html",
       "link": "http://0.0.0.0:4321/welcome.html",
-      "date": "2014-06-13T00:00:00+00:00",
+      "date": "2014-06-13T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -223,9 +223,9 @@
       "title": "Getting Started",
       "permalink": "http://0.0.0.0:4321/getting-started.html",
       "link": "http://0.0.0.0:4321/getting-started.html",
-      "date": "2014-06-12T00:00:00+00:00",
+      "date": "2014-06-12T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2021-10-02T09:10:20-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -247,9 +247,9 @@
       "title": "Customizing Styles",
       "permalink": "http://0.0.0.0:4321/customizing-styles.html",
       "link": "http://0.0.0.0:4321/customizing-styles.html",
-      "date": "2014-06-11T00:00:00+00:00",
+      "date": "2014-06-11T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-02-18T22:51:32-08:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -271,9 +271,9 @@
       "title": "Configuration",
       "permalink": "http://0.0.0.0:4321/configuration.html",
       "link": "http://0.0.0.0:4321/configuration.html",
-      "date": "2014-06-11T00:00:00+00:00",
+      "date": "2014-06-11T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -295,9 +295,9 @@
       "title": "Themes",
       "permalink": "http://0.0.0.0:4321/themes.html",
       "link": "http://0.0.0.0:4321/themes.html",
-      "date": "2014-06-10T00:00:00+00:00",
+      "date": "2014-06-10T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -319,9 +319,9 @@
       "title": "Creating Your Own Theme",
       "permalink": "http://0.0.0.0:4321/creating-themes.html",
       "link": "http://0.0.0.0:4321/creating-themes.html",
-      "date": "2014-06-09T00:00:00+00:00",
+      "date": "2014-06-09T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -343,9 +343,9 @@
       "title": "Syntax Highlighting",
       "permalink": "http://0.0.0.0:4321/syntax-highlighting.html",
       "link": "http://0.0.0.0:4321/syntax-highlighting.html",
-      "date": "2014-06-06T00:00:00+00:00",
+      "date": "2014-06-06T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2018-10-15T10:28:58-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -367,9 +367,9 @@
       "title": "Markdown Features Test",
       "permalink": "http://0.0.0.0:4321/markdown-features-test.html",
       "link": "http://0.0.0.0:4321/markdown-features-test.html",
-      "date": "2014-06-06T00:00:00+00:00",
+      "date": "2014-06-06T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2018-08-10T07:04:53-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -391,9 +391,9 @@
       "title": "Markup Example",
       "permalink": "http://0.0.0.0:4321/markup-example.html",
       "link": "http://0.0.0.0:4321/markup-example.html",
-      "date": "2014-06-05T00:00:00+00:00",
+      "date": "2014-06-05T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2018-08-23T23:51:53-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -415,9 +415,9 @@
       "title": "Custom HTML Markups",
       "permalink": "http://0.0.0.0:4321/custom-html-markups.html",
       "link": "http://0.0.0.0:4321/custom-html-markups.html",
-      "date": "2014-06-01T00:00:00+00:00",
+      "date": "2014-06-01T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -439,9 +439,9 @@
       "title": "Custom Color Scheme",
       "permalink": "http://0.0.0.0:4321/custom-color-scheme.html",
       "link": "http://0.0.0.0:4321/custom-color-scheme.html",
-      "date": "2014-05-01T00:00:00+00:00",
+      "date": "2014-05-01T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2018-08-10T07:04:53-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -463,9 +463,9 @@
       "title": "Unique Post Styling via Custom CSS",
       "permalink": "http://0.0.0.0:4321/custom-css.html",
       "link": "http://0.0.0.0:4321/custom-css.html",
-      "date": "2014-04-01T00:00:00+00:00",
+      "date": "2014-04-01T00:00:00-07:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -489,9 +489,9 @@
       "title": "External Link Post",
       "permalink": "http://0.0.0.0:4321/external-link-post.html",
       "link": "http://0.0.0.0:4321/external-link-post.html",
-      "date": "2014-02-01T00:00:00+00:00",
+      "date": "2014-02-01T00:00:00-08:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -513,9 +513,9 @@
       "title": "Custom Heading Image",
       "permalink": "http://0.0.0.0:4321/custom-heading-image.html",
       "link": "http://0.0.0.0:4321/custom-heading-image.html",
-      "date": "2014-02-01T00:00:00+00:00",
+      "date": "2014-02-01T00:00:00-08:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2018-08-10T07:04:53-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -537,9 +537,9 @@
       "title": "Custom Heading Background",
       "permalink": "http://0.0.0.0:4321/custom-heading-background.html",
       "link": "http://0.0.0.0:4321/custom-heading-background.html",
-      "date": "2014-02-01T00:00:00+00:00",
+      "date": "2014-02-01T00:00:00-08:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",
@@ -561,9 +561,9 @@
       "title": "GitHub Pages Setup Guide",
       "permalink": "http://0.0.0.0:4321/github-pages-setup.html",
       "link": "http://0.0.0.0:4321/github-pages-setup.html",
-      "date": "2014-01-01T00:00:00+00:00",
+      "date": "2014-01-01T00:00:00-08:00",
       
-        "modified": "2022-07-01T19:46:50+00:00",
+        "modified": "2019-09-03T00:30:46-07:00",
       
       "author": {
         "name": "Tunghsiao Liu",

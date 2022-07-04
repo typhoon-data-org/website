@@ -9,7 +9,21 @@ tags:
     - telegram
     - tutorial
     - article
+
+heading-bg: img/telegram_botfather.png
+heading-bg-local: true
+heading-bg-color: "#FFF"
+heading-bg-size: "900px"
+heading-bg-position: "right bottom"
+heading-bg-text: "#000"
+heading-bg-repeat: "no-repeat"
+
 ---
+#### Table of contents
+- TOC
+{:toc}
+
+#### Summary
 
 [Typhoon Orchestrator](https://github.com/typhoon-data-org/typhoon-orchestrator) is a great way to deploy ETL workflow on AWS Lambda. In this tutorial we intend to show how easy to use and versatile it is by deploying code to Lambda that gets a random joke from [https://jokeapi.dev](https://jokeapi.dev) once a day and sends it to your telegram group.
 
