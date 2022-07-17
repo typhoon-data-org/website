@@ -4,7 +4,7 @@
 	<div class="heder__body">
 		<div class="header__container">
 			<nav class="navigation header__menu menu-header">
-				<div class="menu-header__logo"><a href="/"><img src="{{ amsf_user_assets }}/img/logo.svg" alt="Logo"></a></div>
+				<div class="menu-header__logo"><a href="{{ amsf_relative_url }}"><img src="{{ amsf_user_assets }}/img/logo.svg" alt="Logo"></a></div>
 				<ul class="menu-header__list">
 					{% for item in site.data.header %}
 						{%- include amsf/relative_url url=item.url -%}

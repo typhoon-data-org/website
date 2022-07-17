@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-07-17T04:33:34-07:00</updated><id>https://sparanoid.com/website/</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://sparanoid.com/website/" /><link rel="self" type="application/atom+xml" href="https://sparanoid.com/website/feed.xml" /><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/website/</uri><email>t@sparanoid.com</email></author><entry><title>Installation</title><id>https://sparanoid.com/website/installation.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/installation.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-17T04:13:48-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-07-17T04:59:11-07:00</updated><id>https://typhoon-data-org.github.io/website//website/</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://typhoon-data-org.github.io/website//website/" /><link rel="self" type="application/atom+xml" href="https://typhoon-data-org.github.io/website//website/feed.xml" /><author><name>Tunghsiao Liu</name><uri>https://typhoon-data-org.github.io/website//website/</uri><email>t@sparanoid.com</email></author><entry><title>Installation</title><id>https://typhoon-data-org.github.io/website//website/installation.html</id><link rel="alternate" type="text/html" href="https://typhoon-data-org.github.io/website//website/installation.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://typhoon-data-org.github.io/website//website/">
           
             
 
@@ -8,7 +8,7 @@
           &lt;p&gt;&lt;a href=&quot;https://typhoon-data-org.github.io/typhoon-orchestrator/getting-started/installation/&quot;&gt;&lt;small&gt;◉ Direct Link to Original Site&lt;/small&gt;&lt;/a&gt;&lt;/p&gt;
         
       
-        </content><summary></summary></entry><entry><title>Hello World - 5 min walkthrough</title><id>https://sparanoid.com/website/hello-world.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/hello-world.html" /><published>2022-07-15T00:00:00-07:00</published><updated>2022-07-17T04:12:48-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content><summary></summary></entry><entry><title>Hello World - 5 min walkthrough</title><id>https://typhoon-data-org.github.io/website//website/hello-world.html</id><link rel="alternate" type="text/html" href="https://typhoon-data-org.github.io/website//website/hello-world.html" /><published>2022-07-15T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://typhoon-data-org.github.io/website//website/">
           
             
 
@@ -18,7 +18,7 @@
           &lt;p&gt;&lt;a href=&quot;https://typhoon-data-org.github.io/typhoon-orchestrator/examples/hello-world/&quot;&gt;&lt;small&gt;◉ Direct Link to Original Site&lt;/small&gt;&lt;/a&gt;&lt;/p&gt;
         
       
-        </content><summary></summary></entry><entry><title>Why Typhoon?</title><id>https://sparanoid.com/website/typhoon-orchestrator-vision.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/typhoon-orchestrator-vision.html" /><published>2022-07-15T00:00:00-07:00</published><updated>2022-07-17T02:32:18-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content><summary></summary></entry><entry><title>Why Typhoon?</title><id>https://typhoon-data-org.github.io/website//website/typhoon-orchestrator-vision.html</id><link rel="alternate" type="text/html" href="https://typhoon-data-org.github.io/website//website/typhoon-orchestrator-vision.html" /><published>2022-07-15T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://typhoon-data-org.github.io/website//website/">
           
             &lt;h1 id=&quot;history-of-typhoon&quot;&gt;History of Typhoon&lt;/h1&gt;
 
@@ -87,7 +87,7 @@ Perfection is achieved, not when there is nothing more to add, but when there is
           
         
       
-        </content><summary>History of Typhoon</summary></entry><entry><title>Airflow; Standing on the shoulders of giants</title><id>https://sparanoid.com/website/Airflow.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/Airflow.html" /><published>2022-07-02T00:00:00-07:00</published><updated>2022-07-17T04:28:27-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content><summary>History of Typhoon</summary></entry><entry><title>Airflow; Standing on the shoulders of giants</title><id>https://typhoon-data-org.github.io/website//website/Airflow.html</id><link rel="alternate" type="text/html" href="https://typhoon-data-org.github.io/website//website/Airflow.html" /><published>2022-07-02T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://typhoon-data-org.github.io/website//website/">
           
             &lt;h4 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h4&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;
@@ -238,7 +238,7 @@ Biel&lt;/p&gt;
           
         
       
-        </content><summary>Table of contents  Table of contents</summary></entry><entry><title>Modern data warehouse patterns. ELT with Snowflake variants</title><id>https://sparanoid.com/website/Modern-stack.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/Modern-stack.html" /><published>2022-07-01T00:00:00-07:00</published><updated>2022-07-17T04:32:17-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content><summary>Table of contents  Table of contents</summary></entry><entry><title>Modern data warehouse patterns. ELT with Snowflake variants</title><id>https://typhoon-data-org.github.io/website//website/Modern-stack.html</id><link rel="alternate" type="text/html" href="https://typhoon-data-org.github.io/website//website/Modern-stack.html" /><published>2022-07-01T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://typhoon-data-org.github.io/website//website/">
           
             &lt;h4 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h4&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;
@@ -484,7 +484,7 @@ For better pruning and less storage consumption, we recommend flattening your ob
           
         
       
-        </content><summary>Table of contents  Table of contents</summary></entry><entry><title>How to create a Serverless Telegram Bot to send daily jokes to your friends</title><id>https://sparanoid.com/website/serverless-telegram-bot-jokes.html</id><link rel="alternate" type="text/html" href="https://sparanoid.com/website/serverless-telegram-bot-jokes.html" /><published>2022-05-31T00:00:00-07:00</published><updated>2022-07-04T13:40:13-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://sparanoid.com/website/">
+        </content><summary>Table of contents  Table of contents</summary></entry><entry><title>How to create a Serverless Telegram Bot to send daily jokes to your friends</title><id>https://typhoon-data-org.github.io/website//website/serverless-telegram-bot-jokes.html</id><link rel="alternate" type="text/html" href="https://typhoon-data-org.github.io/website//website/serverless-telegram-bot-jokes.html" /><published>2022-05-31T00:00:00-07:00</published><updated>2022-07-04T13:40:13-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://typhoon-data-org.github.io/website//website/">
           
             &lt;h4 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h4&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;
