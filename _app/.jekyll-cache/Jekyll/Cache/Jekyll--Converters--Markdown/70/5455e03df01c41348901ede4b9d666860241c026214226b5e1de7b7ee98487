@@ -1,5 +1,0 @@
-I"ž<p>This is an example of a Tumblr-like external link post. You can simply add the following setting to your post <a href="https://jekyllrb.com/docs/frontmatter/">front-matter field</a>:</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">link</span><span class="pi">:</span> <span class="s">https://sparanoid.com/</span>
-</code></pre></div></div>
-:ET

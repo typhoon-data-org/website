@@ -293,12 +293,12 @@ a {
 	color: inherit;
 }
 a:link,
-a:visited {
-	text-decoration: none;
-}
-a:hover {
-	text-decoration: none;
-}
+// a:visited {
+// 	text-decoration: none;
+// }
+// a:hover {
+// 	text-decoration: none;
+// }
 ul li {
 	list-style: none;
 }
@@ -1523,8 +1523,7 @@ footer.footer {
 		text-align: center;
 	}
 }
-.item-posts-right {
-	text-align: right;
+.item-posts-right {	
 	width:40%;
 	@media (max-width:$tablet){
 		text-align: center;

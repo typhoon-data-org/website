@@ -24,12 +24,16 @@
 
 <section class="list">
   
-    <!-- Item title -->
-    <a class="posts-home__link text" href="{{ post.url | relative_url }}" {% if site.data.curtana.colorful_list %}{{ post_link_color }}{% endif %}>{{ amsf_page_title }}</a>
+    
 
     <!-- External link indicator -->
-    {% if post.link %}
-      <a href="{{ post.link }}" class=external><span class="dot" {% if site.data.curtana.colorful_list %}{{ post_link_bg }}{% endif %}> </span></a>
+    {% if post.link %}      
+      <!-- Item title -->
+      <a class="posts-home__link text" href="{{ post.link }}" {% if site.data.curtana.colorful_list %}{{ post_link_color }}{% endif %} target="_blank">{{ amsf_page_title }}</a>
+    {% else %}
+      <!-- Item title -->
+      <a class="posts-home__link text" href="{{ post.url | relative_url }}" {% if site.data.curtana.colorful_list %}{{ post_link_color }}{% endif %}>{{ amsf_page_title }}</a>
     {% endif %}
+
   
 </section>

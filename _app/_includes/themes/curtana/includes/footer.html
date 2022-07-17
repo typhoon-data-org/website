@@ -5,15 +5,15 @@
 			<h2 id="blog" class="posts-home__title title title_big title_uppercase">BLOG POSTS</h2>
 			<div class="posts-home__body">
 				<div class="posts-home__item item-posts-left">
-					<h3 class="posts-home__subtitle subtitle">Blog - Getting-started</h3>
+					<h3 class="posts-home__subtitle subtitle">Getting-started</h3>
 					<div class="posts-home__links">
 						{% for post in site.tags.getting-started %}
 						{%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
 						{% endfor %}
 					</div>
 				</div>
-				<div class="posts-home__item item-posts-right">
-					<h3 class="posts-home__subtitle subtitle">Blog - Articles</h3>					
+				<div class="posts-home__item item-posts-right posts-home__links">
+					<h3 class="posts-home__subtitle subtitle">Blog</h3>					
 					{% for post in site.tags.article %}
 					{%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
 					{% endfor %}
