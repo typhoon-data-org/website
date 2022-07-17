@@ -34,7 +34,7 @@ Our key takeaways are:
 
 We are fully Open Source, including plugins, and are committed to good Open Source practices. 
 
-Our vision is to make Data Engineering 10x more productive. In the concepts that stayed we trsied not to break conventions without good reason, so many things should be immediately familiar to anyone that has worked with Airflow. Just like Snowflake did not reinvent SQL, we want to make you more productive without the pain of a steep learning curve. 
+Our vision is to make Data Engineering 10x more productive. Our approach has been to try not to break conventions without good reason, so many things should be immediately familiar to anyone that has worked with **Airflow**. Just like Snowflake did not reinvent SQL, we want to make you more productive without the pain of a steep learning curve. 
 
 We wanted to make a new generation of cloud native, asynchronous orchestrators that can handle highly dynamic workflows with ease. We crafted Typhoon from the ground up to work towards this vision. It's designed to feel familiar while still making very different design decisions where it matters.
 
