@@ -9,7 +9,7 @@ tags:
     - article
     - history
 
-heading-bg: https://raw.githubusercontent.com/typhoon-data-org/typhoon-orchestrator/docker_wsl_fix/docs/img/readme_montage.gif
+heading-bg: https://raw.githubusercontent.com/typhoon-data-org/typhoon-orchestrator/main/docs/img/readme_montage.gif
 heading-bg-local: false
 heading-bg-color: "#FFF"
 heading-bg-size: "800px"

@@ -353,13 +353,24 @@ body {
 }
 
 [class*="post-content"] {
+	color: black;
+	background-color: whitesmoke;
+
 	max-width: 1172px;
 	box-sizing: content-box;
 	margin: 0 auto;
-	padding: 0 50px;
+	padding: 50px 50px;
 	@media (max-width:$mobileSmall){
-	padding: 0 35px;
-		
+		padding: 35px 35px;		
+	}
+
+	.highlight {
+		background-color: black;
+		padding-left: 20px;
+	}
+
+	code {
+		color: green;
 	}
 }
 article header h1 {
