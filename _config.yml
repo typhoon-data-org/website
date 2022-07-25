@@ -172,8 +172,8 @@ service_worker:
 
 # Google Analytics tracking code
 google_analytics:
-  enabled:      false
-  id:           UA-xxxxxxx
+  enabled:      true
+  id:           G-3LJTY1R5E0
   url:          https://www.google-analytics.com/analytics.js
 
 # Site Twitter account handle
