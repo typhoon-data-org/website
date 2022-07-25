@@ -48,6 +48,12 @@
 .content header {
   background-color: hsl(168, 100%, 10%);    
   flex-direction: inherit;
+  @media (max-width:$mobile){
+	--header-height: unset;
+	
+	}
+  display: flow-root;
+  padding-left: 20%;
 }
 
 .row {
@@ -72,6 +78,10 @@
   margin-bottom: unset;
   height: fit-content;
   width: 100%;
+}
+
+.content header h1 svg, .content header h1 img {
+	max-width: unset;
 }
 
 
@@ -375,6 +385,13 @@ body {
 }
 article header h1 {
 	width: 50%;
+	@media (max-width:$mobile){
+		width: 90%;
+	}
+}
+
+.content header .image-title {
+	text-indent: unset;
 }
 
 
