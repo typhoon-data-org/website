@@ -1,25 +1,3 @@
-//
-// User styles
-// -----------------------------------------------------------------------------
-// NOTE: the following user styles are designed for default theme Curtana
-
-// EXAMPLE: alternative title size
-// By default all heading levels have the same font size, but many people may
-// not like this, so here's an alternative font size stack:
-
-
-// EXAMPLE: alternative post title color
-// This is useful when you're using the custom color scheme.
-// .content { .list h2 a, header h1, header h1 a { color: var(--link-color); } }
-// .external span { background: var(--link-color); }
-
-// EXAMPLE: Custom typography for Chinese Traditional
-// :root {
-//   --fontstack-sans-serif: "Helvetica Neue", "Hiragino Sans GB", Arial, sans-serif;
-//   --fontstack-serif: Georgia, "Hiragino Mincho ProN", serif;
-// }
-
-// EXAMPLE: amsf.github.io custom appearance
 :root {
   --font-size: 1.5vw;
   --space-lg: 0;
@@ -261,14 +239,6 @@
 *:after {
 	box-sizing: border-box;
 }
-:focus,
-:active {
-	// outline: none;
-}
-a:focus,
-a:active {
-	// outline: none;
-}
 html,
 body {
 	height: 100%;
@@ -330,9 +300,6 @@ body {
 	.lock & {
 		overflow: hidden;
 		touch-action: none;
-	}
-	// Сайт загружен
-	.loaded & {
 	}
 }
 
@@ -417,9 +384,6 @@ article header h1 {
 		@media (max-width:$mobileSmall){
 			font-size: 32px;
 		}
-	}
-	// .title_pink
-	&_pink {
 	}
 	// .title_tagged
 	&_tagged {
@@ -565,12 +529,6 @@ article header h1 {
 .header {
 	background-color: $secondaryBodyColor;
 	overflow: hidden;
-	// .header__container
-	&__container {
-	}
-	// .header__menu
-	&__menu {
-	}
 	ul li::before {
 		display: none;
 	}
@@ -578,6 +536,7 @@ article header h1 {
 		margin-bottom: 0;
 	}
 }
+
 .menu-header {
 	display: flex;
 	min-height: 60px;
@@ -636,9 +595,6 @@ article header h1 {
 				color: $accentColor;
 			}
 		}
-	}
-	// .menu-header__item
-	&__item {
 	}
 	// .menu-header__link
 	&__link {
@@ -769,9 +725,7 @@ footer.footer {
 	@media (max-width:$tablet){
 	padding: 30px 0;
 	}
-	// .hero-home__container
-	&__container {
-	}
+
 	// .hero-home__body
 	&__body {
 		display: flex;
@@ -855,9 +809,6 @@ footer.footer {
 		width: 100%;
 	}
 	// .item-hero__right
-	&__left {
-	}
-	// .item-hero__right
 	&__right {
 		// min-height: 637px;
 		// background: url("../../../img/hero-bg.png") center center no-repeat;
@@ -894,9 +845,6 @@ footer.footer {
 			}
 		}
 	}
-	// .buttons-hero__text
-	&__text {
-	}
 }
 //========================================================================================================================================================
 //Features
@@ -905,9 +853,6 @@ footer.footer {
 	background: $secondaryBodyColor;
 	@media (max-width:$tablet){
 	padding: 56px 0 64px;
-	}
-	// .features-home__container
-	&__container {
 	}
 	// .features-home__title
 	&__title {
@@ -1003,9 +948,6 @@ footer.footer {
 	@media (max-width:$tablet){
 		margin-top: 60px;
 		
-	}
-	// .lambda-home__container
-	&__container {
 	}
 	// .lambda-home__body
 	&__body {
@@ -1158,9 +1100,6 @@ footer.footer {
 	@media (max-width:$mobile){
 		margin-top: 60px;
 	}
-	// .extend-home__container
-	&__container {
-	}
 	// .extend-home__body
 	&__body {
 		display: flex;
@@ -1236,9 +1175,6 @@ footer.footer {
 	@media (max-width:$mobile){
 		margin-top: 60px;
 	}
-	// .compose-home__container
-	&__container {
-	}
 	// .compose-home__body
 	&__body {
 		display: flex;
@@ -1310,9 +1246,6 @@ footer.footer {
 	}
 	@media (max-width:$mobile){
 		margin-top: 60px;
-	}
-	// .component-home__container
-	&__container {
 	}
 	// .component-home__body
 	&__body {
@@ -1389,9 +1322,6 @@ footer.footer {
 	@media (max-width:$tablet){
 		margin-top: 80px;
 		padding: 60px 0;
-	}
-	// .plugins-home__container
-	&__container {
 	}
 	// .plugins-home__title
 	&__title {
@@ -1492,9 +1422,6 @@ footer.footer {
 	@media (max-width:$mobile){
 		padding: 60px 0;
 	}
-	// .posts-home__container
-	&__container {
-	}
 	// .posts-home__body
 	&__body {
 		display: flex;
@@ -1507,9 +1434,6 @@ footer.footer {
 	&__title {
 		text-align: center;
 		margin: 0 !important;
-	}
-	// .posts-home__item
-	&__item {
 	}
 	// .posts-home__subtitle
 	&__subtitle {

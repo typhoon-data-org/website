@@ -1,1 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://typhoondata.io/</loc><lastmod>2022-07-25</lastmod></url><url><loc>https://typhoondata.io/</loc><lastmod>2022-07-25</lastmod></url><url><loc>https://typhoondata.io/news/</loc><lastmod>2018-07-03</lastmod></url><url><loc>https://typhoondata.io/installation.html</loc><lastmod>2022-07-17</lastmod></url><url><loc>https://typhoondata.io/typhoon-beta-release.html</loc><lastmod>2022-07-25</lastmod></url><url><loc>https://typhoondata.io/hello-world.html</loc><lastmod>2022-07-17</lastmod></url><url><loc>https://typhoondata.io/typhoon-orchestrator-vision.html</loc><lastmod>2022-07-25</lastmod></url><url><loc>https://typhoondata.io/Airflow.html</loc><lastmod>2022-07-17</lastmod></url><url><loc>https://typhoondata.io/Modern-stack.html</loc><lastmod>2022-07-17</lastmod></url><url><loc>https://typhoondata.io/serverless-telegram-bot-jokes.html</loc><lastmod>2022-07-25</lastmod></url></urlset>
+<?xml version="1.0" encoding="utf-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://0.0.0.0:4321/</loc>
+    <lastmod>2022-07-26</lastmod>
+  </url>
+
+  
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/</loc>
+        
+          <lastmod>2022-07-25</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/news/</loc>
+        
+          <lastmod>2018-07-03</lastmod>
+        
+      </url>
+    
+  
+
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/installation.html</loc>
+        
+          <lastmod>2022-07-17</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/typhoon-beta-release.html</loc>
+        
+          <lastmod>2022-07-25</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/hello-world.html</loc>
+        
+          <lastmod>2022-07-17</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/typhoon-orchestrator-vision.html</loc>
+        
+          <lastmod>2022-07-25</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/Airflow.html</loc>
+        
+          <lastmod>2022-07-17</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/Modern-stack.html</loc>
+        
+          <lastmod>2022-07-17</lastmod>
+        
+      </url>
+    
+  
+    
+      <url>
+        <loc>http://0.0.0.0:4321/serverless-telegram-bot-jokes.html</loc>
+        
+          <lastmod>2022-07-25</lastmod>
+        
+      </url>
+    
+  
+
+</urlset>
