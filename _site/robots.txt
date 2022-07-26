@@ -1,3 +1,0 @@
-Sitemap: https://sparanoid.com/website/sitemap.xml
-
-User-agent: *
