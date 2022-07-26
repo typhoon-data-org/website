@@ -3,12 +3,13 @@
 {%- endcomment -%}
 {%- capture amsf_google_analytics -%}
   {%- if site.google_analytics.enabled -%}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics.url }}"></script>
     <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', '{{ site.google_analytics.id }}', 'auto');
-      ga('set', 'anonymizeIp', true);
-      ga('send', 'pageview');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ site.google_analytics.url }}');
     </script>
-    <script async src="{{ site.google_analytics.url }}"></script>
   {%- endif -%}
 {%- endcapture -%}

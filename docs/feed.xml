@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-07-25T14:05:43-07:00</updated><id>https://typhoon-data-org.github.io/website//</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://typhoon-data-org.github.io/website//" /><link rel="self" type="application/atom+xml" href="https://typhoon-data-org.github.io/website//feed.xml" /><author><name>Tunghsiao Liu</name><uri>https://typhoon-data-org.github.io/website//</uri><email>t@sparanoid.com</email></author><entry><title>Installation</title><id>https://typhoon-data-org.github.io/website//installation.html</id><link rel="alternate" type="text/html" href="https://typhoon-data-org.github.io/website//installation.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://typhoon-data-org.github.io/website//">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-07-25T22:21:38-07:00</updated><id>https://typhoon-data-org.github.io/website//</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://typhoon-data-org.github.io/website//" /><link rel="self" type="application/atom+xml" href="https://typhoon-data-org.github.io/website//feed.xml" /><author><name>Tunghsiao Liu</name><uri>https://typhoon-data-org.github.io/website//</uri><email>t@sparanoid.com</email></author><entry><title>Installation</title><id>https://typhoon-data-org.github.io/website//installation.html</id><link rel="alternate" type="text/html" href="https://typhoon-data-org.github.io/website//installation.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Tunghsiao Liu</name><uri>https://sparanoid.com/</uri><email>t@sparanoid.com</email></author><content type="html" xml:base="https://typhoon-data-org.github.io/website//">
           
             
 
@@ -49,7 +49,24 @@
 
 &lt;h1 id=&quot;example-yaml-dag&quot;&gt;Example YAML DAG&lt;/h1&gt;
 
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;favorite_authors&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;favorite_authors&lt;/span&gt;
 &lt;span class=&quot;na&quot;&gt;schedule_interval&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;rate(1 day)&lt;/span&gt;
 
 &lt;span class=&quot;na&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
@@ -66,7 +83,7 @@
     &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;functions.open_library_api.get_author&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
       &lt;span class=&quot;na&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;!Py&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$BATCH&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h1 id=&quot;production-use-cases&quot;&gt;Production use cases&lt;/h1&gt;
 

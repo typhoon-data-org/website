@@ -52,7 +52,7 @@ More on [why Typhoon](https://typhoon-data-org.github.io/website/typhoon-orchest
 
 # Example YAML DAG
     
-```yaml
+{% highlight YAML linenos %}
 name: favorite_authors
 schedule_interval: rate(1 day)
 
@@ -70,7 +70,7 @@ tasks:
     function: functions.open_library_api.get_author
     args:
       author: !Py $BATCH
-```
+{% endhighlight %}
 
 # Production use cases 
 

@@ -9,13 +9,10 @@ tags:
     - article
     - history
 
-heading-bg: https://raw.githubusercontent.com/typhoon-data-org/typhoon-orchestrator/main/docs/img/readme_montage.gif
-heading-bg-local: false
+heading-img: https://raw.githubusercontent.com/typhoon-data-org/typhoon-orchestrator/main/docs/img/readme_montage.gif
+heading-img-local: true
 heading-bg-color: "#FFF"
-heading-bg-size: "800px"
-heading-bg-position: "center bottom"
 heading-bg-text: "#000"
-heading-bg-repeat: "no-repeat"
 
 ---
 

@@ -10,14 +10,6 @@ tags:
     - tutorial
     - article
 
-# heading-bg: img/telegram_botfather.png
-# heading-bg-local: true
-# heading-bg-color: "#FFF"
-# heading-bg-size: "900px"
-# heading-bg-position: "right bottom"
-# heading-bg-text: "#000"
-# heading-bg-repeat: "no-repeat"
-
 heading-img: img/telegram_botfather.png
 heading-img-local: true
 heading-bg-color: "#FFF"

@@ -34,7 +34,7 @@
 
   --text-color: white;
   
-  --link-color-h: 168;
+  --link-color-h: 220;
   --link-color-s: 100%;
   --link-color-l: 85%;
   --link-color-hsl: var(--link-color-h), var(--link-color-s), var(--link-color-l);
@@ -379,7 +379,7 @@ body {
 		padding-left: 20px;
 	}
 
-	code {
+	p code, li code {
 		color: green;
 	}
 }
@@ -949,8 +949,8 @@ footer.footer {
 	transition: transform 0.3s ease 0s;
 	transition-property: transform, box-shadow;
 	@media (max-width:$mobileSmall){
-		flex-direction: column-reverse;
-		padding: 16px;
+		// flex-direction: column-reverse;
+		padding: 30px;
 	}
 	&:hover {
 		transform: scale(1.1);
