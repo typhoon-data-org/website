@@ -7,10 +7,10 @@
 # {{ author.web }}: used in atom feed
 # {{ author.twitter }}: used by Twitter Cards
 default:
-  name:         Tunghsiao Liu
-  email:        t@sparanoid.com
-  web:          https://sparanoid.com/
-  twitter:      tunghsiao
+  name:         Typhoon Data
+  email:        info.typhoon.data@gmail.com
+  web:          https://typhoondata.io
+  twitter:      datatyphoon
 
 tester:
   name:         Tester
@@ -21,3 +21,5 @@ tester:
 biellls:
   name:         biellls
   email:        bielllobera@gmail.com
+  web:          https://typhoondata.io
+  twitter:      datatyphoon
