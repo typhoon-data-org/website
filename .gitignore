@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Numerous always-ignore extensions
 *.diff
 *.err
@@ -33,16 +32,11 @@ node_modules
 .jekyll-cache
 .jekyll-metadata
 .sass-cache
-_site
+_docs
 _app/assets/**/js
 _app/assets/**/css
 
 # AMSF deprecated, leave them for compatibility
 _amsf/themes
 _amsf/core
-=======
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
->>>>>>> 88c517a636468f19f50ea5d5f3c38e3025479379
+

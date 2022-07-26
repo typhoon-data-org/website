@@ -894,7 +894,6 @@ footer.footer {
 	transition: transform 0.3s ease 0s;
 	transition-property: transform, box-shadow;
 	@media (max-width:$mobileSmall){
-		// flex-direction: column-reverse;
 		padding: 30px;
 	}
 	&:hover {
