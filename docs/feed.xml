@@ -1,42 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Typhoon Orchestrator</title>
-  <subtitle>Elegant Serverless YAML Data Pipelines</subtitle>
-  <updated>2022-07-26T09:55:15-07:00</updated>
-  <id>http://0.0.0.0:4321/</id>
-  <generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator>
-
-  <link rel="alternate" type="text/html" hreflang="en" href="http://0.0.0.0:4321/" />
-  <link rel="self" type="application/atom+xml" href="http://0.0.0.0:4321/feed.xml" />
-
-  <author>
-    <name>Typhoon Data</name>
-    <uri>http://0.0.0.0:4321/</uri>
-    <email>info.typhoon.data@gmail.com</email>
-  </author>
-
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Installation</title>
-        <id>http://0.0.0.0:4321/installation.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/installation.html" />
-        <published>2022-07-16T00:00:00-07:00</published>
-
-        
-          <updated>2022-07-17T04:34:46-07:00</updated>
-        
-
-        <author>
-          <name>Typhoon Data</name>
-          <uri>https://typhoondata.io</uri>
-          <email>info.typhoon.data@gmail.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-07-26T10:08:30-07:00</updated><id>https://typhoondata.io/</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://typhoondata.io/" /><link rel="self" type="application/atom+xml" href="https://typhoondata.io/feed.xml" /><author><name>Typhoon Data</name><uri>https://typhoondata.io/</uri><email>info.typhoon.data@gmail.com</email></author><entry><title>Installation</title><id>https://typhoondata.io/installation.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/installation.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
           
             
 
@@ -46,36 +8,7 @@
           &lt;p&gt;&lt;a href=&quot;https://typhoon-data-org.github.io/typhoon-orchestrator/getting-started/installation/&quot;&gt;&lt;small&gt;◉ Direct Link to Original Site&lt;/small&gt;&lt;/a&gt;&lt;/p&gt;
         
       
-        </content>
-
-        
-          <summary></summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Introducing Typhoon beta 🎊</title>
-        <id>http://0.0.0.0:4321/typhoon-beta-release.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/typhoon-beta-release.html" />
-        <published>2022-07-16T00:00:00-07:00</published>
-
-        
-          <updated>2022-07-25T22:22:06-07:00</updated>
-        
-
-        <author>
-          <name>Typhoon Data</name>
-          <uri>https://typhoondata.io</uri>
-          <email>info.typhoon.data@gmail.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary></summary></entry><entry><title>Introducing Typhoon beta 🎊</title><id>https://typhoondata.io/typhoon-beta-release.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/typhoon-beta-release.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-25T22:22:06-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
           
             &lt;h1 id=&quot;introducing-typhoon&quot;&gt;Introducing Typhoon&lt;/h1&gt;
 
@@ -166,36 +99,7 @@
           
         
       
-        </content>
-
-        
-          <summary>Introducing Typhoon</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Hello World - 5 min walkthrough</title>
-        <id>http://0.0.0.0:4321/hello-world.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/hello-world.html" />
-        <published>2022-07-15T00:00:00-07:00</published>
-
-        
-          <updated>2022-07-17T04:34:46-07:00</updated>
-        
-
-        <author>
-          <name>Typhoon Data</name>
-          <uri>https://typhoondata.io</uri>
-          <email>info.typhoon.data@gmail.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Introducing Typhoon</summary></entry><entry><title>Hello World - 5 min walkthrough</title><id>https://typhoondata.io/hello-world.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/hello-world.html" /><published>2022-07-15T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
           
             
 
@@ -205,36 +109,7 @@
           &lt;p&gt;&lt;a href=&quot;https://typhoon-data-org.github.io/typhoon-orchestrator/examples/hello-world/&quot;&gt;&lt;small&gt;◉ Direct Link to Original Site&lt;/small&gt;&lt;/a&gt;&lt;/p&gt;
         
       
-        </content>
-
-        
-          <summary></summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Why Typhoon?</title>
-        <id>http://0.0.0.0:4321/typhoon-orchestrator-vision.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/typhoon-orchestrator-vision.html" />
-        <published>2022-07-15T00:00:00-07:00</published>
-
-        
-          <updated>2022-07-25T22:22:06-07:00</updated>
-        
-
-        <author>
-          <name>Typhoon Data</name>
-          <uri>https://typhoondata.io</uri>
-          <email>info.typhoon.data@gmail.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary></summary></entry><entry><title>Why Typhoon?</title><id>https://typhoondata.io/typhoon-orchestrator-vision.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/typhoon-orchestrator-vision.html" /><published>2022-07-15T00:00:00-07:00</published><updated>2022-07-25T22:22:06-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
           
             &lt;h1 id=&quot;history-of-typhoon&quot;&gt;History of Typhoon&lt;/h1&gt;
 
@@ -303,36 +178,7 @@ Perfection is achieved, not when there is nothing more to add, but when there is
           
         
       
-        </content>
-
-        
-          <summary>History of Typhoon</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Airflow; Standing on the shoulders of giants</title>
-        <id>http://0.0.0.0:4321/Airflow.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/Airflow.html" />
-        <published>2022-07-02T00:00:00-07:00</published>
-
-        
-          <updated>2022-07-17T04:34:46-07:00</updated>
-        
-
-        <author>
-          <name>Typhoon Data</name>
-          <uri>https://typhoondata.io</uri>
-          <email>info.typhoon.data@gmail.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>History of Typhoon</summary></entry><entry><title>Airflow; Standing on the shoulders of giants</title><id>https://typhoondata.io/Airflow.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/Airflow.html" /><published>2022-07-02T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
           
             &lt;h4 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h4&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;
@@ -483,36 +329,7 @@ Biel&lt;/p&gt;
           
         
       
-        </content>
-
-        
-          <summary>Table of contents  Table of contents</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>Modern data warehouse patterns. ELT with Snowflake variants</title>
-        <id>http://0.0.0.0:4321/Modern-stack.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/Modern-stack.html" />
-        <published>2022-07-01T00:00:00-07:00</published>
-
-        
-          <updated>2022-07-17T04:34:46-07:00</updated>
-        
-
-        <author>
-          <name>Typhoon Data</name>
-          <uri>https://typhoondata.io</uri>
-          <email>info.typhoon.data@gmail.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Table of contents  Table of contents</summary></entry><entry><title>Modern data warehouse patterns. ELT with Snowflake variants</title><id>https://typhoondata.io/Modern-stack.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/Modern-stack.html" /><published>2022-07-01T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
           
             &lt;h4 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h4&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;
@@ -758,36 +575,7 @@ For better pruning and less storage consumption, we recommend flattening your ob
           
         
       
-        </content>
-
-        
-          <summary>Table of contents  Table of contents</summary>
-        
-      </entry>
-    
-  
-    
-      
-
-      
-
-      <entry>
-        <title>How to create a Serverless Telegram Bot to send daily jokes to your friends</title>
-        <id>http://0.0.0.0:4321/serverless-telegram-bot-jokes.html</id>
-        <link rel="alternate" type="text/html" href="http://0.0.0.0:4321/serverless-telegram-bot-jokes.html" />
-        <published>2022-05-31T00:00:00-07:00</published>
-
-        
-          <updated>2022-07-25T22:22:06-07:00</updated>
-        
-
-        <author>
-          <name>Typhoon Data</name>
-          <uri>https://typhoondata.io</uri>
-          <email>info.typhoon.data@gmail.com</email>
-        </author>
-
-        <content type="html" xml:base="http://0.0.0.0:4321/">
+        </content><summary>Table of contents  Table of contents</summary></entry><entry><title>How to create a Serverless Telegram Bot to send daily jokes to your friends</title><id>https://typhoondata.io/serverless-telegram-bot-jokes.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/serverless-telegram-bot-jokes.html" /><published>2022-05-31T00:00:00-07:00</published><updated>2022-07-25T22:22:06-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
           
             &lt;h4 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h4&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;
@@ -1097,12 +885,4 @@ terraform apply &lt;span class=&quot;nt&quot;&gt;-destroy&lt;/span&gt; tfplan
           
         
       
-        </content>
-
-        
-          <summary>Table of contents  Table of contents</summary>
-        
-      </entry>
-    
-  
-</feed>
+        </content><summary>Table of contents  Table of contents</summary></entry></feed>
