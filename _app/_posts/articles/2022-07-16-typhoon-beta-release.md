@@ -19,11 +19,12 @@ heading-bg-text: "#000"
 
 # Introducing Typhoon
 
-We are pleased to introduce Typhoon Orchestrator! It's fully Open Source, pure python, and ready to use. We hope you like the elegant YAML, pure modern python, and how simple and productive it is to use! 
+We are pleased to introduce Typhoon Orchestrator! It’s Open Source and ready to use.  We hope you like the elegant YAML, and how simple and productive it is to use! 
 
 Our key takeaways are:
-- deploy to your existing Airflow. **No risk migration!**
-- deploy to AWS Lambda. **Serveless is the future!** 
+- Easily extend with pure python. Framework-less, with no dependencies.
+- Deploy to your existing Airflow. **No risk migration!**
+- Deploy to AWS Lambda. **Serveless is the future!** 
 
 [See our blog on making a Telegram bot with AWS Lambda and Typhoon.](https://typhoon-data-org.github.io/website/serverless-telegram-bot-jokes.html) 
 
@@ -31,9 +32,9 @@ Our key takeaways are:
 
 We are fully Open Source, including plugins, and are committed to good Open Source practices. 
 
-Our vision is to make Data Engineering 10x more productive. Our approach has been to try not to break conventions without good reason, so many things should be immediately familiar to anyone that has worked with **Airflow**. Just like Snowflake did not reinvent SQL, we want to make you more productive without the pain of a steep learning curve. 
+Our vision is to make Data Engineering 10x more productive. Our approach has been to try not to break conventions without good reason. Many things should be immediately familiar to anyone that has worked with **Airflow**. Just like Snowflake did not reinvent SQL, we want to make you more productive without the pain of a steep learning curve. 
 
-We wanted to make a new generation of cloud native, asynchronous orchestrators that can handle highly dynamic workflows with ease. We crafted Typhoon from the ground up to work towards this vision. It's designed to feel familiar while still making very different design decisions where it matters.
+We wanted to make a next generation, cloud native, and asynchronous Orchestrator that can handle highly dynamic workflows with ease. We crafted Typhoon from the ground up to work towards this vision. It's designed to feel familiar while still making very different design decisions where it matters.
 
 More on [why Typhoon](https://typhoon-data-org.github.io/website/typhoon-orchestrator-vision.html).
 
@@ -74,10 +75,14 @@ tasks:
 
 # Production use cases 
 
-Typhoon with Airflow has been used in production at a medium sized hotel chain. It has been running on Airflow **in production for over a year with no maintenance or hiccups**, and we have only had to modify the code each time a new data source was requested.
+Typhoon with Airflow has been in production at a medium sized hotel chain since 2021. It has been running on Airflow **in production for over a year with no maintenance or hiccups**. We have only modified the code each time we added a new data source.
 
 # Roadmap
 
 We are working on gathering feedback on our current release. Please do reach out to us and start a conversation at @DataTyphoon. 
 
 Next, we are working on making it even easier to deploy to AWS Lambda and to make better documentation and auto-completion for the plugins. This will make using it even easier without needing to refer to the functions. 
+
+You can find out more about the project at: 
+[Github Readme](https://github.com/typhoon-data-org/typhoon-orchestrator)
+[Docs](https://typhoon-data-org.github.io/typhoon-orchestrator/getting-started/installation/)

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-07-26T10:56:26-07:00</updated><id>https://typhoondata.io/</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://typhoondata.io/" /><link rel="self" type="application/atom+xml" href="https://typhoondata.io/feed.xml" /><author><name>Typhoon Data</name><uri>https://typhoondata.io/</uri><email>info.typhoon.data@gmail.com</email></author><entry><title>Installation</title><id>https://typhoondata.io/installation.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/installation.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-07-27T10:16:00-07:00</updated><id>https://typhoondata.io/</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://typhoondata.io/" /><link rel="self" type="application/atom+xml" href="https://typhoondata.io/feed.xml" /><author><name>Typhoon Data</name><uri>https://typhoondata.io/</uri><email>info.typhoon.data@gmail.com</email></author><entry><title>Installation</title><id>https://typhoondata.io/installation.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/installation.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
           
             
 
@@ -12,12 +12,13 @@
           
             &lt;h1 id=&quot;introducing-typhoon&quot;&gt;Introducing Typhoon&lt;/h1&gt;
 
-&lt;p&gt;We are pleased to introduce Typhoon Orchestrator! It’s fully Open Source, pure python, and ready to use. We hope you like the elegant YAML, pure modern python, and how simple and productive it is to use!&lt;/p&gt;
+&lt;p&gt;We are pleased to introduce Typhoon Orchestrator! It’s Open Source and ready to use.  We hope you like the elegant YAML, and how simple and productive it is to use!&lt;/p&gt;
 
 &lt;p&gt;Our key takeaways are:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;deploy to your existing Airflow. &lt;strong&gt;No risk migration!&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;deploy to AWS Lambda. &lt;strong&gt;Serveless is the future!&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Easily extend with pure python. Framework-less, with no dependencies.&lt;/li&gt;
+  &lt;li&gt;Deploy to your existing Airflow. &lt;strong&gt;No risk migration!&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Deploy to AWS Lambda. &lt;strong&gt;Serveless is the future!&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://typhoon-data-org.github.io/website/serverless-telegram-bot-jokes.html&quot;&gt;See our blog on making a Telegram bot with AWS Lambda and Typhoon.&lt;/a&gt;&lt;/p&gt;
@@ -26,9 +27,9 @@
 
 &lt;p&gt;We are fully Open Source, including plugins, and are committed to good Open Source practices.&lt;/p&gt;
 
-&lt;p&gt;Our vision is to make Data Engineering 10x more productive. Our approach has been to try not to break conventions without good reason, so many things should be immediately familiar to anyone that has worked with &lt;strong&gt;Airflow&lt;/strong&gt;. Just like Snowflake did not reinvent SQL, we want to make you more productive without the pain of a steep learning curve.&lt;/p&gt;
+&lt;p&gt;Our vision is to make Data Engineering 10x more productive. Our approach has been to try not to break conventions without good reason. Many things should be immediately familiar to anyone that has worked with &lt;strong&gt;Airflow&lt;/strong&gt;. Just like Snowflake did not reinvent SQL, we want to make you more productive without the pain of a steep learning curve.&lt;/p&gt;
 
-&lt;p&gt;We wanted to make a new generation of cloud native, asynchronous orchestrators that can handle highly dynamic workflows with ease. We crafted Typhoon from the ground up to work towards this vision. It’s designed to feel familiar while still making very different design decisions where it matters.&lt;/p&gt;
+&lt;p&gt;We wanted to make a next generation, cloud native, and asynchronous Orchestrator that can handle highly dynamic workflows with ease. We crafted Typhoon from the ground up to work towards this vision. It’s designed to feel familiar while still making very different design decisions where it matters.&lt;/p&gt;
 
 &lt;p&gt;More on &lt;a href=&quot;https://typhoon-data-org.github.io/website/typhoon-orchestrator-vision.html&quot;&gt;why Typhoon&lt;/a&gt;.&lt;/p&gt;
 
@@ -87,13 +88,17 @@
 
 &lt;h1 id=&quot;production-use-cases&quot;&gt;Production use cases&lt;/h1&gt;
 
-&lt;p&gt;Typhoon with Airflow has been used in production at a medium sized hotel chain. It has been running on Airflow &lt;strong&gt;in production for over a year with no maintenance or hiccups&lt;/strong&gt;, and we have only had to modify the code each time a new data source was requested.&lt;/p&gt;
+&lt;p&gt;Typhoon with Airflow has been in production at a medium sized hotel chain since 2021. It has been running on Airflow &lt;strong&gt;in production for over a year with no maintenance or hiccups&lt;/strong&gt;. We have only modified the code each time we added a new data source.&lt;/p&gt;
 
 &lt;h1 id=&quot;roadmap&quot;&gt;Roadmap&lt;/h1&gt;
 
 &lt;p&gt;We are working on gathering feedback on our current release. Please do reach out to us and start a conversation at @DataTyphoon.&lt;/p&gt;
 
 &lt;p&gt;Next, we are working on making it even easier to deploy to AWS Lambda and to make better documentation and auto-completion for the plugins. This will make using it even easier without needing to refer to the functions.&lt;/p&gt;
+
+&lt;p&gt;You can find out more about the project at: 
+&lt;a href=&quot;https://github.com/typhoon-data-org/typhoon-orchestrator&quot;&gt;Github Readme&lt;/a&gt;
+&lt;a href=&quot;https://typhoon-data-org.github.io/typhoon-orchestrator/getting-started/installation/&quot;&gt;Docs&lt;/a&gt;&lt;/p&gt;
 
           
           
