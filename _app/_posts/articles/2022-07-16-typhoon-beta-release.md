@@ -40,7 +40,7 @@ More on [why Typhoon](https://typhoon-data-org.github.io/website/typhoon-orchest
 
 ### Key features
 
-- **Pure python** - Easily extend with pure python. Frameworkless, with no dependencies.
+- **Pure python** - Easly create functions to be used in tasks. 
 - **Testable Python** - Write tests for your tasks in PyTest. Automate DAG testing. 
 - **Composability** - Functions and connections combine like Lego. Very easy to extend.
 - **Data sharing** - data flows between tasks making it intuitive to build tasks.
@@ -84,5 +84,7 @@ We are working on gathering feedback on our current release. Please do reach out
 Next, we are working on making it even easier to deploy to AWS Lambda and to make better documentation and auto-completion for the plugins. This will make using it even easier without needing to refer to the functions. 
 
 You can find out more about the project at: 
+
 [Github Readme](https://github.com/typhoon-data-org/typhoon-orchestrator)
+
 [Docs](https://typhoon-data-org.github.io/typhoon-orchestrator/getting-started/installation/)
