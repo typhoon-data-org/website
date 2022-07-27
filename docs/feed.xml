@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-07-27T10:16:00-07:00</updated><id>https://typhoondata.io/</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://typhoondata.io/" /><link rel="self" type="application/atom+xml" href="https://typhoondata.io/feed.xml" /><author><name>Typhoon Data</name><uri>https://typhoondata.io/</uri><email>info.typhoon.data@gmail.com</email></author><entry><title>Installation</title><id>https://typhoondata.io/installation.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/installation.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Typhoon Orchestrator</title><subtitle>Elegant Serverless YAML Data Pipelines</subtitle><updated>2022-07-27T10:50:46-07:00</updated><id>https://typhoondata.io/</id><generator uri="https://sparanoid.com/lab/amsf/" version="2.0.22">Almace Scaffolding</generator><link rel="alternate" type="text/html" hreflang="en" href="https://typhoondata.io/" /><link rel="self" type="application/atom+xml" href="https://typhoondata.io/feed.xml" /><author><name>Typhoon Data</name><uri>https://typhoondata.io/</uri><email>info.typhoon.data@gmail.com</email></author><entry><title>Installation</title><id>https://typhoondata.io/installation.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/installation.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-17T04:34:46-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
           
             
 
@@ -8,7 +8,7 @@
           &lt;p&gt;&lt;a href=&quot;https://typhoon-data-org.github.io/typhoon-orchestrator/getting-started/installation/&quot;&gt;&lt;small&gt;◉ Direct Link to Original Site&lt;/small&gt;&lt;/a&gt;&lt;/p&gt;
         
       
-        </content><summary></summary></entry><entry><title>Introducing Typhoon beta 🎊</title><id>https://typhoondata.io/typhoon-beta-release.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/typhoon-beta-release.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-25T22:22:06-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
+        </content><summary></summary></entry><entry><title>Introducing Typhoon beta 🎊</title><id>https://typhoondata.io/typhoon-beta-release.html</id><link rel="alternate" type="text/html" href="https://typhoondata.io/typhoon-beta-release.html" /><published>2022-07-16T00:00:00-07:00</published><updated>2022-07-27T10:48:49-07:00</updated><author><name>Typhoon Data</name><uri>https://typhoondata.io</uri><email>info.typhoon.data@gmail.com</email></author><content type="html" xml:base="https://typhoondata.io/">
           
             &lt;h1 id=&quot;introducing-typhoon&quot;&gt;Introducing Typhoon&lt;/h1&gt;
 
@@ -36,7 +36,7 @@
 &lt;h3 id=&quot;key-features&quot;&gt;Key features&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Pure python&lt;/strong&gt; - Easily extend with pure python. Frameworkless, with no dependencies.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Pure python&lt;/strong&gt; - Easly create functions to be used in tasks.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Testable Python&lt;/strong&gt; - Write tests for your tasks in PyTest. Automate DAG testing.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Composability&lt;/strong&gt; - Functions and connections combine like Lego. Very easy to extend.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Data sharing&lt;/strong&gt; - data flows between tasks making it intuitive to build tasks.&lt;/li&gt;
@@ -96,9 +96,11 @@
 
 &lt;p&gt;Next, we are working on making it even easier to deploy to AWS Lambda and to make better documentation and auto-completion for the plugins. This will make using it even easier without needing to refer to the functions.&lt;/p&gt;
 
-&lt;p&gt;You can find out more about the project at: 
-&lt;a href=&quot;https://github.com/typhoon-data-org/typhoon-orchestrator&quot;&gt;Github Readme&lt;/a&gt;
-&lt;a href=&quot;https://typhoon-data-org.github.io/typhoon-orchestrator/getting-started/installation/&quot;&gt;Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can find out more about the project at:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/typhoon-data-org/typhoon-orchestrator&quot;&gt;Github Readme&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://typhoon-data-org.github.io/typhoon-orchestrator/getting-started/installation/&quot;&gt;Docs&lt;/a&gt;&lt;/p&gt;
 
           
           
