@@ -32,7 +32,7 @@ node_modules
 .jekyll-cache
 .jekyll-metadata
 .sass-cache
-docs
+_docs
 _app/assets/**/js
 _app/assets/**/css
 
