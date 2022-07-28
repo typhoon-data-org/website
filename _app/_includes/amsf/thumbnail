@@ -8,7 +8,7 @@
 
   @since 1.1.0
 {%- endcomment -%}
-{%- assign amsf_site_logo = "/logo.png" | absolute_url -%}
+{%- assign amsf_site_logo = "/twittercard.png" | absolute_url -%}
 {%- capture amsf_page_first_image -%}
   {%- assign hero_image = page.content | match_regex: '<img .*?src="([^"]+)"' -%}
   {%- if hero_image == nil -%}
